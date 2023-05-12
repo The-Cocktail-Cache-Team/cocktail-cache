@@ -1,1 +1,3 @@
-
+- added google font links to index.html head
+- made general css for color shceme and fonts
+- note: please use var() to set site colors as this will make it easier to do site wide changes later

@@ -1,0 +1,184 @@
+/* Color Scheme. Please use var() to set colours. This will make site-wide changes later much easier */
+:root{
+    --primary-grey:#222831;
+    --seconday-grey:#393E46;
+    --accent-yellow: #FFD369;
+    --error-red: #C14848;
+}
+
+/* general global settings */
+body{
+    background-color: var(--primary-grey);
+}
+input:focus{
+    outline: none;
+}
+
+/* General font styling (check figma file for notes on how to use!) */
+h1,h2,h3{
+    font-family: 'Bungee Inline', cursive;
+    color: var(--accent-yellow);
+}
+h1{
+    font-size: 48px;
+}
+h2{
+    font-size: 24px;
+}
+strong, p, a, input{
+    font-family: 'Courier Prime', monospace;
+    font-size: 24px;
+    color: var(--accent-yellow);
+    text-decoration: none;
+}
+strong{
+    font-weight: 700;
+}
+.h2-small{
+    font-size: 20px;
+}
+.p-small{
+    font-size: 12px;
+}
+
+/* header */
+header{
+    height:80px;
+    background-color: var(--seconday-grey);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+.logo{
+    font-family: 'Bungee Inline', cursive;
+    color: var(--accent-yellow);
+    font-size: 24px;
+}
+nav{
+    display: flex;
+    align-items: center;
+    gap:30px;
+    position: relative
+}
+nav a{
+    padding-top: 3px;
+}
+#random-cocktial-nav-btn{
+    cursor: pointer;
+    margin-right: 78.73px;
+}
+
+/* search bars*/
+.search-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 24px);
+    background-color: var(--seconday-grey);
+    height: 54px;
+    border-radius:40px;
+    padding: 16px 12px 10px 12px;
+    position: relative;
+}
+.nav-search-bar{
+    border: 3px solid var(--accent-yellow);
+    padding: 8px 8px 5px 8px;
+    gap:32px;
+    transition: width .4s ease-in-out;
+    justify-content: flex-end;
+    width:27.4px;
+    overflow: hidden;
+    position: absolute;
+    right:0;
+    height: auto;
+}
+.decorative-search-border{
+    width:74px;
+    height: 74px;
+    border: 3px solid var(--accent-yellow);
+    position: absolute;
+    border-radius:40px;
+    right:-3px;
+    top:0;
+    transition: width .4s ease-in-out;
+    pointer-events: none
+}
+.search-bar:hover .decorative-search-border{
+    width:100%;
+}
+.nav-search-bar:hover{
+    width:400px;
+}
+.search-bar input{
+    background: none;
+    border: none;
+    padding-left: 10px;
+}
+.nav-search-bar input{
+    padding-left: 0;
+}
+.search-bar input::placeholder{
+    color: var(--accent-yellow);
+    line-height: none;
+    opacity: .2;
+}
+.search-bar button{
+    background: none;
+    border: none;
+    padding:0 4px;
+    cursor: pointer;
+}
+.search-bar button img{
+    height: 40px;
+}
+.nav-search-bar button img{
+    height: 20px;
+}
+
+/* footer */
+footer{
+    display: flex;
+    height: 80px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* index */
+.fullscreen-responsive{
+    width: 100%;
+    height:calc(100vh - 160px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+}
+.btns-container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+.homepage-btn{
+    padding:20px;
+    background-color: var(--accent-yellow);
+    font-family: 'Bungee Inline', cursive;
+    font-size: 24px;
+    color: var(--primary-grey);
+    border: none;
+    border-radius: 25px;
+    transition: all .1s ease-in-out;
+    border: solid 3px var(--accent-yellow);
+}
+.homepage-btn:hover{
+    cursor: pointer;
+    background-color: var(--primary-grey);
+    color: var(--accent-yellow);
+}
