@@ -114,6 +114,7 @@ nav a{
     background: none;
     border: none;
     padding-left: 10px;
+    width:calc(100% - 90px)
 }
 .nav-search-bar input{
     padding-left: 0;
