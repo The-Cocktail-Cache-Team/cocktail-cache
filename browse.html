@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/normalize.css" type="text/css">
     <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <script src="./scripts/script.js" defer></script>
     <title></title>
 </head>
 
@@ -26,7 +27,74 @@
             </form>
         </nav>
     </header>
-    
-    <script src="./scripts/script.js"></script>
+    <main class="browse-page">
+        <h2>BROWSE ALL COCKTAILS</h2>
+        <div class="select-ingredients-container">
+            <div class="spirits">
+                <h4>SPIRITS</h4>
+                <div class="choose-spirits">
+                    <section>
+                        <input type="checkbox" id="vodka" name="VODKA">
+                        <label for="vodka">VODKA</label>
+                    </section>
+                    <section>
+                        <input type="checkbox" id="whiskey" name="WHISKEY">
+                        <label for="whiskey">WHISKEY</label>
+                    </section>
+                    <section>
+                        <input type="checkbox" id="gin" name="GIN">
+                        <label for="gin">GIN</label>
+                    </section>
+                    <section>
+                        <input type="checkbox" id="rum" name="RUM">
+                        <label for="rum">RUM</label>
+                    </section>
+                </div>
+            </div>
+            <div class="ingredients">
+                <h4>INGREDIENTS</h4>
+                <div class="choose-ingredients">
+                    <section>
+                        <input type="checkbox" id="lime" name="LIME">
+                        <label for="lime">LIME</label>
+                    </section>
+                    <section>
+                        <input type="checkbox" id="ice" name="ICE">
+                        <label for="ice">ICE</label>
+                    </section>
+                    <section>
+                        <input type="checkbox" id="lemon" name="LEMON">
+                        <label for="lemon">LEMON</label>
+                    </section>
+                    <section>
+                        <input type="checkbox" id="chocolate" name="CHOCOLATE">
+                        <label for="chocolate">CHOCOLATE</label>
+                    </section>
+                </div>
+            </div>
+            <div class="complexity">
+                <h4>COMPLEXITY</h4>
+                <div class="choose-complexity">
+                    <input type="range" min="1" max="10" value="50" id="complexity-range">
+                    <p>INGREDIENTS</p>
+                </div>
+            </div>
+            <div class="type-of-drink">
+                <h4>ALCOHOLIC</h4>
+                <div class="choose-type-of-drink">
+                    <section>
+                        <input type="checkbox" id="alcoholic">
+                        <label for="alchoholic">OF COURSE!</label>
+                    </section>
+                    <section>
+                        <input type="checkbox" id="non-alcoholic">
+                        <label for="non-alcoholic">NO THANKS!</label>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+ 
 </body>
 </html>
+

@@ -183,3 +183,39 @@ footer{
     background-color: var(--primary-grey);
     color: var(--accent-yellow);
 }
+
+
+/* BROWSE ALL COCKTAILS PAGE  */
+
+.browse-page h2{
+    text-align: center; 
+    margin-top: 40px;
+ }
+ 
+ .browse-page h4{
+     font-size: 22px;
+     letter-spacing: 3px;
+ }
+ 
+ .select-ingredients-container{
+     display: flex;
+     flex-direction: column;
+     margin: 20px 90px;
+     color: var(--accent-yellow);
+     width: 14%;
+ }
+ 
+ .choose-spirits, .choose-ingredients, .choose-complexity{
+     border-bottom: 2px solid var(--accent-yellow);
+ }
+ 
+ .select-ingredients-container section{
+     padding: 10px 0;
+     font-size: 18px;
+ }
+ 
+ #vodka{
+     border: none;
+     color: var(--accent-yellow);
+     background: transparent;
+ }
