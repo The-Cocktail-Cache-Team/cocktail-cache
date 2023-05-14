@@ -191,11 +191,11 @@ footer{
 /* BROWSE ALL COCKTAILS PAGE  */
 .browse-page{
     flex-direction: column;
+    padding-top: 40px;
 }
 
 .browse-page h2{
     text-align: center; 
-    margin-top: 40px;
  }
  
  .browse-page h4{
@@ -206,7 +206,6 @@ footer{
  .select-ingredients-container{
      display: flex;
      flex-direction: column;
-     margin: 20px 90px;
      color: var(--accent-yellow);
      width: 14%;
  }
@@ -224,6 +223,35 @@ footer{
      border: none;
      color: var(--accent-yellow);
      background: transparent;
+ }
+
+
+
+ .cocktail-display-container{
+    display: flex;
+    width: 100%;
+    padding: 0 90px;
+    gap: 90px;
+ }
+
+ #cocktail-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 200px;
+ }
+
+ .cards{
+    height: 100px;
+    background-color: red;
+
+ }
+
+ .cards-image{
+    display: none;
+    width: 100%;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
  }
 
 

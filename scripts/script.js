@@ -1,4 +1,5 @@
 //API fetch code - using local api for now
+
 let allDrinks;
 
 fetch(`cocktaildb_api_clone_local.txt`)
@@ -14,8 +15,25 @@ fetch(`cocktaildb_api_clone_local.txt`)
     setTimeout(() => {
         document.getElementById("loading-screen").style.display = "none";
         document.querySelector("main").style.display = "flex";
-        document.querySelector("footer").style.display = "flex";
-        document.querySelector("#index-page").style.display = "flex";
+        // document.querySelector("footer").style.display = "flex";
+        // document.querySelector("#index-page").style.display = "flex";
+        displayCocktails(allDrinks);
     },1000);
 })    
 .catch((error) => console.log(error));
+
+// Displaying the images on the page
+
+const displayCocktails= list =>{
+    const cocktailsContainer = document.getElementById("cocktail-container");
+     const allCards = list.map(item=>{
+     return `<a class="cards" href="details.html?id=${item.idDrink}">
+               <div style="background-image:url(${item.strDrinkThumb})" class="cards-image"></div>
+               <div class="cards-info">
+                  <h2>${item.strDrink}</h2>
+                </div>
+             </a>`;
+       })
+  
+       cocktailsContainer.innerHTML= allCards.join("");
+   }
