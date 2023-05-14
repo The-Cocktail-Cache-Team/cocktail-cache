@@ -15,25 +15,21 @@ fetch(`cocktaildb_api_clone_local.txt`)
     setTimeout(() => {
         document.getElementById("loading-screen").style.display = "none";
         document.querySelector("main").style.display = "flex";
-        // document.querySelector("footer").style.display = "flex";
-        // document.querySelector("#index-page").style.display = "flex";
         displayCocktails(allDrinks);
     },1000);
 })    
 .catch((error) => console.log(error));
 
-// Displaying the images on the page
 
+
+// Displaying the images on the page
 const displayCocktails= list =>{
     const cocktailsContainer = document.getElementById("cocktail-container");
      const allCards = list.map(item=>{
-     return `<a class="cards" href="details.html?id=${item.idDrink}">
-               <div style="background-image:url(${item.strDrinkThumb})" class="cards-image"></div>
-               <div class="cards-info">
-                  <h2>${item.strDrink}</h2>
-                </div>
-             </a>`;
-       })
-  
-       cocktailsContainer.innerHTML= allCards.join("");
+        return `
+            <a class="cards" href="details.html?id=${item.idDrink}" style="background-image:linear-gradient(to bottom, rgba(34, 40, 49, 0) 50%, rgba(34, 40, 49, 1) 100%), url(${item.strDrinkThumb});">
+                <h2>${item.strDrink}</h2>
+            </a>
+    `;})
+    cocktailsContainer.innerHTML= allCards.join("");
    }

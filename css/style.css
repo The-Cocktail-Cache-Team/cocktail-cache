@@ -6,6 +6,8 @@
     --error-red: #C14848;
 }
 
+
+
 /* general global settings */
 body{
     background-color: var(--primary-grey);
@@ -13,9 +15,9 @@ body{
 input:focus{
     outline: none;
 }
-main, footer, #index-page{
-    display:none;
-}
+
+
+
 
 /* General font styling (check figma file for notes on how to use!) */
 h1,h2,h3{
@@ -44,6 +46,8 @@ strong{
     font-size: 12px;
 }
 
+
+
 /* header */
 header{
     height:80px;
@@ -71,6 +75,8 @@ nav a{
     cursor: pointer;
     margin-right: 78.73px;
 }
+
+
 
 /* search bars*/
 .search-bar{
@@ -140,9 +146,11 @@ nav a{
     height: 20px;
 }
 
+
+
 /* footer */
 footer{
-    display: none;
+    display: flex;
     height: 80px;
     width: 100%;
     justify-content: center;
@@ -150,7 +158,8 @@ footer{
 }
 
 
-/* index */
+
+/* index page */
 .fullscreen-responsive{
     width: 100%;
     height:calc(100vh - 160px);
@@ -188,37 +197,41 @@ footer{
 }
 
 
+
 /* BROWSE ALL COCKTAILS PAGE  */
 .browse-page{
     flex-direction: column;
-    padding-top: 40px;
+    padding:40px 0;
 }
-
 .browse-page h2{
-    text-align: center; 
+    text-align: center;
+    margin: 0 0 40px 0;
  }
- 
+ .cocktail-display-container{
+    display: flex;
+    width: calc(100% - 180px);
+    padding: 0 90px;
+    gap: 90px;
+ }
+
+
+ .select-ingredients-container{
+    display: flex;
+    flex-direction: column;
+    color: var(--accent-yellow);
+    width: 14%;
+}
  .browse-page h4{
      font-size: 22px;
      letter-spacing: 3px;
- }
- 
- .select-ingredients-container{
-     display: flex;
-     flex-direction: column;
-     color: var(--accent-yellow);
-     width: 14%;
- }
- 
+ } 
  .choose-spirits, .choose-ingredients, .choose-complexity{
      border-bottom: 2px solid var(--accent-yellow);
  }
- 
  .select-ingredients-container section{
      padding: 10px 0;
      font-size: 18px;
  }
- 
  #vodka{
      border: none;
      color: var(--accent-yellow);
@@ -226,40 +239,46 @@ footer{
  }
 
 
-
- .cocktail-display-container{
-    display: flex;
-    width: 100%;
-    padding: 0 90px;
-    gap: 90px;
- }
-
  #cocktail-container{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    width: 200px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    flex:1 1 0;
+    gap: 30px;
  }
 
  .cards{
-    height: 100px;
-    background-color: red;
-
- }
-
- .cards-image{
-    display: none;
-    width: 100%;
-    height: 100px;
+    height: 220px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding:10px;
     background-size: cover;
     background-position: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: solid 2px var(--primary-grey);
+    transition: border-color .1s ease-in-out;
  }
+ .cards:hover{
+    border-color: var(--accent-yellow);
+ }
+ .cards h2{
+    text-align: right;
+    font-size: 16px;
+    margin: 0;
+ }
+
 
 
  /* loading screen */
  #loading-screen{
     height: calc(100vh - 80px);
+    position: absolute;
+    top:80px;
+    z-index: 2;
+    background-color: var(--primary-grey);
  }
-
  .ring
 {
   position:absolute;
@@ -339,4 +358,8 @@ span:before
   {
     transform:rotate(405deg);
   }
+}
+main{
+    /*hidden while loading screen is displayed*/
+    display:none;
 }
