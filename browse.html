@@ -27,9 +27,15 @@
             </form>
         </nav>
     </header>
+    <div id="loading-screen" class="fullscreen-responsive">
+        <div class="ring">Loading
+            <span></span>
+        </div>
+    </div>
     <main class="browse-page">
         <h2>BROWSE ALL COCKTAILS</h2>
-        <div class="select-ingredients-container">
+        <div class="cocktail-display-container">
+            <div class="select-ingredients-container">
             <div class="spirits">
                 <h4>SPIRITS</h4>
                 <div class="choose-spirits">
@@ -92,9 +98,10 @@
                     </section>
                 </div>
             </div>
+            </div>
+            <div id="cocktail-container"></div>
         </div>
     </main>
-
 </body>
 </html>
 
