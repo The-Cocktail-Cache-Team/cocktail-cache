@@ -33,3 +33,17 @@ const displayCocktails= list =>{
     `;})
     cocktailsContainer.innerHTML= allCards.join("");
    }
+
+
+
+///////NAV BAR SEARCH FEATURES///////
+//nav bar elements
+const searchInput = document.getElementById("nav-search-input");
+const searchBtn =  document.getElementById("nav-search-btn");
+
+searchInput.oninput = () =>{
+    if(searchInput.value !== ""){
+        console.log(searchInput.value);
+    }
+    
+};
