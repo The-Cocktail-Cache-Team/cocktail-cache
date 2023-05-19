@@ -386,14 +386,12 @@ span:before {
     }
 }
 
-/* === THIS IS CAUSING CONTENT TO BE HIDDEN BY DEFAULT ON ANY PAGE USING MAIN ===
-
 /* v-- hidden while loading screen is displayed --v */
-/* main {
+main {
     display: none;
-} */
+}
 
-/* -- GENERAL CONTENT STYLING --  */
+/* -- NON-COCKTAIL CONTENT STYLING --  */
 
 /* This wraps main, section, aside, etc. for equal margins */
 .content-wrapper {
@@ -407,7 +405,6 @@ span:before {
 }
 
 /* -- About Page -- */
-
 .team-card-container {}
 
 /* team cards */
