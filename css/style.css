@@ -54,6 +54,7 @@ strong {
 }
 
 /*-- HEADER -- */
+
 header {
     height: 80px;
     background-color: var(--secondary-color);
@@ -385,8 +386,47 @@ span:before {
     }
 }
 
+/* === THIS IS CAUSING CONTENT TO BE HIDDEN BY DEFAULT ON ANY PAGE USING MAIN ===
 
 /* v-- hidden while loading screen is displayed --v */
-main {
+/* main {
     display: none;
+} */
+
+/* -- GENERAL CONTENT STYLING --  */
+
+/* This wraps main, section, aside, etc. for equal margins */
+.content-wrapper {
+    margin: 40px;
+    /* If JUSTIFY causes problems, remove and check main sel */
+    text-align: center;
 }
+
+.content-wrapper h1 {
+    text-align: center;
+}
+
+/* -- About Page -- */
+
+.team-card-container {}
+
+/* team cards */
+.team-card {
+    background-color: var(--accent);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-card img {
+    width: 80%;
+}
+
+.team-card h3,
+p {
+    color: var(--primary-color);
+}
+
+.team-card p {}
+
+.team-card a {}
