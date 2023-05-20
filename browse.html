@@ -23,9 +23,13 @@
             <a href="./browse.html">BROWSE</a>
             <a href="./quiz.html">QUIZ</a>
             <a id="random-cocktail-nav-btn">RANDOM</a>
-            <form class="search-bar nav-search-bar">
-                <input type="text" placeholder="SEARCH FOR A COCKTAIL">
-                <button><img src="./assets/search_icon_accent_yellow.svg"></button>
+            <form class="search-container">
+                <div class="search-bar nav-search-bar">
+                    <input type="text" id="nav-search-input" placeholder="SEARCH FOR A COCKTAIL">
+                    <button id="nav-search-btn"><img src="./assets/search_icon_accent_yellow.svg"></button>
+                </div>
+                <div id="predictive-search-results">
+                </div>
             </form>
         </nav>
     </header>
