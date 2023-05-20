@@ -1,155 +1,240 @@
-/* Color Scheme. Please use var() to set colours. This will make site-wide changes later much easier */
-:root{
-    --primary-grey:#222831;
-    --seconday-grey:#393E46;
-    --accent-yellow: #FFD369;
-    --error-red: #C14848;
+/* USE var() TO SET COLOURS */
+:root {
+    --primary-color: #222831;
+    --secondary-color: #393E46;
+    --accent: #FFD369;
+    --error: #C14848;
 }
 
-
-
-/* general global settings */
-body{
-    background-color: var(--primary-grey);
+body {
+    background-color: var(--primary-color);
 }
-input:focus{
+
+input:focus {
     outline: none;
 }
 
+/* -- GENERAL STYLING, see Figma -- */
 
-
-
-/* General font styling (check figma file for notes on how to use!) */
-h1,h2,h3{
+h1,
+h2,
+h3 {
     font-family: 'Bungee Inline', cursive;
-    color: var(--accent-yellow);
+    color: var(--accent);
 }
-h1{
+
+h1 {
     font-size: 48px;
 }
-h2{
+
+h2 {
     font-size: 24px;
 }
-strong, p, a, input{
+
+strong,
+p,
+a,
+input {
     font-family: 'Courier Prime', monospace;
     font-size: 24px;
-    color: var(--accent-yellow);
+    color: var(--accent);
     text-decoration: none;
 }
-strong{
+
+strong {
     font-weight: 700;
 }
-.h2-small{
+
+.h2-small {
     font-size: 20px;
 }
-.p-small{
+
+.p-small {
     font-size: 12px;
 }
 
+input {
+    text-transform: uppercase;
+}
 
-
-/* header */
-header{
-    height:80px;
-    background-color: var(--seconday-grey);
+/*-- HEADER -- */
+header {
+    height: 80px;
+    background-color: var(--secondary-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 30px;
 }
-.logo{
+
+.logo {
     font-family: 'Bungee Inline', cursive;
-    color: var(--accent-yellow);
+    color: var(--accent);
     font-size: 24px;
 }
-nav{
+
+nav {
     display: flex;
     align-items: center;
-    gap:30px;
+    gap: 30px;
     position: relative
 }
-nav a{
+
+nav a {
     padding-top: 3px;
 }
-#random-cocktial-nav-btn{
+
+#random-cocktail-nav-btn {
     cursor: pointer;
     margin-right: 78.73px;
 }
 
+/* -- SEARCH BARS -- */
 
-
-/* search bars*/
-.search-bar{
+.search-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: calc(100% - 24px);
-    background-color: var(--seconday-grey);
+    background-color: var(--secondary-color);
     height: 54px;
-    border-radius:40px;
+    border-radius: 40px;
     padding: 16px 12px 10px 12px;
     position: relative;
+    z-index: 2;
 }
-.nav-search-bar{
-    border: 3px solid var(--accent-yellow);
+
+.search-container {
+    position: absolute;
+    right: 0;
+}
+
+.main-search-container {
+    width: 100%;
+    position: relative;
+}
+
+.main-container {
+    width: 100%;
+}
+
+.nav-search-bar {
+    border: 3px solid var(--accent);
     padding: 8px 8px 5px 8px;
-    gap:32px;
+    gap: 32px;
     transition: width .4s ease-in-out;
     justify-content: flex-end;
-    width:27.4px;
+    width: 27.4px;
     overflow: hidden;
-    position: absolute;
-    right:0;
     height: auto;
 }
-.decorative-search-border{
-    width:74px;
+
+.decorative-search-border {
+    width: 74px;
     height: 74px;
-    border: 3px solid var(--accent-yellow);
+    border: 3px solid var(--accent);
     position: absolute;
-    border-radius:40px;
-    right:-3px;
-    top:0;
+    border-radius: 40px;
+    right: -3px;
+    top: 0;
     transition: width .4s ease-in-out;
-    pointer-events: none
+    pointer-events: none;
 }
-.search-bar:hover .decorative-search-border{
-    width:100%;
+
+.search-bar:hover .decorative-search-border {
+    width: 100%;
 }
-.nav-search-bar:hover{
-    width:400px;
+
+.search-container:hover .nav-search-bar{
+    width: 400px;
 }
-.search-bar input{
+
+.search-bar input {
     background: none;
     border: none;
     padding-left: 10px;
-    width:calc(100% - 90px)
+    width: calc(100% - 90px)
 }
-.nav-search-bar input{
+
+.nav-search-bar input {
     padding-left: 0;
 }
-.search-bar input::placeholder{
-    color: var(--accent-yellow);
+
+.search-bar input::placeholder {
+    color: var(--accent);
     line-height: none;
     opacity: .2;
 }
-.search-bar button{
+
+.search-bar button {
     background: none;
     border: none;
-    padding:0 4px;
+    padding: 0 4px;
     cursor: pointer;
 }
-.search-bar button img{
+
+.search-bar button img {
     height: 40px;
 }
-.nav-search-bar button img{
+
+.nav-search-bar button img {
     height: 20px;
 }
 
+#predictive-search-results {
+    background-color: var(--secondary-color);
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 0 0 0;
+    top:calc(47.93px / 2);
+    border-radius: 0 0 20px 20px;
+    max-height:0;
+    transition: all .4s ease-in-out;
+    display: none;
+}
 
+#main-predictive-search-results {
+    background-color: var(--secondary-color);
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 0 0 0;
+    top:40px;
+    border-radius: 0 0 20px 20px;
+    max-height:0;
+    transition: all .4s ease-in-out;
+    display: none;
+}
 
-/* footer */
-footer{
+.predictive-search-item {
+    margin: 0;
+    padding: 5px 40px;
+    background-color: var(--secondary-color);
+    transition: all .1s ease-in-out;
+}
+
+.predictive-search-item:hover {
+    margin: 0;
+    padding: 5px 40px;
+    background-color: var(--accent);
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.search-container:hover #predictive-search-results{
+    padding: 30px 0 15px 0;
+    max-height:422px;
+}
+
+.main-search-container:hover #main-predictive-search-results{
+    padding: 55px 0 15px 0;
+    max-height:422px;
+}
+
+/* -- FOOTER -- */
+
+footer {
     display: flex;
     height: 80px;
     width: 100%;
@@ -157,48 +242,50 @@ footer{
     align-items: center;
 }
 
+/* -- INDEX PAGE -- */
 
-
-/* index page */
-.fullscreen-responsive{
+.fullscreen-responsive {
     width: 100%;
-    height:calc(100vh - 160px);
+    height: calc(100vh - 160px);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.main-container{
+
+.main-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 75%;
 }
-.btns-container{
+
+.btns-container {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
-.homepage-btn{
-    padding:20px;
-    background-color: var(--accent-yellow);
+
+.homepage-btn {
+    padding: 20px;
+    background-color: var(--accent);
     font-family: 'Bungee Inline', cursive;
     font-size: 24px;
-    color: var(--primary-grey);
+    color: var(--primary-color);
     border: none;
     border-radius: 25px;
     transition: all .1s ease-in-out;
-    border: solid 3px var(--accent-yellow);
+    border: solid 3px var(--accent);
 }
-.homepage-btn:hover{
+
+.homepage-btn:hover {
     cursor: pointer;
-    background-color: var(--primary-grey);
-    color: var(--accent-yellow);
+    background-color: var(--primary-color);
+    color: var(--accent);
 }
 
+/* -- BROWSE ALL COCKTAILS PAGE --  */
 
-
-/* BROWSE ALL COCKTAILS PAGE  */
 .browse-page{
     flex-direction: column;
     padding:40px 0;
@@ -429,99 +516,98 @@ footer{
     margin: 0;
  }
 
+/* -- LOADING SCREEN -- */
 
-
- /* loading screen */
- #loading-screen{
+#loading-screen {
     height: calc(100vh - 80px);
     position: absolute;
-    top:80px;
-    z-index: 2;
-    background-color: var(--primary-grey);
- }
- .ring
-{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:200px;
-  height:200px;
-  background:transparent;
-  border:3px solid #3c3c3c;
-  border-radius:50%;
-  text-align:center;
-  line-height:200px;
-  font-family: 'Bungee Inline', cursive;
-  font-size:24px;
-  color:var(--accent-yellow);
-  letter-spacing:4px;
-  text-transform:uppercase;
+    top: 80px;
+    z-index: 3;
+    background-color: var(--primary-color);
+}
+
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: transparent;
+    border: 3px solid #3c3c3c;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 200px;
+    font-family: 'Bungee Inline', cursive;
+    font-size: 24px;
+    color: var(--accent);
+    letter-spacing: 4px;
+    text-transform: uppercase;
 
 }
-.ring:before
-{
-  content:'';
-  position:absolute;
-  top:-3px;
-  left:-3px;
-  width:100%;
-  height:100%;
-  border:5px solid transparent;
-  border-top:3px solid var(--accent-yellow);
-  border-right:3px solid var(--accent-yellow);
-  border-radius:50%;
-  animation:animateC 2s linear infinite;
+
+.ring:before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 100%;
+    height: 100%;
+    border: 5px solid transparent;
+    border-top: 3px solid var(--accent);
+    border-right: 3px solid var(--accent);
+    border-radius: 50%;
+    animation: animateC 2s linear infinite;
 }
-span
-{
-  display:block;
-  position:absolute;
-  top:calc(50% - 2px);
-  left:50%;
-  width:50%;
-  height:4px;
-  background:transparent;
-  transform-origin:left;
-  animation:animate 2s linear infinite;
+
+span {
+    display: block;
+    position: absolute;
+    top: calc(50% - 2px);
+    left: 50%;
+    width: 50%;
+    height: 4px;
+    background: transparent;
+    transform-origin: left;
+    animation: animate 2s linear infinite;
 }
-span:before
-{
-  content:'';
-  position:absolute;
-  width:16px;
-  height:16px;
-  border-radius:50%;
-  background:var(--accent-yellow);
-  top:-6px;
-  right:-8px;
-  box-shadow:0 0 20px var(--accent-yellow);
+
+span:before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    top: -6px;
+    right: -8px;
+    box-shadow: 0 0 20px var(--accent);
 }
-@keyframes animateC
-{
-  0%
-  {
-    transform:rotate(0deg);
-  }
-  100%
-  {
-    transform:rotate(360deg);
-  }
+
+@keyframes animateC {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
-@keyframes animate
-{
-  0%
-  {
-    transform:rotate(45deg);
-  }
-  100%
-  {
-    transform:rotate(405deg);
-  }
+
+@keyframes animate {
+    0% {
+        transform: rotate(45deg);
+    }
+
+    100% {
+        transform: rotate(405deg);
+    }
 }
-main{
-    /*hidden while loading screen is displayed*/
-    display:none;
+
+
+/* v-- hidden while loading screen is displayed --v */
+main {
+    display: none;
 }
 
 /* DETAILS PAGE STYLING */

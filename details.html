@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./css/normalize.css" type="text/css">
     <link rel="stylesheet" href="./css/style.css" type="text/css">
-    <script src="./scripts/script.js" defer></script>
-    <title>Details Page</title>
+    <title></title>
 </head>
 
 <body>
@@ -20,10 +21,14 @@
         <nav>
             <a href="./browse.html">BROWSE</a>
             <a href="./quiz.html">QUIZ</a>
-            <a id="random-cocktial-nav-btn">RANDOM</a>
-            <form class="search-bar nav-search-bar">
-                <input type="text" placeholder="SEARCH FOR A COCKTAIL">
-                <button><img src="./assets/search_icon_accent_yellow.svg"></button>
+            <a id="random-cocktail-nav-btn">RANDOM</a>
+            <form class="search-container">
+                <div class="search-bar nav-search-bar">
+                    <input type="text" id="nav-search-input" placeholder="SEARCH FOR A COCKTAIL">
+                    <button id="nav-search-btn"><img src="./assets/search_icon_accent_yellow.svg"></button>
+                </div>
+                <div id="predictive-search-results">
+                </div>
             </form>
         </nav>
     </header>
@@ -35,6 +40,8 @@
     <main>
         <div class="current-cocktail-display"></div>
     </main>
-    
+
+    <script src="./scripts/script.js"></script>
 </body>
+
 </html>
