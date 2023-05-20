@@ -28,7 +28,15 @@ h1 {
 }
 
 h2 {
+    font-size: 36px;
+}
+
+h3 {
     font-size: 24px;
+}
+
+h4 {
+    font-size: 20px;
 }
 
 strong,
@@ -395,24 +403,32 @@ main {
 
 /* This wraps main, section, aside, etc. for equal margins */
 .content-wrapper {
-    margin: 40px;
-    /* If JUSTIFY causes problems, remove and check main sel */
+    margin: 40px 5%;
     text-align: center;
 }
 
-.content-wrapper h1 {
+.content-wrapper main {}
+
+main {
+    color: lime;
+}
+
+.content-wrapper h2 {
     text-align: center;
 }
 
 /* -- About Page -- */
-.team-card-container {}
+.team-card-container {
+    width: 100%;
+    display: flex;
+}
 
 /* team cards */
 .team-card {
     background-color: var(--accent);
-    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .team-card img {
@@ -427,3 +443,12 @@ p {
 .team-card p {}
 
 .team-card a {}
+
+.team-card button {
+    background-color: var(--primary-color);
+    color: var(--accent);
+    border-style: none;
+    border-radius: 20px;
+    padding: 20px 30px;
+    margin-bottom: 30px;
+}
