@@ -209,6 +209,7 @@ footer{
  }
  .cocktail-display-container{
     display: flex;
+    flex-direction: column;
     width: calc(100% - 180px);
     padding: 0 90px;
     gap: 90px;
@@ -219,31 +220,190 @@ footer{
     display: flex;
     flex-direction: column;
     color: var(--accent-yellow);
-    width: 14%;
+    width: 100%;
 }
  .browse-page h4{
      font-size: 22px;
-     letter-spacing: 3px;
- } 
- .choose-spirits, .choose-ingredients, .choose-complexity{
-     border-bottom: 2px solid var(--accent-yellow);
- }
- .select-ingredients-container section{
-     padding: 10px 0;
-     font-size: 18px;
- }
- #vodka{
-     border: none;
-     color: var(--accent-yellow);
-     background: transparent;
+     letter-spacing: 2px;
  }
 
+ /* FILTER RESULTS */
+
+.down-arrows{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: var(--accent-yellow);
+    height: 40px;
+    border-radius: 8px;
+}
+
+.fas{
+    font-size: 26px;
+    padding: 15px;
+}
+
+
+.filter-btns{
+    display: none;
+}
+
+.filter-btns.active{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px 5px;
+    background-color: var(--seconday-grey);
+    border-radius: 8px;
+}
+
+/* .section-btns button{
+    background-color: transparent;
+    color: var(--accent-yellow);
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 2px solid var(--accent-yellow);
+} */
+
+.complexity-and-alcoholic-section{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--seconday-grey);
+}
+
+.choose-alcohol, .choose-ingredients{
+
+    font-size: 20px;
+    padding: 60px 5px 20px 5px;
+
+    color: var(--accent-yellow);
+}
+
+.filter-results{
+    position: relative;
+    margin-bottom: 50px;
+}
+
+#alcohol-btn{
+    position: absolute;
+    top: 10%;
+    left: 16%;
+    background-color: transparent;
+    color: var(--accent-yellow);
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.choose-ingredients button{
+    position: absolute;
+    top: 10%;
+    left: 49%;
+    background-color: transparent;
+    color: var(--accent-yellow);
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#complexity-btn, #alcoholic{
+    background-color: transparent;
+    color: var(--accent-yellow);
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+    background-color: var(--seconday-grey);
+    cursor: pointer;
+    padding: 10px 80px;
+   
+}
+
+.number-of-ingredients{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.number-of-ingredients p{
+    font-size: 20px;
+}
+
+#range-of-drinks{
+    border: none;
+}
+
+.all-sections{
+    display: flex;
+    background-color: var(--primary-grey);
+    border-radius: 8px;
+    padding: 0 80px 10px 80px;
+    text-align: center;
+}
+
+.all-sections ol:hover{
+    background-color: var(--accent-yellow);
+    color: var(--primary-grey);
+    cursor: pointer;
+}
+
+.section-one{
+    display: flex;
+    flex-direction: column;
+} 
+
+.section-two{
+    display: flex;
+    flex-direction: column;
+} 
+
+.complexity-and-alcoholic-section{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--seconday-grey);
+    border-radius: 8px;
+    height: 80%;
+}
+
+#reset-filters{
+  margin-top: 18%;
+  font-size: 22px;
+  background-color: var(--accent-yellow);
+  letter-spacing: 2px;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 15px 10px;
+  border: none;
+}
+
+#complexity-value{
+    height: 20px;
+    width: 50px;
+}
 
  #cocktail-container{
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     flex:1 1 0;
     gap: 30px;
+ }
+
+.slider, .number-of-ingredients, .alcoholic-btn{
+    background-color: var(--primary-grey);
+    border-radius: 8px;
+    padding: 10px 0;
+ }
+
+ .alcoholic-btn{
+    font-size: 18px;
+    color: var(--accent-yellow);
+    padding: 10px 0;
+    line-height: 40px;
+    text-align: center;
  }
 
  .cards{
@@ -362,4 +522,43 @@ span:before
 main{
     /*hidden while loading screen is displayed*/
     display:none;
+}
+
+/* DETAILS PAGE STYLING */
+
+.current-image{
+    display: flex;
+    margin: 50px 50px;
+}
+
+.current-image img{
+    width: 500px;
+    height: 600px;
+    border-radius: 20px;
+    margin-top: 22px;
+}
+
+.current-image-info{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-left: 100px;
+}
+
+.current-image h3{
+    letter-spacing: 5px;
+}
+
+.ingredients{
+    padding-bottom: 40px;
+
+}
+
+.ingredients a{
+    color: var(--seconday-grey);
+    background-color: var(--accent-yellow);
+    padding: 8px 5px;
+    border-radius: 10px;
+    margin-right: 10px;
+    line-height: 60px;
 }
