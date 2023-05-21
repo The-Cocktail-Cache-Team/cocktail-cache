@@ -306,7 +306,7 @@ footer {
  .select-ingredients-container{
     display: flex;
     flex-direction: column;
-    color: var(--accent-yellow);
+    color: var(--accent);
     width: 100%;
 }
  .browse-page h4{
@@ -321,7 +321,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    background-color: var(--accent-yellow);
+    background-color: var(--accent);
     height: 40px;
     border-radius: 8px;
 }
@@ -340,23 +340,23 @@ footer {
     display: flex;
     justify-content: space-evenly;
     padding: 5px 5px;
-    background-color: var(--seconday-grey);
+    background-color: var(--secondary-color);
     border-radius: 8px;
 }
 
 /* .section-btns button{
     background-color: transparent;
-    color: var(--accent-yellow);
+    color: var(--accent);
     border: none;
     font-size: 22px;
     font-weight: bold;
-    border-bottom: 2px solid var(--accent-yellow);
+    border-bottom: 2px solid var(--accent);
 } */
 
 .complexity-and-alcoholic-section{
     display: flex;
     flex-direction: column;
-    background-color: var(--seconday-grey);
+    background-color: var(--seconday-color);
 }
 
 .choose-alcohol, .choose-ingredients{
@@ -364,7 +364,7 @@ footer {
     font-size: 20px;
     padding: 60px 5px 20px 5px;
 
-    color: var(--accent-yellow);
+    color: var(--accent);
 }
 
 .filter-results{
@@ -377,7 +377,7 @@ footer {
     top: 10%;
     left: 16%;
     background-color: transparent;
-    color: var(--accent-yellow);
+    color: var(--accent);
     border: none;
     font-size: 22px;
     font-weight: bold;
@@ -390,7 +390,7 @@ footer {
     top: 10%;
     left: 49%;
     background-color: transparent;
-    color: var(--accent-yellow);
+    color: var(--accent);
     border: none;
     font-size: 22px;
     font-weight: bold;
@@ -399,11 +399,11 @@ footer {
 
 #complexity-btn, #alcoholic{
     background-color: transparent;
-    color: var(--accent-yellow);
+    color: var(--accent);
     border: none;
     font-size: 22px;
     font-weight: bold;
-    background-color: var(--seconday-grey);
+    background-color: var(--seconday-color);
     cursor: pointer;
     padding: 10px 80px;
    
@@ -426,15 +426,15 @@ footer {
 
 .all-sections{
     display: flex;
-    background-color: var(--primary-grey);
+    background-color: var(--primary-color);
     border-radius: 8px;
     padding: 0 80px 10px 80px;
     text-align: center;
 }
 
 .all-sections ol:hover{
-    background-color: var(--accent-yellow);
-    color: var(--primary-grey);
+    background-color: var(--accent);
+    color: var(--primary-color);
     cursor: pointer;
 }
 
@@ -459,7 +459,7 @@ footer {
 #reset-filters{
   margin-top: 18%;
   font-size: 22px;
-  background-color: var(--accent-yellow);
+  background-color: var(--accent);
   letter-spacing: 2px;
   font-weight: bold;
   border-radius: 8px;
@@ -474,20 +474,21 @@ footer {
 
  #cocktail-container{
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     flex:1 1 0;
     gap: 30px;
+    padding:0 90px;
  }
 
 .slider, .number-of-ingredients, .alcoholic-btn{
-    background-color: var(--primary-grey);
+    background-color: var(--primary-color);
     border-radius: 8px;
     padding: 10px 0;
  }
 
  .alcoholic-btn{
     font-size: 18px;
-    color: var(--accent-yellow);
+    color: var(--accent);
     padding: 10px 0;
     line-height: 40px;
     text-align: center;
@@ -504,11 +505,11 @@ footer {
     background-position: center;
     overflow: hidden;
     text-overflow: ellipsis;
-    border: solid 2px var(--primary-grey);
+    border: solid 2px var(--primary-color);
     transition: border-color .1s ease-in-out;
  }
  .cards:hover{
-    border-color: var(--accent-yellow);
+    border-color: var(--accent);
  }
  .cards h2{
     text-align: right;
@@ -642,7 +643,7 @@ main {
 
 .ingredients a{
     color: var(--seconday-grey);
-    background-color: var(--accent-yellow);
+    background-color: var(--accent);
     padding: 8px 5px;
     border-radius: 10px;
     margin-right: 10px;
