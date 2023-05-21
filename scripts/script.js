@@ -4,6 +4,8 @@ let allDrinks;
 let allDrinkNames;
 let allDrinkIngredients = [];
 let allDrinkNamesAndIngredients;
+let filters = [];
+let allDrinksToDisplay = [];
 
 fetch(`cocktaildb_api_clone_local.txt`)
 .then((result) => result.json())
@@ -33,10 +35,10 @@ fetch(`cocktaildb_api_clone_local.txt`)
     allDrinkNamesAndIngredients.sort();
 
     //console logs for testing
-    console.log(allDrinks);
-    console.log(allDrinkNames);
-    console.log(allDrinkIngredients);
-    console.log(allDrinkNamesAndIngredients);
+    // console.log(allDrinks);
+    // console.log(allDrinkNames);
+    // console.log(allDrinkIngredients);
+    // console.log(allDrinkNamesAndIngredients);
 
     // stop displaying loading screen and show main content.
     setTimeout(() => {
@@ -44,9 +46,9 @@ fetch(`cocktaildb_api_clone_local.txt`)
         document.querySelector("main").style.display = "flex";
 
         if(window.location.pathname === "/browse.html") {
-            displayCocktails(allDrinks);
             addFilterBtnEvntListener();
             populateFilterBox();
+            preFilterCheck();
         } else if(window.location.pathname === "/details.html") {
             displayCurrentCocktail();
         }
@@ -55,27 +57,33 @@ fetch(`cocktaildb_api_clone_local.txt`)
 })    
 .catch((error) => console.log(error));
 
-
-
 // Displaying the images on the page
-const displayCocktails = list =>{
+const displayCocktails = () =>{
     const cocktailsContainer = document.getElementById("cocktail-container");
-     const allCards = list.map(item=>{
-        return `
-            <a class="cards" href="details.html?id=${item.idDrink}" style="background-image:linear-gradient(to bottom, rgba(34, 40, 49, 0) 50%, rgba(34, 40, 49, 1) 100%), url(${item.strDrinkThumb});">
-                <h2>${item.strDrink}</h2>
-            </a>
-    `;})
-    cocktailsContainer.innerHTML= allCards.join("");
+    const errorDisplay = document.getElementById("no-results");
+
+    if(allDrinksToDisplay.length > 0) {
+            cocktailsContainer.style.display = "grid";
+            errorDisplay.style.display = "none";
+            const allCards = allDrinksToDisplay.map(item=>{
+                return `
+                    <a class="cards" href="details.html?id=${item.idDrink}" style="background-image:linear-gradient(to bottom, rgba(34, 40, 49, 0) 50%, rgba(34, 40, 49, 1) 100%), url(${item.strDrinkThumb});">
+                        <h2>${item.strDrink}</h2>
+                    </a>
+            `;})
+        cocktailsContainer.innerHTML= allCards.join("");
+   } else {
+        cocktailsContainer.style.display = "none";
+        document.getElementById("no-result-message").innerHTML = `SORRY, THERE ARE NO COCKTAILS IN OUR DATABASE THAT CONTAIN ${filters.join(" AND ")}. PLEASE TRY AGAIN.`;
+        errorDisplay.style.display = "block";
    }
+}
 
 // Details Page - Displaying the images
     
-let currentId;
-    
 function displayCurrentCocktail () {
     const urlParams = new URLSearchParams(window.location.search);
-    currentId = urlParams.get("id");
+    const currentId = urlParams.get("id");
     
     const currentDrink = allDrinks.filter(item => item.idDrink == currentId)[0];
     console.log(currentDrink);
@@ -127,14 +135,67 @@ function addFilterBtnEvntListener() {
 function populateFilterBox() {
     const ingredientsBox = document.getElementById("ingreditents");
 
-    const allIngredients = allDrinkIngredients.map(item => `<div class="ingredient-container" onclick="toggleFilter(${item})"><p>${item}</p></div>`);
+    const allIngredients = allDrinkIngredients.map(item => `<div class="ingredient-container" id="${item}" onclick="toggleFilter('${item}')"><p>${item}</p></div>`);
 
     ingredientsBox.innerHTML = allIngredients.join("");
+
+    document.getElementById("reset-filters-btn").addEventListener("click", () => {
+        filters.forEach(item => {
+            document.getElementById(item).classList.remove("selected");
+        });
+        filters = [];
+        updateDrinksToDisplay();
+    })
 }
 
 function toggleFilter (ingredient) {
+    if(!filters.includes(ingredient)){
+        filters.push(ingredient);
+    } else {
+        i = filters.indexOf(ingredient);
+        filters.splice(i, 1);
+    }
 
+    const itemSelected = document.getElementById(ingredient);
+    itemSelected.classList.toggle("selected");
+
+    console.log(filters);
+    console.log(filters.length)
+
+    updateDrinksToDisplay();
 }
+
+function updateDrinksToDisplay () {
+    if(filters.length == 0){
+        allDrinksToDisplay = allDrinks;
+    } else {
+        allDrinksToDisplay = allDrinks;
+        filters.forEach(ingredientName => {
+            const newArr = allDrinksToDisplay.filter(cocktailObj => {
+                for (let i = 1; i <= 15; i++) {
+                    const objKey = "strIngredient" + i;
+                    if (cocktailObj[objKey] && cocktailObj[objKey].toUpperCase() === ingredientName){
+                        return true;
+                    }
+                }
+                return false;
+            })
+            allDrinksToDisplay = newArr;
+        });
+    }
+    displayCocktails();
+}
+
+function preFilterCheck () {
+    const currentId = new URLSearchParams(window.location.search).get("id");
+    if(currentId !== null){
+        toggleFilter(currentId);
+        console.log("There is id");
+    } else {
+        updateDrinksToDisplay();
+        console.log("There is NO id");
+    }
+};
 
 ///////NAV BAR SEARCH FEATURES///////
 const searchInput = document.getElementById("nav-search-input");

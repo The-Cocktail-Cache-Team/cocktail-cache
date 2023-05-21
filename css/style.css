@@ -101,7 +101,7 @@ nav a {
     border-radius: 40px;
     padding: 16px 12px 10px 12px;
     position: relative;
-    z-index: 2;
+    z-index: 4;
 }
 
 .search-container {
@@ -192,6 +192,7 @@ nav a {
     max-height:0;
     transition: all .4s ease-in-out;
     display: none;
+    z-index: 3;
 }
 
 #main-predictive-search-results {
@@ -385,10 +386,10 @@ footer {
     color:var(--primary-color);
 }
 .filter-container{
-    top:20px;
+    top:-20px;
     height: 0;
     background-color: var(--secondary-color);
-    position:absolute;
+    position:relative;
     width: calc(100% - 60px);
     z-index: 1;
     border-radius: 0 0 10px 10px;
@@ -439,6 +440,8 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding:3px;
+    border-radius: 3px;
 }
 .ingredient-container:hover{
     cursor: pointer;
@@ -469,10 +472,23 @@ footer {
     cursor: pointer;
 }
 
-#reset-filters-btn:hover{
+#reset-filters-btn:hover {
     background-color: var(--primary-color);
     border-color:var(--accent);
     color: var(--accent);
+}
+
+.selected {
+    background-color: var(--accent);
+    
+}
+.selected p {
+    color: var(--primary-color);
+}
+#no-results{
+    display: none;
+    padding: 0 90px;
+    text-align: center;
 }
 
 /* -- LOADING SCREEN -- */
@@ -481,7 +497,7 @@ footer {
     height: calc(100vh - 80px);
     position: absolute;
     top: 80px;
-    z-index: 3;
+    z-index: 5;
     background-color: var(--primary-color);
 }
 
