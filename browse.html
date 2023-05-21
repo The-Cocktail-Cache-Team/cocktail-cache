@@ -46,80 +46,33 @@
     </div>
     <main class="browse-page">
         <h2>BROWSE ALL COCKTAILS</h2>
-        <div class="cocktail-display-container">
-            <div class="filter-results">
-                <div class="down-arrows">
-                    <i class="fas fa-chevron-circle-down" id="toggle-results"></i>
-                    <h4 id="toggle-results">FILTER RESULTS</h4>
-                    <i class="fas fa-chevron-circle-down" id="toggle-results"></i>
+        <div class="filter-display">
+            <div id="filter-btn">
+                <i class="fas fa-chevron-circle-down" id="arrow1"></i>
+                <strong>FILTER RESULTS</strong>
+                <i class="fas fa-chevron-circle-down" id="arrow2"></i>
+            </div>
+            <div class="filter-container">
+                <div class="ingreditents-options filter-options">
+                    <strong>INGREDIENTS</strong>
+                    <div class="selection-container" id="ingreditents">
+                        <div class="ingredient-container"><p>INGREDIENT</p></div>
+                    </div>
                 </div>
-                <div class="filter-btns">
-                    <div class="choose-alcohol">
-                        <button id="alcohol-btn">ALCOHOL</button>
-                        <div class="all-sections">
-                            <div class="section-one">
-                                <ol id="whiskey">Whiskey</ol>
-                                <ol id="gin">Gin</ol>
-                                <ol id="rum">Rum</ol>
-                                <ol id="vodka">Vodka</ol>
-                                <ol id="beer">Beer</ol>
-                                <ol id="cider">Cider</ol>
-                            </div>
-                            <div class="section-two">
-                                <ol id="tequila">Tequila</ol>
-                                <ol id="cognac">Cognac</ol>
-                                <ol id="liqueur">Liqueur</ol>
-                                <ol id="wine">Wine</ol>
-                                <ol id="champagne">Champagne</ol>
-                                <ol id=""></ol>
-                            </div>
-                        </div>
+                <div class="additional-options filter-options">
+                    <strong>COMPLEXITY</strong>
+                    <div class="selection-container" id="ingreditents">
+                        
                     </div>
-                    <div class="choose-ingredients">
-                        <button class="ingredients-btn">INGREDIENTS</button>
-                        <div class="all-sections">
-                            <div class="section-one">
-                                <ol id="chocolate">Chocolate</ol>
-                                <ol id="lime">Lime</ol>
-                                <ol id="ice">Ice</ol>
-                                <ol id="mint">Mint</ol>
-                                <ol id="lemon">Lemon</ol>
-                                <ol id="sugar">Sugar</ol>
-                            </div>
-                            <div class="section-two">
-                                <ol id="water">Water</ol>
-                                <ol id="orange">Orange</ol>
-                                <ol id="strawberries">Strawberries</ol>
-                                <ol id="wine">Wine</ol>
-                                <ol id="juice">Juice</ol>
-                                <ol id="pineapple">Pineapple</ol>
-                            </div>
-                        </div>
+                    <strong>ALCOHOLIC</strong>
+                    <div class="selection-container" id="ingreditents">
+                        
                     </div>
-                    <div class="complexity-and-alcoholic-section">
-                        <button id="complexity-btn">COMPLEXITY</button><br>
-                        <div class="slider">
-                        <input type="range" min="1" max="100" value="50" id="range-of-drinks">
-                        <section class="number-of-ingredients">
-                                <input type="number" id="complexity-value"/>
-                                <p>INGREDIENTS</p>
-                            </section>
-                        </div>
-                            <div class="alcoholic-btns">
-                                <button id="alcoholic">ALCOHOLIC</button>
-                                <div class="alcoholic-btn">
-                                    <input type="checkbox" id="tick-yes">
-                                    <label for="tick-yes">OF COURSE</label><br>
-                                    <input type="checkbox" id="tick-no">
-                                    <label for="tick-no">NO THANKS</label>
-                            </div>
-                        </div>
-                        <button type="button" id="reset-filters">RESET FILTERS</button>
-                    </div>
-                    </div>
+                    <button id="reset-filters-btn">RESET FILTERS</button>
+                </div>
             </div>
-            </div>
-            <div id="cocktail-container"></div>
+        </div>
+        <div id="cocktail-container"></div>
         </div>
     </main>
 </body>

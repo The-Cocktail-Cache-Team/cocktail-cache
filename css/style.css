@@ -290,10 +290,12 @@ footer {
     flex-direction: column;
     padding:40px 0;
 }
+
 .browse-page h2{
     text-align: center;
     margin: 0 0 40px 0;
  }
+
  .cocktail-display-container{
     display: flex;
     flex-direction: column;
@@ -302,199 +304,27 @@ footer {
     gap: 90px;
  }
 
-
  .select-ingredients-container{
     display: flex;
     flex-direction: column;
     color: var(--accent);
     width: 100%;
 }
- .browse-page h4{
+
+.browse-page h4{
      font-size: 22px;
      letter-spacing: 2px;
- }
-
- /* FILTER RESULTS */
-
-.down-arrows{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    background-color: var(--accent);
-    height: 40px;
-    border-radius: 8px;
 }
 
-.fas{
-    font-size: 26px;
-    padding: 15px;
-}
-
-
-.filter-btns{
-    display: none;
-}
-
-.filter-btns.active{
-    display: flex;
-    justify-content: space-evenly;
-    padding: 5px 5px;
-    background-color: var(--secondary-color);
-    border-radius: 8px;
-}
-
-/* .section-btns button{
-    background-color: transparent;
-    color: var(--accent);
-    border: none;
-    font-size: 22px;
-    font-weight: bold;
-    border-bottom: 2px solid var(--accent);
-} */
-
-.complexity-and-alcoholic-section{
-    display: flex;
-    flex-direction: column;
-    background-color: var(--seconday-color);
-}
-
-.choose-alcohol, .choose-ingredients{
-
-    font-size: 20px;
-    padding: 60px 5px 20px 5px;
-
-    color: var(--accent);
-}
-
-.filter-results{
-    position: relative;
-    margin-bottom: 50px;
-}
-
-#alcohol-btn{
-    position: absolute;
-    top: 10%;
-    left: 16%;
-    background-color: transparent;
-    color: var(--accent);
-    border: none;
-    font-size: 22px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-
-.choose-ingredients button{
-    position: absolute;
-    top: 10%;
-    left: 49%;
-    background-color: transparent;
-    color: var(--accent);
-    border: none;
-    font-size: 22px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#complexity-btn, #alcoholic{
-    background-color: transparent;
-    color: var(--accent);
-    border: none;
-    font-size: 22px;
-    font-weight: bold;
-    background-color: var(--seconday-color);
-    cursor: pointer;
-    padding: 10px 80px;
-   
-}
-
-.number-of-ingredients{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.number-of-ingredients p{
-    font-size: 20px;
-}
-
-#range-of-drinks{
-    border: none;
-}
-
-.all-sections{
-    display: flex;
-    background-color: var(--primary-color);
-    border-radius: 8px;
-    padding: 0 80px 10px 80px;
-    text-align: center;
-}
-
-.all-sections ol:hover{
-    background-color: var(--accent);
-    color: var(--primary-color);
-    cursor: pointer;
-}
-
-.section-one{
-    display: flex;
-    flex-direction: column;
-} 
-
-.section-two{
-    display: flex;
-    flex-direction: column;
-} 
-
-.complexity-and-alcoholic-section{
-    display: flex;
-    flex-direction: column;
-    background-color: var(--seconday-grey);
-    border-radius: 8px;
-    height: 80%;
-}
-
-#reset-filters{
-  margin-top: 18%;
-  font-size: 22px;
-  background-color: var(--accent);
-  letter-spacing: 2px;
-  font-weight: bold;
-  border-radius: 8px;
-  padding: 15px 10px;
-  border: none;
-}
-
-#complexity-value{
-    height: 20px;
-    width: 50px;
-}
-
- #cocktail-container{
+#cocktail-container{
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     flex:1 1 0;
     gap: 30px;
-    padding:0 90px;
- }
+    padding:40px 90px 0 90px;
+}
 
-.slider, .number-of-ingredients, .alcoholic-btn{
-    background-color: var(--primary-color);
-    border-radius: 8px;
-    padding: 10px 0;
- }
-
- .alcoholic-btn{
-    font-size: 18px;
-    color: var(--accent);
-    padding: 10px 0;
-    line-height: 40px;
-    text-align: center;
- }
-
- .cards{
+.cards{
     height: 220px;
     border-radius: 10px;
     display: flex;
@@ -508,14 +338,142 @@ footer {
     border: solid 2px var(--primary-color);
     transition: border-color .1s ease-in-out;
  }
+
  .cards:hover{
     border-color: var(--accent);
  }
+
  .cards h2{
     text-align: right;
     font-size: 16px;
     margin: 0;
  }
+
+ /* FILTER RESULTS */
+
+
+
+
+.filter-display {
+    width: calc(100% - 180px);
+    margin: auto;
+    position: relative;
+}
+
+.fas{
+    font-size: 26px;
+    padding: 15px;
+    transition: all .2s ease-in-out;
+}
+
+.rotate-arrow{
+    transform: rotate(180deg);
+}
+
+#filter-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: var(--accent);
+    height: 40px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+}
+#filter-btn strong{
+    color:var(--primary-color);
+}
+.filter-container{
+    top:20px;
+    height: 0;
+    background-color: var(--secondary-color);
+    position:absolute;
+    width: calc(100% - 60px);
+    z-index: 1;
+    border-radius: 0 0 10px 10px;
+    transition: all .2s ease-in-out;
+    overflow: hidden;
+    display: flex;
+    padding:0 30px;
+    gap:30px;
+}
+.active {
+    height: 540px;
+    padding:50px 30px 30px 30px;
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    align-items: center;
+}
+
+.ingreditents-options{
+    flex: 1 1 0;
+}
+
+.additional-options{
+    width: 300px;
+}
+
+.selection-container{
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    width: calc(100% - 60px);
+    padding: 30px;
+}
+
+#ingreditents{
+    flex: 1 1 0;
+    display: grid;
+    column-gap: 30px;
+    row-gap: 5px;
+    overflow: hidden;
+    grid-template-columns: repeat(4, 1fr);
+    overflow-y : auto;
+}
+
+.ingredient-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ingredient-container:hover{
+    cursor: pointer;
+    background-color: var(--accent);
+    
+}
+.ingredient-container:hover p{
+    color: var(--primary-color);
+}
+
+
+.ingredient-container p{
+    font-size: 12px;
+    margin: 0;
+}
+#reset-filters-btn{
+    background-color: var(--accent);
+    border:none;
+    border-radius: 10px;
+    width:100%;
+    height: 76px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 24px;
+    color: var(--primary-color);
+    font-weight: 700;
+    transition: all .1s ease-in-out;
+    border: solid 2px var(--accent);
+    cursor: pointer;
+}
+
+#reset-filters-btn:hover{
+    background-color: var(--primary-color);
+    border-color:var(--accent);
+    color: var(--accent);
+}
 
 /* -- LOADING SCREEN -- */
 
@@ -642,7 +600,7 @@ main {
 }
 
 .ingredients a{
-    color: var(--seconday-grey);
+    color: var(--seconday-color);
     background-color: var(--accent);
     padding: 8px 5px;
     border-radius: 10px;

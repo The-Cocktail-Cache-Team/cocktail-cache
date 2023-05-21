@@ -46,6 +46,7 @@ fetch(`cocktaildb_api_clone_local.txt`)
         if(window.location.pathname === "/browse.html") {
             displayCocktails(allDrinks);
             addFilterBtnEvntListener();
+            populateFilterBox();
         } else if(window.location.pathname === "/details.html") {
             displayCurrentCocktail();
         }
@@ -57,7 +58,7 @@ fetch(`cocktaildb_api_clone_local.txt`)
 
 
 // Displaying the images on the page
-const displayCocktails= list =>{
+const displayCocktails = list =>{
     const cocktailsContainer = document.getElementById("cocktail-container");
      const allCards = list.map(item=>{
         return `
@@ -111,13 +112,28 @@ function displayCurrentCocktail () {
 
 // FILTER RESULTS FUNCTION
 function addFilterBtnEvntListener() {
-    const dropdownArrows = document.querySelector(".down-arrows");
-    const filterBtns = document.querySelector(".filter-btns");
+    const filterBtn = document.querySelector("#filter-btn");
+    const arrow1 = document.getElementById("arrow1");
+    const arrow2 = document.getElementById("arrow2");
+    const filterContainer = document.querySelector(".filter-container");
 
-    dropdownArrows.addEventListener('click', () => {
-        dropdownArrows.classList.toggle('active');
-        filterBtns.classList.toggle('active');
+    filterBtn.addEventListener('click', () => {
+        arrow1.classList.toggle('rotate-arrow');
+        arrow2.classList.toggle('rotate-arrow');
+        filterContainer.classList.toggle('active');
     })
+}
+
+function populateFilterBox() {
+    const ingredientsBox = document.getElementById("ingreditents");
+
+    const allIngredients = allDrinkIngredients.map(item => `<div class="ingredient-container" onclick="toggleFilter(${item})"><p>${item}</p></div>`);
+
+    ingredientsBox.innerHTML = allIngredients.join("");
+}
+
+function toggleFilter (ingredient) {
+
 }
 
 ///////NAV BAR SEARCH FEATURES///////
