@@ -487,19 +487,27 @@ main p {
     width: 100%;
     display: flex;
     /* vvvv MOBILE: column */
-    flex-wrap: nowrap;
+    /* flex-direction: column; */
+    justify-content: space-around;
 }
 
 /* team cards */
 .team-card {
     background-color: var(--accent);
+    width: 300px;
+    max-height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 30px;
 }
 
 .team-card img {
-    width: 80%;
+    width: 230px;
+    height: 230px;
+    border-radius: 10px;
+    margin: 0;
+    padding: 0;
 }
 
 .team-card h3,
@@ -507,15 +515,18 @@ p {
     color: var(--primary-color);
 }
 
-.team-card p {}
+.team-card p {
+    /* vvvv can delete if matches root size */
+    font-size: 16px;
+}
 
 .team-card a {}
 
 .team-card button {
     background-color: var(--primary-color);
     color: var(--accent);
+    width: 200px;
     border-style: none;
-    border-radius: 20px;
-    padding: 20px 30px;
-    margin-bottom: 30px;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
 }
