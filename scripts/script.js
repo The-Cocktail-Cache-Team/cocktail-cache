@@ -80,13 +80,23 @@ const displayCocktails = () =>{
 }
 
 // Details Page - Displaying the images
-    
+
+
 function displayCurrentCocktail () {
     const urlParams = new URLSearchParams(window.location.search);
     const currentId = urlParams.get("id");
     
     const currentDrink = allDrinks.filter(item => item.idDrink == currentId)[0];
     console.log(currentDrink);
+    
+    currentIngredients = [];
+    for (let i = 1; i <= 15; i++) {
+        const objKey = "strIngredient" + i;
+        if (currentDrink[objKey] !== null) {
+        currentIngredients.push(currentDrink[objKey]);
+  }
+}
+    console.log(currentIngredients);
 
     const image = 
     `<div class="current-image">
@@ -95,13 +105,8 @@ function displayCurrentCocktail () {
     <h2 class="current-image-name">${currentDrink.strDrink}</h2>
     <div class = "ingredients">
         <h3>Ingredients</h3>
-        <a href="" id="ingredient1">${currentDrink.strIngredient1}</a>
-        <a href="" id="ingredient2">${currentDrink.strIngredient2}</a>
-        <a href="" id="ingredient3">${currentDrink.strIngredient3}</a>
-        <a href="" id="ingredient4">${currentDrink.strIngredient4}</a>
-        <a href="" id="ingredient5">${currentDrink.strIngredient5}</a>
-        <a href="" id="ingredient6">${currentDrink.strIngredient6}</a>
-        
+        <a id="ingredient">${currentIngredients}</a>
+
         </div>
         <div class="cocktail-instructions">
         <h3>Method</h3>
@@ -115,7 +120,6 @@ function displayCurrentCocktail () {
         </div>`;
         const imageContainer = document.querySelector(".current-cocktail-display");
         imageContainer.innerHTML = image;
-      
     };
 
 // FILTER RESULTS FUNCTION
