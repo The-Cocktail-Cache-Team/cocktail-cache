@@ -467,34 +467,27 @@ span:before {
 /* v-- hidden while loading screen is displayed --v */
 main {
     display: none;
+    flex-direction: column;
 }
 
 /* -- NON-COCKTAIL CONTENT STYLING --  */
 
 /* This wraps main, section, aside, etc. for equal margins */
 .content-wrapper {
-    margin: 40px 5%;
+    margin: 40px;
     text-align: center;
-}
-
-main h2 {
-    text-align: center;
-    color: lime;
 }
 
 main p {
     color: var(--accent);
 }
 
-.content-wrapper h2 {
-    text-align: center;
-    padding: 0 90px;
-}
-
 /* -- About Page -- */
 .team-card-container {
     width: 100%;
     display: flex;
+    /* vvvv MOBILE: column */
+    flex-wrap: nowrap;
 }
 
 /* team cards */
