@@ -419,11 +419,12 @@ footer {
     width: 300px;
 }
 
-.selection-container{
+.selection-container, .complexity-container, .alcoholic-container{
     background-color: var(--primary-color);
     border-radius: 10px;
     width: calc(100% - 60px);
     padding: 30px;
+    color: var(--accent);
 }
 
 #ingreditents{
