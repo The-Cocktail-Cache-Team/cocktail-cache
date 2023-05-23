@@ -489,13 +489,14 @@ main p {
     /* vvvv MOBILE: column */
     /* flex-direction: column; */
     justify-content: space-around;
+    padding-top: 30px;
 }
 
 /* team cards */
 .team-card {
     background-color: var(--accent);
-    width: 300px;
-    max-height: 500px;
+    width: 250px;
+    max-height: 400px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -508,6 +509,9 @@ main p {
     border-radius: 10px;
     margin: 0;
     padding: 0;
+    /* vvvvv----NOT SURE IF NEEDED YET */
+    /* object-fit:cover; */
+    /* overflow: hidden; */
 }
 
 .team-card h3,
@@ -529,4 +533,5 @@ p {
     border-style: none;
     border-radius: 10px;
     padding: 10px 20px 10px 20px;
+    font-size: 20px;
 }
