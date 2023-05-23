@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -40,72 +46,40 @@
     </div>
     <main class="browse-page">
         <h2>BROWSE ALL COCKTAILS</h2>
-        <div class="cocktail-display-container">
-            <div class="select-ingredients-container">
-                <div class="spirits">
-                    <h4>SPIRITS</h4>
-                    <div class="choose-spirits">
-                        <section>
-                            <input type="checkbox" id="vodka" name="VODKA">
-                            <label for="vodka">VODKA</label>
-                        </section>
-                        <section>
-                            <input type="checkbox" id="whiskey" name="WHISKEY">
-                            <label for="whiskey">WHISKEY</label>
-                        </section>
-                        <section>
-                            <input type="checkbox" id="gin" name="GIN">
-                            <label for="gin">GIN</label>
-                        </section>
-                        <section>
-                            <input type="checkbox" id="rum" name="RUM">
-                            <label for="rum">RUM</label>
-                        </section>
+        <div class="filter-display">
+            <div id="filter-btn">
+                <i class="fas fa-chevron-circle-down" id="arrow1"></i>
+                <strong>FILTER RESULTS</strong>
+                <i class="fas fa-chevron-circle-down" id="arrow2"></i>
+            </div>
+            <div class="filter-container">
+                <div class="ingreditents-options filter-options">
+                    <strong>INGREDIENTS</strong>
+                    <div class="selection-container" id="ingreditents">
+                        <div class="ingredient-container"><p>INGREDIENT</p></div>
                     </div>
                 </div>
-                <div class="ingredients">
-                    <h4>INGREDIENTS</h4>
-                    <div class="choose-ingredients">
-                        <section>
-                            <input type="checkbox" id="lime" name="LIME">
-                            <label for="lime">LIME</label>
-                        </section>
-                        <section>
-                            <input type="checkbox" id="ice" name="ICE">
-                            <label for="ice">ICE</label>
-                        </section>
-                        <section>
-                            <input type="checkbox" id="lemon" name="LEMON">
-                            <label for="lemon">LEMON</label>
-                        </section>
-                        <section>
-                            <input type="checkbox" id="chocolate" name="CHOCOLATE">
-                            <label for="chocolate">CHOCOLATE</label>
-                        </section>
+                <div class="additional-options filter-options">
+                    <strong>MAX INGREDIENTS</strong>
+                    <div class="selection-container">
+                        <input type="range" min="1" value="16" max="16" id="complexity-slider">
+                        <p id="complexity-message">FILTER OFF</p>
                     </div>
-                </div>
-                <div class="complexity">
-                    <h4>COMPLEXITY</h4>
-                    <div class="choose-complexity">
-                        <input type="range" min="1" max="10" value="50" id="complexity-range">
-                        <p>INGREDIENTS</p>
+                    <strong>ALCOHOLIC</strong>
+                    <div class="selection-container">
+                        <input type="radio" id='contains-alcohol' name="alcoholic-filter-option">
+                        <label for="contains-alcohol">Of Course!</label><br>
+                        <input type="radio" id='no-contains-alcohol' name="alcoholic-filter-option">
+                        <label for="no-contains-alcohol">No Thanks!</label>
                     </div>
-                </div>
-                <div class="type-of-drink">
-                    <h4>ALCOHOLIC</h4>
-                    <div class="choose-type-of-drink">
-                        <section>
-                            <input type="checkbox" id="alcoholic">
-                            <label for="alchoholic">OF COURSE!</label>
-                        </section>
-                        <section>
-                            <input type="checkbox" id="non-alcoholic">
-                            <label for="non-alcoholic">NO THANKS!</label>
-                        </section>
-                    </div>
+                    <button id="reset-filters-btn">RESET FILTERS</button>
                 </div>
             </div>
-            <div id="cocktail-container"></div>
+        </div>
+        <div id="cocktail-container"></div>
+        </div>
+        <div id="no-results">
+            <p id="no-result-message"></p>
         </div>
     </main>
 </body>
