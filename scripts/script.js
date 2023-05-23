@@ -89,37 +89,28 @@ function displayCurrentCocktail () {
     const currentDrink = allDrinks.filter(item => item.idDrink == currentId)[0];
     console.log(currentDrink);
     
-    currentIngredients = [];
+    const currentIngredients = [];
     for (let i = 1; i <= 15; i++) {
         const objKey = "strIngredient" + i;
         if (currentDrink[objKey] !== null) {
-        currentIngredients.push(currentDrink[objKey]);
-  }
-}
+            currentIngredients.push(currentDrink[objKey].toUpperCase());
+        }
+    }
     console.log(currentIngredients);
 
-    const image = 
-    `<div class="current-image">
-    <img src=${currentDrink.strDrinkThumb} alt="${currentDrink.strDrink}" class="current-new-image" />
-    <div class="current-image-info">
-    <h2 class="current-image-name">${currentDrink.strDrink}</h2>
-    <div class = "ingredients">
-        <h3>Ingredients</h3>
-        <a id="ingredient">${currentIngredients}</a>
+    const cocktailImgSrc = currentDrink.strDrinkThumb;
+    const cocktailImgAlt = currentDrink.strDrink;
+    const cocktailTitle = currentDrink.strDrink;
+    const cocktailIngredients = currentIngredients.map(item => `<a>${item}</a>`).join("");
+    const cocktailMethod = currentDrink.strInstructions;
+    const cocktailServe = currentDrink.strGlass;
 
-        </div>
-        <div class="cocktail-instructions">
-        <h3>Method</h3>
-        <p id="cocktail-method">${currentDrink.strInstructions}</p>
-        </div>
-        <div class="serve">
-        <h3>Serve</h3>
-        <p id="serve-glass">${currentDrink.strGlass}</p>
-        </div>
-        </div>
-        </div>`;
-        const imageContainer = document.querySelector(".current-cocktail-display");
-        imageContainer.innerHTML = image;
+    document.querySelector(".current-new-image").setAttribute("src", cocktailImgSrc);
+    document.querySelector(".current-new-image").setAttribute("alt", cocktailImgAlt);
+    document.querySelector(".current-image-name").innerHTML = cocktailTitle;
+    document.getElementById("list-of-ingredients"). innerHTML = cocktailIngredients;
+    document.getElementById("cocktail-method"). innerHTML = cocktailMethod;
+    document.getElementById("serve-glass").innerHTML = cocktailServe;
     };
 
 // FILTER RESULTS FUNCTION
@@ -194,10 +185,8 @@ function preFilterCheck () {
     const currentId = new URLSearchParams(window.location.search).get("id");
     if(currentId !== null){
         toggleFilter(currentId);
-        console.log("There is id");
     } else {
         updateDrinksToDisplay();
-        console.log("There is NO id");
     }
 };
 
