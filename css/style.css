@@ -419,7 +419,7 @@ footer {
     width: 300px;
 }
 
-.selection-container, .complexity-container, .alcoholic-container{
+.selection-container{
     background-color: var(--primary-color);
     border-radius: 10px;
     width: calc(100% - 60px);
@@ -616,11 +616,24 @@ main {
 
 }
 
-.ingredients a{
+#list-of-ingredients{
+    display: flex;
+    gap:10px;
+    flex-wrap: wrap;
+}
+
+.ingredients button{
+    font-family: 'Courier Prime', monospace;
     color: var(--seconday-color);
     background-color: var(--accent);
     padding: 8px 5px;
     border-radius: 10px;
-    margin-right: 10px;
-    line-height: 60px;
+    border: solid 3px var(--accent);
+}
+
+.ingredients button:hover{
+    color: var(--accent);
+    background-color: var(--primary-color);
+    border: solid 3px var(--accent);
+    cursor: pointer;
 }

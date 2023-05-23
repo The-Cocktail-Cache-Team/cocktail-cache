@@ -6,6 +6,7 @@ let allDrinkIngredients = [];
 let allDrinkNamesAndIngredients;
 let filters = [];
 let allDrinksToDisplay = [];
+let complexityFilterValue = 16;
 
 fetch(`cocktaildb_api_clone_local.txt`)
 .then((result) => result.json())
@@ -96,12 +97,25 @@ function displayCurrentCocktail () {
             currentIngredients.push(currentDrink[objKey].toUpperCase());
         }
     }
-    console.log(currentIngredients);
+
+    const ingredientMeasurments = [];
+    for (let i = 1; i <= currentIngredients.length; i++) {
+        const objKey = "strMeasure" + i;
+        ingredientMeasurments.push(currentDrink[objKey]);
+    }
 
     const cocktailImgSrc = currentDrink.strDrinkThumb;
     const cocktailImgAlt = currentDrink.strDrink;
     const cocktailTitle = currentDrink.strDrink;
-    const cocktailIngredients = currentIngredients.map(item => `<a>${item}</a>`).join("");
+    const cocktailIngredients = currentIngredients
+    .map((item, index) => {
+        if(ingredientMeasurments[index] !== null) {
+            return `<button onclick="search('${item}')">${ingredientMeasurments[index].toUpperCase()} ${item}</button>`;
+        } else {
+            return `<button onclick="search('${item}')">${item}</button>`;
+        }
+    })
+    .join("");
     const cocktailMethod = currentDrink.strInstructions;
     const cocktailServe = currentDrink.strGlass;
 
@@ -120,6 +134,12 @@ function addFilterBtnEvntListener() {
     const arrow2 = document.getElementById("arrow2");
     const filterContainer = document.querySelector(".filter-container");
 
+    document.getElementById("complexity-slider").addEventListener("input", checkComplexityFilter);
+    document.getElementById("complexity-slider").addEventListener("change", updateDrinksToDisplay);
+
+    document.getElementById("contains-alcohol").addEventListener("change", updateDrinksToDisplay);
+    document.getElementById("no-contains-alcohol").addEventListener("change", updateDrinksToDisplay);
+
     filterBtn.addEventListener('click', () => {
         arrow1.classList.toggle('rotate-arrow');
         arrow2.classList.toggle('rotate-arrow');
@@ -134,11 +154,20 @@ function populateFilterBox() {
 
     ingredientsBox.innerHTML = allIngredients.join("");
 
+    //THIS IS THE RESET BUTTON FUNCTION
     document.getElementById("reset-filters-btn").addEventListener("click", () => {
         filters.forEach(item => {
             document.getElementById(item).classList.remove("selected");
         });
         filters = [];
+
+        complexityFilterValue = 16;
+        document.getElementById("complexity-slider").value = 16;
+        document.getElementById("complexity-message").innerHTML = "FILTER OFF";
+
+        document.getElementById("contains-alcohol").checked = false;
+        document.getElementById("no-contains-alcohol").checked = false;
+
         updateDrinksToDisplay();
     })
 }
@@ -161,10 +190,10 @@ function toggleFilter (ingredient) {
 }
 
 function updateDrinksToDisplay () {
-    if(filters.length == 0){
-        allDrinksToDisplay = allDrinks;
-    } else {
-        allDrinksToDisplay = allDrinks;
+    allDrinksToDisplay = allDrinks;
+
+    //FILTER FOR INGREDIENTS
+    if(filters.length !== 0){
         filters.forEach(ingredientName => {
             const newArr = allDrinksToDisplay.filter(cocktailObj => {
                 for (let i = 1; i <= 15; i++) {
@@ -178,8 +207,41 @@ function updateDrinksToDisplay () {
             allDrinksToDisplay = newArr;
         });
     }
+
+    //FILTER FOR COMPLEXITY
+    if(complexityFilterValue !== 16){
+        const filteredForComplexity = allDrinksToDisplay.filter(cocktailObj => {
+            let ingredientCounter = 0;
+            for (let i = 1; i <= 15; i++) {
+                const objKey = "strIngredient" + i;
+                if(cocktailObj[objKey] !== null){
+                    ingredientCounter++;
+                }
+            }
+            if(ingredientCounter < complexityFilterValue){
+                return true;
+            } else {
+                return false;
+            }
+        });
+        allDrinksToDisplay = filteredForComplexity;
+    }
+
+    //FILTER FOR ALCOHOL
+    const containsAlcoholRadio = document.getElementById("contains-alcohol");
+    const noContainsAlcoholRadio = document.getElementById("no-contains-alcohol");
+
+    if(containsAlcoholRadio.checked == true) {
+        let alcoholFilteredArray = allDrinksToDisplay.filter(cocktailObj => cocktailObj.strAlcoholic === "Alcoholic");
+        allDrinksToDisplay = alcoholFilteredArray;
+    } else if (noContainsAlcoholRadio.checked == true) {
+        let alcoholFilteredArray = allDrinksToDisplay.filter(cocktailObj => cocktailObj.strAlcoholic !== "Alcoholic");
+        allDrinksToDisplay = alcoholFilteredArray;
+    }
+
     displayCocktails();
 }
+    
 
 function preFilterCheck () {
     const currentId = new URLSearchParams(window.location.search).get("id");
@@ -189,6 +251,20 @@ function preFilterCheck () {
         updateDrinksToDisplay();
     }
 };
+
+function checkComplexityFilter () {
+    const complexitySlider = document.getElementById("complexity-slider");
+    const complexityMessage = document.getElementById("complexity-message");
+
+    const complexityValue = complexitySlider.value;
+    complexityFilterValue = complexityValue;
+    
+    if(complexityValue == 16) {
+        complexityMessage.innerHTML = "FILTER OFF";
+    } else {
+        complexityMessage.innerHTML = `${complexityValue} INGREDIENTS`;
+    }
+}
 
 ///////NAV BAR SEARCH FEATURES///////
 const searchInput = document.getElementById("nav-search-input");
