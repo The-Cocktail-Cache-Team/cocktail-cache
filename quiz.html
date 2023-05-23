@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/normalize.css" type="text/css">
     <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="stylesheet" href="./css/quiz.css">
     <title></title>
 </head>
 
@@ -32,8 +33,23 @@
         </div>
     </div>
     <main>
-        
+        <div id="quiz-container">
+            <div class="quiz-title">
+            <h1>Which Cocktail Are You?</h1>
+            </div>
+            <div id="question-container">
+              <!-- Questions and options will be dynamically added here -->
+            </div>
+            <div id="options-container">
+                <!-- Options buttons will be dynamically added here -->
+              </div>
+            <div id="result-container">
+              <!-- Result and description will be displayed here -->
+            </div>
+          </div>
+          
     </main>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/quiz.js"></script>
 </body>
 </html>
