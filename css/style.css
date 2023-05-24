@@ -62,6 +62,9 @@ strong {
 .p-small {
     font-size: 12px;
 }
+.p-bold {
+    font-weight: 600;
+}
 
 input {
     text-transform: uppercase;
@@ -278,7 +281,7 @@ footer {
     gap: 15px;
 }
 
-.homepage-btn {
+.homepage-btn {         /* Do we want padding: 10px 20px; */
     padding: 20px;
     background-color: var(--accent);
     font-family: 'Bungee Inline', cursive;
@@ -609,7 +612,7 @@ main p {
 .team-card-container {
     width: 100%;
     display: flex;
-    /* vvvv MOBILE: column */
+    /* vvvv MOBILE: column < 1440px >>>> NEEDS margin on .team-card */
     /* flex-direction: column; */
     justify-content: space-between;
     padding-top: 60px;
@@ -619,7 +622,6 @@ main p {
 .team-card {
     background-color: var(--secondary-color);
     width: 250px;
-    max-height: 400px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -642,7 +644,6 @@ main p {
     /* overflow: hidden; */
 }
 
-
 .team-card h3, .team-card p {
     color: var(--accent);
     margin: 0;
@@ -660,19 +661,24 @@ main p {
     margin-bottom: 20px;
 }
 
-
-
 .team-card a {}
 
 .team-card button {
     width: 200px;
     background-color: var(--accent);
     color: var(--primary-color);
+    font-family: 'Bungee Inline';
     font-size: 20px;
     font-weight: 400; /* WOULD PREFER 600, 700 */
     border-style: none;
     border-radius: 10px;
-    padding: 10px 20px;
+    padding: 15px 30px;
+}
+
+.team-card button:hover {
+    background-color: var(--primary-color);
+    color: var(--accent);
+
 }
 
 /* DETAILS PAGE STYLING */
