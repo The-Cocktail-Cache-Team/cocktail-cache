@@ -53,9 +53,9 @@ fetch(`cocktaildb_api_clone_local.txt`)
         } else if(window.location.pathname === "/details.html") {
             displayCurrentCocktail();
         }
-        
+
     },1000);
-})    
+})
 .catch((error) => console.log(error));
 
 // Displaying the images on the page
@@ -86,10 +86,10 @@ const displayCocktails = () =>{
 function displayCurrentCocktail () {
     const urlParams = new URLSearchParams(window.location.search);
     const currentId = urlParams.get("id");
-    
+
     const currentDrink = allDrinks.filter(item => item.idDrink == currentId)[0];
     console.log(currentDrink);
-    
+
     const currentIngredients = [];
     for (let i = 1; i <= 15; i++) {
         const objKey = "strIngredient" + i;
@@ -241,7 +241,7 @@ function updateDrinksToDisplay () {
 
     displayCocktails();
 }
-    
+
 
 function preFilterCheck () {
     const currentId = new URLSearchParams(window.location.search).get("id");
@@ -258,7 +258,7 @@ function checkComplexityFilter () {
 
     const complexityValue = complexitySlider.value;
     complexityFilterValue = complexityValue;
-    
+
     if(complexityValue == 16) {
         complexityMessage.innerHTML = "FILTER OFF";
     } else {
@@ -275,7 +275,7 @@ searchInput.oninput = () =>{
     if(searchInput.value !== ""){
         predictiveSearchContainer.style.display="block";
         const predictiveSearchList = allDrinkNamesAndIngredients.filter(item => item.includes(searchInput.value.toUpperCase()));
-        
+
         const firstFiveResults = predictiveSearchList.filter((item, index) => index < 5);
 
         const resultHTML = firstFiveResults.map(item => {
@@ -291,7 +291,7 @@ searchInput.oninput = () =>{
         } else {
             predictiveSearchContainer.innerHTML = resultHTML.join("");
         }
-        
+
     } else {
         predictiveSearchContainer.style.display="none";
         predictiveSearchContainer.innerHTML = "";
@@ -315,7 +315,7 @@ if(window.location.pathname === "/index.html"){
         if(mainSearchInput.value !== ""){
             mainPredictiveSearchContainer.style.display="block";
             const predictiveSearchList = allDrinkNamesAndIngredients.filter(item => item.includes(mainSearchInput.value.toUpperCase()));
-            
+
             const firstFiveResults = predictiveSearchList.filter((item, index) => index < 5);
 
             const resultHTML = firstFiveResults.map(item => {
@@ -331,7 +331,7 @@ if(window.location.pathname === "/index.html"){
             } else {
                 mainPredictiveSearchContainer.innerHTML = resultHTML.join("");
             }
-            
+
         } else {
             mainPredictiveSearchContainer.style.display="none";
             mainPredictiveSearchContainer.innerHTML = "";

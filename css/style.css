@@ -18,7 +18,8 @@ input:focus {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     font-family: 'Bungee Inline', cursive;
     color: var(--accent);
 }
@@ -28,7 +29,16 @@ h1 {
 }
 
 h2 {
+    /* font-size: 36px; */
     font-size: 24px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 20px;
 }
 
 strong,
@@ -52,12 +62,16 @@ strong {
 .p-small {
     font-size: 12px;
 }
+.p-bold {
+    font-weight: 600;
+}
 
 input {
     text-transform: uppercase;
 }
 
 /*-- HEADER -- */
+
 header {
     height: 80px;
     background-color: var(--secondary-color);
@@ -77,7 +91,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 30px;
-    position: relative
+    position: relative;
 }
 
 nav a {
@@ -86,7 +100,7 @@ nav a {
 
 #random-cocktail-nav-btn {
     cursor: pointer;
-    margin-right: 78.73px;
+    margin-right: 78.73px; /* may be causing issues with spacing between icon and navbar items */
 }
 
 /* -- SEARCH BARS -- */
@@ -145,7 +159,7 @@ nav a {
     width: 100%;
 }
 
-.search-container:hover .nav-search-bar{
+.search-container:hover .nav-search-bar {
     width: 400px;
 }
 
@@ -187,9 +201,9 @@ nav a {
     width: 100%;
     overflow: hidden;
     padding: 0 0 0 0;
-    top:calc(47.93px / 2);
+    top: calc(47.93px / 2);
     border-radius: 0 0 20px 20px;
-    max-height:0;
+    max-height: 0;
     transition: all .4s ease-in-out;
     display: none;
     z-index: 3;
@@ -201,9 +215,9 @@ nav a {
     width: 100%;
     overflow: hidden;
     padding: 0 0 0 0;
-    top:40px;
+    top: 40px;
     border-radius: 0 0 20px 20px;
-    max-height:0;
+    max-height: 0;
     transition: all .4s ease-in-out;
     display: none;
 }
@@ -223,14 +237,14 @@ nav a {
     cursor: pointer;
 }
 
-.search-container:hover #predictive-search-results{
+.search-container:hover #predictive-search-results {
     padding: 30px 0 15px 0;
-    max-height:422px;
+    max-height: 422px;
 }
 
-.main-search-container:hover #main-predictive-search-results{
+.main-search-container:hover #main-predictive-search-results {
     padding: 55px 0 15px 0;
-    max-height:422px;
+    max-height: 422px;
 }
 
 /* -- FOOTER -- */
@@ -267,7 +281,7 @@ footer {
     gap: 15px;
 }
 
-.homepage-btn {
+.homepage-btn {         /* Do we want padding: 10px 20px; */
     padding: 20px;
     background-color: var(--accent);
     font-family: 'Bungee Inline', cursive;
@@ -351,9 +365,6 @@ footer {
  }
 
  /* FILTER RESULTS */
-
-
-
 
 .filter-display {
     width: calc(100% - 180px);
@@ -447,12 +458,11 @@ footer {
 .ingredient-container:hover{
     cursor: pointer;
     background-color: var(--accent);
-    
+
 }
 .ingredient-container:hover p{
     color: var(--primary-color);
 }
-
 
 .ingredient-container p{
     font-size: 12px;
@@ -481,7 +491,7 @@ footer {
 
 .selected {
     background-color: var(--accent);
-    
+
 }
 .selected p {
     color: var(--primary-color);
@@ -580,10 +590,95 @@ span:before {
     }
 }
 
-
 /* v-- hidden while loading screen is displayed --v */
 main {
     display: none;
+    flex-direction: column;
+}
+
+/* -- NON-COCKTAIL CONTENT STYLING --  */
+
+/* This wraps main, section, aside, etc. for equal margins */
+.content-wrapper {
+    margin: 40px;
+    text-align: center;
+}
+
+main p {
+    color: var(--accent);
+}
+
+/* -- About Page -- */
+.team-card-container {
+    width: 100%;
+    display: flex;
+    /* vvvv MOBILE: column < 1440px >>>> NEEDS margin on .team-card */
+    /* flex-direction: column; */
+    justify-content: space-between;
+    padding-top: 60px;
+}
+
+/* team cards */
+.team-card {
+    background-color: var(--secondary-color);
+    width: 250px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    margin: 10px;
+}
+
+.team-card img {
+    width: 230px;
+    min-height: 230px;
+    border-radius: 115px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    bottom: 90px;
+    border: solid 2px var(--accent);
+                            /* vvvvv----NOT SURE IF NEEDED YET */
+    /* object-fit:fill; */
+    /* overflow: hidden; */
+}
+
+.team-card h3, .team-card p {
+    color: var(--accent);
+    margin: 0;
+    padding: 0;
+}
+
+.team-card h3 {
+    margin-top: -60px;
+    margin-bottom: 20px;
+}
+
+.team-card p {
+    /* vvvv can delete if matches root size */
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.team-card a {}
+
+.team-card button {
+    width: 200px;
+    background-color: var(--accent);
+    color: var(--primary-color);
+    font-family: 'Bungee Inline';
+    font-size: 20px;
+    font-weight: 400; /* WOULD PREFER 600, 700 */
+    border-style: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+}
+
+.team-card button:hover {
+    background-color: var(--primary-color);
+    color: var(--accent);
+
 }
 
 /* DETAILS PAGE STYLING */
@@ -614,6 +709,55 @@ main {
 .ingredients{
     padding-bottom: 40px;
 
+}
+
+#list-of-ingredients{
+    display: flex;
+    gap:10px;
+    flex-wrap: wrap;
+}
+
+.ingredients button{
+    font-family: 'Courier Prime', monospace;
+    color: var(--seconday-color);
+    background-color: var(--accent);
+    padding: 8px 5px;
+    border-radius: 10px;
+    border: solid 3px var(--accent);
+}
+
+.ingredients button:hover{
+    color: var(--accent);
+    background-color: var(--primary-color);
+    border: solid 3px var(--accent);
+    cursor: pointer;
+}
+
+.current-image{
+    display: flex;
+    margin: 50px 50px;
+}
+
+.current-image img{
+    width: 500px;
+    height: 600px;
+    border-radius: 20px;
+    margin-top: 22px;
+}
+
+.current-image-info{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-left: 100px;
+}
+
+.current-image h3{
+    letter-spacing: 5px;
+}
+
+.ingredients{
+    padding-bottom: 40px;
 }
 
 #list-of-ingredients{
