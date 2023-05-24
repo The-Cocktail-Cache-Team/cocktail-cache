@@ -617,7 +617,7 @@ main p {
 
 /* team cards */
 .team-card {
-    background-color: var(--accent);
+    background-color: var(--secondary-color);
     width: 250px;
     max-height: 400px;
     border-radius: 10px;
@@ -625,6 +625,7 @@ main p {
     flex-direction: column;
     align-items: center;
     padding: 30px;
+    margin: 10px;
 }
 
 .team-card img {
@@ -635,18 +636,15 @@ main p {
     padding: 0;
     position: relative;
     bottom: 90px;
-    border: solid 2px var(--primary-color);
+    border: solid 2px var(--accent);
                             /* vvvvv----NOT SURE IF NEEDED YET */
     /* object-fit:fill; */
     /* overflow: hidden; */
 }
 
-.team-card {
-    margin: 10px;
-}
 
 .team-card h3, .team-card p {
-    color: var(--primary-color);
+    color: var(--accent);
     margin: 0;
     padding: 0;
 }
@@ -662,16 +660,19 @@ main p {
     margin-bottom: 20px;
 }
 
+
+
 .team-card a {}
 
 .team-card button {
-    background-color: var(--primary-color);
-    color: var(--accent);
     width: 200px;
+    background-color: var(--accent);
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: 400; /* WOULD PREFER 600, 700 */
     border-style: none;
     border-radius: 10px;
     padding: 10px 20px;
-    font-size: 20px;
 }
 
 /* DETAILS PAGE STYLING */
