@@ -87,7 +87,7 @@ header {
     font-size: 24px;
 }
 
-nav {
+nav, .nav-link-container {
     display: flex;
     align-items: center;
     gap: 30px;
@@ -100,9 +100,15 @@ nav a {
 
 #random-cocktail-nav-btn {
     cursor: pointer;
-    margin-right: 78.73px; /* may be causing issues with spacing between icon and navbar items */
 }
 
+.last-nav-button {
+    margin-right: 78.73px;
+}
+
+.mobile-menu-bg-screen{
+    display: none;
+}
 /* -- SEARCH BARS -- */
 
 .search-bar {
@@ -160,7 +166,7 @@ nav a {
 }
 
 .search-container:hover .nav-search-bar {
-    width: 400px;
+    width: 455px;
 }
 
 .search-bar input {
@@ -247,14 +253,117 @@ nav a {
     max-height: 422px;
 }
 
+/* -- RESPONSIVE HEADER AND SERACH BAR -- */
+
+#mobile-menu-btn {
+    display: none;
+    margin: 0;
+    position: relative;
+    top:3px;
+    user-select: none;
+}
+
+#mobile-menu-btn:hover {
+    cursor: pointer;
+}
+
+@media (max-width:850px) {
+    header {
+        height: 60px;
+    }
+    .logo{
+        font-size: 20px;
+    }
+    #mobile-menu-btn {
+        display: block;
+    }
+    nav {
+        display: flex;
+        position: absolute;
+        justify-content: space-between;
+        top: 60px;
+        left:0;
+        width: 100%;
+        background-color: var(--secondary-color);
+        flex-direction: column-reverse;
+        border-radius: 0 0 20px 20px;
+        height: 0;
+        z-index: 10;
+        overflow: hidden;
+        transition: height .2s ease-in-out;
+    }
+    .nav-link-container{
+        flex-direction: column;
+        gap:10px;
+    }
+    .last-nav-button {
+        margin: 0 0 60px 0;
+    }
+    .search-container {
+        position: relative;
+    }
+    .nav-search-bar {
+        width: calc(100vw - 80px);
+        background-color: var(--primary-color);
+        transition: none;
+    }
+    .search-container:hover .nav-search-bar {
+        width: calc(100vw - 80px);
+    }
+    #predictive-search-results, .predictive-search-item {
+        background-color: var(--primary-color);
+        font-size: 20px;
+    }
+    .predictive-search-item {
+        padding: 5px 40px;
+    }
+    .index-predictive-search-item{
+        background-color: var(--secondary-color);
+    }
+    .mobile-menu-bg-screen {
+        display: block;
+        background-color: var(--primary-color);
+        height: calc(100vh - 60px);
+        width: 100vw;
+        position: absolute;
+        z-index: 9;
+        top:60px;
+        left: 0;
+        opacity: 0;
+        transition: opacity .2s ease-in-out;
+        pointer-events: none;
+    }
+    #predictive-search-results {
+        top: calc(47.93px / 2);
+        padding: 30px 0 15px 0;
+        max-height: 422px;
+    }
+    #main-predictive-search-results {
+        padding: 35px 0 15px 0;
+        max-height: 422px;
+        top: 40px;
+        top: 30px
+    }
+    .search-container:hover #predictive-search-results {
+        padding: 30px 0 15px 0;
+        max-height: 422px;
+    }
+    .main-search-container:hover #main-predictive-search-results {
+        padding: 35px 0 15px 0;
+        max-height: 422px;
+    }
+}
+
 /* -- FOOTER -- */
 
 footer {
     display: flex;
     height: 80px;
-    width: 100%;
+    width: calc(100% - 60px);
+    margin: auto;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 /* -- INDEX PAGE -- */
@@ -281,8 +390,8 @@ footer {
     gap: 15px;
 }
 
-.homepage-btn {         /* Do we want padding: 10px 20px; */
-    padding: 20px;
+.homepage-btn {
+    padding:10px 20px;
     background-color: var(--accent);
     font-family: 'Bungee Inline', cursive;
     font-size: 24px;
@@ -298,6 +407,42 @@ footer {
     background-color: var(--primary-color);
     color: var(--accent);
 }
+
+@media (max-width:850px) {
+    .fullscreen-responsive {
+        height: calc(100vh - 140px);
+    }
+}
+
+@media (max-width:760px) {
+    .main-container {
+        width: calc(100% - 60px);
+    }
+    .index-search-bar {
+        height: 34px;
+        border-radius: 40px;
+        padding: 16px 12px 10px 12px;
+    }
+    .decorative-search-border {
+        height: 54px;
+        width: 100%;
+    }
+    .index-search-bar button {
+        padding: 0;
+    }
+    .index-search-bar button img {
+        height: 30px;
+    }
+    .btns-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        gap: 15px;
+    }
+    .homepage-btn {
+        font-size: 20px;
+    }
+}
+
 
 /* -- BROWSE ALL COCKTAILS PAGE --  */
 
@@ -660,8 +805,6 @@ main p {
     font-size: 16px;
     margin-bottom: 20px;
 }
-
-.team-card a {}
 
 .team-card button {
     width: 200px;

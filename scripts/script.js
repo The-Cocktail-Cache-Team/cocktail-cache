@@ -319,15 +319,15 @@ if(window.location.pathname === "/index.html"){
             const firstFiveResults = predictiveSearchList.filter((item, index) => index < 5);
 
             const resultHTML = firstFiveResults.map(item => {
-                return `<p class="predictive-search-item" onclick="search('${item}')">${item}</p>`;
+                return `<p class="predictive-search-item index-predictive-search-item" onclick="search('${item}')">${item}</p>`;
             });
 
             if(predictiveSearchList.length > 5) {
-                resultHTML.push('<p class="predictive-search-item">...</p>');
+                resultHTML.push('<p class="predictive-search-item index-predictive-search-item">...</p>');
             }
 
             if(firstFiveResults.length === 0){
-                mainPredictiveSearchContainer.innerHTML = '<p class="predictive-search-item">SORRY, NO RESULTS</p>'
+                mainPredictiveSearchContainer.innerHTML = '<p class="predictive-search-item index-predictive-search-item">SORRY, NO RESULTS</p>'
             } else {
                 mainPredictiveSearchContainer.innerHTML = resultHTML.join("");
             }
@@ -344,6 +344,9 @@ if(window.location.pathname === "/index.html"){
             search(mainSearchInput.value.toUpperCase());
         }
     };
+
+    document.getElementById("browse-index-btn").addEventListener("click", () => {window.location.href = `./browse.html`});
+    document.getElementById("quiz-index-btn").addEventListener("click", () => {window.location.href = `./quiz.html`});
 };
 
 
@@ -358,3 +361,23 @@ function search(searchString) {
         window.location.href = `./browse.html?id=${searchString}`;
     }
 }
+
+//MOBILE MENU
+
+let mobileMenuOpen = false;
+
+const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+
+mobileMenuBtn.addEventListener("click", () => {
+    if (mobileMenuOpen) {
+        mobileMenuOpen = false;
+        mobileMenuBtn.innerHTML = "&#9776;";
+        document.querySelector("nav").style.height = "0";
+        document.querySelector(".mobile-menu-bg-screen").style.opacity = "0";
+    } else {
+        mobileMenuOpen = true;
+        mobileMenuBtn.innerHTML = "&#120299;";
+        document.querySelector("nav").style.height = "290px";
+        document.querySelector(".mobile-menu-bg-screen").style.opacity = ".9";
+    }
+});
