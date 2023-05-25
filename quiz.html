@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./css/normalize.css" type="text/css">
     <link rel="stylesheet" href="./css/style.css" type="text/css">
     <link rel="stylesheet" href="./css/quiz.css">
@@ -17,15 +19,24 @@
 <body>
     <header>
         <a class="logo" href="./index.html">THE COCKTAIL CACHE</a>
+        <p id="mobile-menu-btn">&#9776;</p>
         <nav>
-            <a href="./browse.html">BROWSE</a>
-            <a href="./quiz.html">QUIZ</a>
-            <a id="random-cocktial-nav-btn">RANDOM</a>
-            <form class="search-bar nav-search-bar">
-                <input type="text" placeholder="SEARCH FOR A COCKTAIL">
-                <button><img src="./assets/search_icon_accent_yellow.svg"></button>
+            <div class="nav-link-container">
+                <a href="./browse.html">BROWSE</a>
+                <a href="./quiz.html">QUIZ</a>
+                <a id="random-cocktail-nav-btn">RANDOM</a>
+                <a class="last-nav-button" href="./about.html">ABOUT</a>
+            </div>
+            <form class="search-container">
+                <div class="search-bar nav-search-bar">
+                    <input type="text" id="nav-search-input" placeholder="SEARCH FOR A COCKTAIL">
+                    <button id="nav-search-btn"><img src="./assets/search_icon_accent_yellow.svg"></button>
+                </div>
+                <div id="predictive-search-results">
+                </div>
             </form>
         </nav>
+        <div class="mobile-menu-bg-screen"></div>
     </header>
     <div id="loading-screen" class="fullscreen-responsive">
         <div class="ring">Loading
@@ -34,9 +45,7 @@
     </div>
     <main>
         <form id="quiz-container">
-            <div class="quiz-title">
             <h1>Which Cocktail Are You?</h1>
-            </div>
             <div id="question-container">
               <!-- Questions and options will be dynamically added here -->
             </div>
@@ -52,4 +61,5 @@
     <!-- <script src="./scripts/script.js"></script> -->
     <script src="./scripts/quiz.js"></script>
 </body>
+
 </html>
