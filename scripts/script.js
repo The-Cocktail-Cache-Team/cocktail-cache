@@ -358,3 +358,11 @@ function search(searchString) {
         window.location.href = `./browse.html?id=${searchString}`;
     }
 }
+
+function getRandom() {
+  const cocktailId = "";
+}
+
+console.log("Begin RANDOM console logs:\n");
+console.log(allDrinks);
+
