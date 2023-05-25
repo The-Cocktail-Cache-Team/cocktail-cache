@@ -18,10 +18,14 @@
 <body>
     <header>
         <a class="logo" href="./index.html">THE COCKTAIL CACHE</a>
+        <p id="mobile-menu-btn">&#9776;</p>
         <nav>
-            <a href="./browse.html">BROWSE</a>
-            <a href="./quiz.html">QUIZ</a>
-            <a id="random-cocktail-nav-btn">RANDOM</a>
+            <div class="nav-link-container">
+                <a href="./browse.html">BROWSE</a>
+                <a href="./quiz.html">QUIZ</a>
+                <a id="random-cocktail-nav-btn">RANDOM</a>
+                <a class="last-nav-button" href="./about.html">ABOUT</a>
+            </div>
             <form class="search-container">
                 <div class="search-bar nav-search-bar">
                     <input type="text" id="nav-search-input" placeholder="SEARCH FOR A COCKTAIL">
@@ -31,6 +35,7 @@
                 </div>
             </form>
         </nav>
+        <div class="mobile-menu-bg-screen"></div>
     </header>
     <div id="loading-screen" class="fullscreen-responsive">
         <div class="ring">Loading
