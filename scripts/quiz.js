@@ -2,37 +2,36 @@
 let allDrinks;
 const chosenOptions = [];
 
-// fetch('cocktaildb_api_clone_local.txt')
-//   .then((result) => result.json())
-//   .then((json) => {
-//     allDrinks = json.drinks;
-//     return allDrinks;
-//   });
+fetch('cocktaildb_api_clone_local.txt')
+.then((result) => result.json())
+.then((json) => {
+  allDrinks = json.drinks;
+  return allDrinks;
+})
+.then(() => {
+  const questions = [
+    {
+      question: "First things first: Do you want your drink to include alcohol?",
+      key: 'strAlcoholic',
+      options: ["Yes, booze me up please!", "No thanks, get me a mocktail!"],
+    },
+    {
+      question: "Pick your favorite glass to drink out of:",
+      key: 'strGlass',
+      options: ["Highball glass", "Coffee mug", "Shot glass", "Cocktail glass", "Mason Jar"],
+    },
+    {
+      question: "Do you prefer your drink recipe to have a simple or complex list of ingredients?",
+      key: 'strIngredient',
+      options: ["The simpler, the better", "Give me something more complex"],
+    },
+  ];
 
-//     const questions = [
-//       {
-//         question: "First things first: Do you want your drink to include alcohol?",
-//         key: 'strAlcoholic',
-//         options: ["Yes, booze me up please!", "No thanks, get me a mocktail!"],
-//         // strAlcoholic: "Alcoholic"
-//         // strAlcoholic: "Non alcoholic" OR "Optional alcohol"
-//       },
-//       {
-//         question: "Pick your favorite glass to drink out of: ",
-//         key: 'strGlass',
-//         options: ["Highball glass", "Coffee mug", "Shot glass", "Cocktail glass", "Mason Jar"],
-//       },
-//       {
-//         question: "Do you prefer your drink recipe to have a simple or complex list of ingredients?",
-//         key: 'strIngredient',
-//         options: ["The simpler, the better", "Give me something more complex"],
-//         // 3 or less ingredients, strIngredient1 etc.
-//         // 4 or more ingredients
-//       },
-//     ];
+  createQuestionElements();
+});
     function createQuestionElements() {
       const quizContainer = document.getElementById('quiz-container');
-      questions.forEach((question, index) => {
+      questions.forEach(question, index) => {
         const questionElement = document.createElement('h3');
         questionElement.textContent = `Q${index + 1}: ${question.question}`;
         quizContainer.appendChild(questionElement)};
@@ -46,6 +45,7 @@ const chosenOptions = [];
         });
         quizContainer.appendChild(optionsElement);
     }
+
     createQuestionElements();
 
     function loadQuestion() {
@@ -109,7 +109,6 @@ function handleFormSubmit(event) {
     handleFormSubmit();
 
 
-    
     function calculateResult() {
       let filteredDrinks = [];
     
@@ -120,8 +119,8 @@ function handleFormSubmit(event) {
         if (alcoholOption === "Yes, booze me up please!") {
           return drink.strAlcoholic === "Alcoholic";
         } else if (alcoholOption === "No thanks, get me a mocktail!") {
-          return drink.strAlcoholic === "Non alcoholic" || drink.strAlcoholic === "Optional alcohol";
-        }
+          return drink.strAlcoholic === "Non alcoholic" && drink.strAlcoholic === "Optional alcohol";
+        };
     
         // Check second question: glass preference
         const glassOption = chosenOptions[1];
@@ -159,30 +158,30 @@ function handleFormSubmit(event) {
     };
     displayResult();
 
-    fetch('cocktaildb_api_clone_local.txt')
-  .then((result) => result.json())
-  .then((json) => {
-    allDrinks = json.drinks;
-    return allDrinks;
-  })
-  .then(() => {
-    const questions = [
-      {
-        question: "First things first: Do you want your drink to include alcohol?",
-        key: 'strAlcoholic',
-        options: ["Yes, booze me up please!", "No thanks, get me a mocktail!"],
-      },
-      {
-        question: "Pick your favorite glass to drink out of:",
-        key: 'strGlass',
-        options: ["Highball glass", "Coffee mug", "Shot glass", "Cocktail glass", "Mason Jar"],
-      },
-      {
-        question: "Do you prefer your drink recipe to have a simple or complex list of ingredients?",
-        key: 'strIngredient',
-        options: ["The simpler, the better", "Give me something more complex"],
-      },
-    ];
+  //   fetch('cocktaildb_api_clone_local.txt')
+  // .then((result) => result.json())
+  // .then((json) => {
+  //   allDrinks = json.drinks;
+  //   return allDrinks;
+  // })
+  // .then(() => {
+  //   const questions = [
+  //     {
+  //       question: "First things first: Do you want your drink to include alcohol?",
+  //       key: 'strAlcoholic',
+  //       options: ["Yes, booze me up please!", "No thanks, get me a mocktail!"],
+  //     },
+  //     {
+  //       question: "Pick your favorite glass to drink out of:",
+  //       key: 'strGlass',
+  //       options: ["Highball glass", "Coffee mug", "Shot glass", "Cocktail glass", "Mason Jar"],
+  //     },
+  //     {
+  //       question: "Do you prefer your drink recipe to have a simple or complex list of ingredients?",
+  //       key: 'strIngredient',
+  //       options: ["The simpler, the better", "Give me something more complex"],
+  //     },
+  //   ];
 
-    createQuestionElements();
-  });
+  //   createQuestionElements();
+  // });

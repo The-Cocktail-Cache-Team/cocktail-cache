@@ -7,6 +7,8 @@ let allDrinkNamesAndIngredients;
 let filters = [];
 let allDrinksToDisplay = [];
 let complexityFilterValue = 16;
+let chosenOptions = [];
+let questionTracker = 0;
 
 fetch(`cocktaildb_api_clone_local.txt`)
 .then((result) => result.json())
@@ -381,3 +383,137 @@ mobileMenuBtn.addEventListener("click", () => {
         document.querySelector(".mobile-menu-bg-screen").style.opacity = ".9";
     }
 });
+
+
+if(window.location.pathname === "/quiz.html") {
+
+  const questions = [
+    {
+      question: "First things first: Do you want your drink to include alcohol?",
+      key: 'strAlcoholic',
+      options: ["Yes, booze me up please!", "No thanks, get me a mocktail!"]
+    },
+    {
+      question: "Pick your favorite glass to drink out of:",
+      key: 'strGlass',
+      options: ["Highball glass", "Coffee mug", "Shot glass", "Cocktail glass", "Mason Jar"]
+    },
+    {
+      question: "Do you prefer your drink recipe to have a simple or complex list of ingredients?",
+      key: 'strIngredient',
+      options: ["The simpler, the better", "Give me something more complex"]
+    }
+  ];
+
+  const questionContainer = document.getElementById('question-container');
+  const options = document.getElementById('options-container');
+  const results = document.getElementById('result-container');
+
+
+    function loadQuestion() {
+      questionContainer.innerHTML = ""; 
+      options.innerHTML = "";
+      results.innerHTML = "";
+    
+    const currentQuestion = questions[questionTracker];
+      const questionElement = document.createElement("h2");
+      questionElement.textContent = `Q${questionTracker + 1}: ${currentQuestion.question}`;
+      questionContainer.appendChild(questionElement);
+    
+      currentQuestion.options.forEach((option) => {
+        const optionElement = document.createElement("button");
+        optionElement.textContent = option;
+        optionElement.addEventListener("click", handleOptionSelect);
+        options.appendChild(optionElement);
+      });
+    };
+    loadQuestion();
+
+    
+    function handleOptionSelect(event) {
+        event.preventDefault();
+      const selectedOption = event.target.textContent;
+      chosenOptions.push(selectedOption);
+      questionTracker++;
+      loadQuestion();
+      if (chosenOptions.length === questions.length) {
+        const result = calculateResult();
+        displayResult(result);
+      }
+    };
+
+
+// function handleFormSubmit(event) {
+//   event.preventDefault(); // Prevent the default form submission
+  
+//   // Empty array to store user's answers
+//   let userAnswers = [];
+  
+//   // Iterate through each question
+//   for (let i = 0; i < questions.length; i++) {
+//     const question = questions[i];
+    
+//     // Get the selected radio button for the current question
+//     const selectedRadio = document.querySelector(`input[name="question${i}"]:checked`);
+    
+//     if (selectedRadio) {
+//       userAnswers.push(selectedRadio.value);
+//     } else {
+//       console.log("Please select an option");
+//     }
+//   }
+  
+//   calculateResult(userAnswers);
+// };
+//     handleFormSubmit();
+
+
+//     function calculateResult() {
+//       let filteredDrinks = [];
+    
+//       // Filter drinks based on chosen options
+//       filteredDrinks = allDrinks.filter(drink => {
+//         // Check first question: alcohol preference
+//         const alcoholOption = chosenOptions[0];
+//         if (alcoholOption === "Yes, booze me up please!") {
+//           return drink.strAlcoholic === "Alcoholic";
+//         } else if (alcoholOption === "No thanks, get me a mocktail!") {
+//           return drink.strAlcoholic === "Non alcoholic" && drink.strAlcoholic === "Optional alcohol";
+//         };
+    
+//         // Check second question: glass preference
+//         const glassOption = chosenOptions[1];
+//         return drink.strGlass === glassOption;
+//       });
+//       calculateResult();
+    
+//       // Calculate score based on the number of filtered drinks
+//       const score = filteredDrinks.length;
+    
+//       // Return result object with the filtered drinks and the score
+//       return {
+//         filteredDrinks,
+//         score
+//       };
+//     };
+//     calculateResult();
+    
+//     function displayResult(result) {
+//       const resultContainer = document.getElementById("result-container");
+//       resultContainer.innerHTML = ""; // Clear the previous result
+    
+//       if (result.filteredDrinks.length > 0) {
+//         const randomIndex = Math.floor(Math.random() * result.filteredDrinks.length);
+//         const randomCocktail = result.filteredDrinks[randomIndex];
+    
+//         const resultElement = document.createElement("h2");
+//         resultElement.textContent = `You got: ${randomCocktail.strDrink}`;
+//         resultContainer.appendChild(resultElement);
+//       } else {
+//         const resultElement = document.createElement("p");
+//         resultElement.textContent = "No matching drink found for your preferences";
+//         resultContainer.appendChild(resultElement);
+//       }
+//     };
+//     displayResult();
+};
