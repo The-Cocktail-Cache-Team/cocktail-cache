@@ -405,9 +405,22 @@ function search(searchString) {
 }
 
 // -- RANDOM COCKTAIL FEATURE
-const randomCocktailNavBtn = getElementById("random-cocktail-nav-btn");
+
+const randomNav = document.getElementById("random-cocktail-nav-btn");
 
 function showRandom() {
-    console.log("Begin RANDOM console logs:\n");
-    console.log(allDrinks[randomDrink]);
-};
+  const randomInteger = Math.floor(Math.random() * allDrinks.length); // creates num between 0 & 634 inclusive
+  const randomDrink = allDrinks[randomInteger].idDrink;
+
+  window.location.href = `./details.html?id=${randomDrink}`;
+
+  // probably won't need this ---v
+  // randomNav.setAttribute(href, `./details.html?${randomDrinkId}`);
+  console.log("Begin RANDOM console logs:\n");
+  // console.log(allDrinks);
+  // console.log(allDrinks[0]);
+  // console.log(allDrinks.length);
+  // console.log(randomInteger);
+  // console.log(allDrinks.idDrink);
+  // console.log(randomDrink);
+}
