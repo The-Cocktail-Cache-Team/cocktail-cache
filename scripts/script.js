@@ -384,8 +384,8 @@ mobileMenuBtn.addEventListener("click", () => {
 
 // -- RANDOM COCKTAIL FEATURE
 
-const randomNav = document.getElementById("random-cocktail-nav-btn");
-
+const navRandom = document.getElementById("random-cocktail-nav-btn");
+const indexRandomBtn = document.getElementById("random-index-btn");
 const getRandomIndex = (max) => Math.floor(Math.random() * max);
 
 function showRandom() {
@@ -393,9 +393,14 @@ function showRandom() {
   const randomDrinkObject = allDrinks[randomInteger];
   const randomDrinkById = randomDrinkObject.idDrink;
 
-  console.log(`This is a random index: ${randomInteger}`);
-
-  window.location.href = `./details.html?id=${randomDrinkById}`;
+  navRandom
+    .getElementById("random-cocktail-nav-btn")
+    .addEventListener("click", () => {
+      window.location.href = `./details.html?id=${randomDrinkById}`;
+    });
+  document.getElementById("random-index-btn").addEventListener("click", () => {
+    window.location.href = `./details.html?id=${randomDrinkById}`;
+  });
 }
   // probably won't need this ---v
   // randomNav.setAttribute(href, `./details.html?${randomDrinkId}`);
