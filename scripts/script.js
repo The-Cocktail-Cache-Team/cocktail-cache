@@ -408,19 +408,23 @@ function search(searchString) {
 
 const randomNav = document.getElementById("random-cocktail-nav-btn");
 
+const getRandomIndex = (max) => Math.floor(Math.random() * max);
+
 function showRandom() {
-  const randomInteger = Math.floor(Math.random() * allDrinks.length); // creates num between 0 & 634 inclusive
-  const randomDrink = allDrinks[randomInteger].idDrink;
+  const randomInteger = getRandomIndex(allDrinks.length); // creates num between 0 & 634 inclusive
+  const randomDrinkObject = allDrinks[randomInteger];
+  const randomDrinkById = randomDrinkObject.idDrink;
 
-  window.location.href = `./details.html?id=${randomDrink}`;
+  console.log(`This is a random index: ${randomInteger}`);
 
+  window.location.href = `./details.html?id=${randomDrinkById}`;
+}
   // probably won't need this ---v
   // randomNav.setAttribute(href, `./details.html?${randomDrinkId}`);
-  console.log("Begin RANDOM console logs:\n");
+  // console.log("Begin RANDOM console logs:\n");
   // console.log(allDrinks);
   // console.log(allDrinks[0]);
   // console.log(allDrinks.length);
   // console.log(randomInteger);
   // console.log(allDrinks.idDrink);
   // console.log(randomDrink);
-}
