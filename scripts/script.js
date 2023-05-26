@@ -386,7 +386,7 @@ mobileMenuBtn.addEventListener("click", () => {
 
 
 if(window.location.pathname === "/quiz.html") {
-
+//store questions and options
   const questions = [
     {
       question: "First things first: Do you want your drink to include alcohol?",
@@ -399,7 +399,7 @@ if(window.location.pathname === "/quiz.html") {
       options: ["Highball glass", "Coffee mug", "Shot glass", "Cocktail glass", "Mason Jar"]
     },
     {
-      question: "Do you prefer your drink recipe to have a simple or complex list of ingredients?",
+      question: "Do you prefer your drink recipe to have a short (7 or less) or longer list of ingredients?",
       key: 'strIngredient',
       options: ["The simpler, the better", "Give me something more complex"]
     }
@@ -409,7 +409,7 @@ if(window.location.pathname === "/quiz.html") {
   const options = document.getElementById('options-container');
   const results = document.getElementById('result-container');
 
-
+//utility function to load questions and generate html elements using tracking variable
     function loadQuestion() {
       questionContainer.innerHTML = ""; 
       options.innerHTML = "";
@@ -435,85 +435,96 @@ if(window.location.pathname === "/quiz.html") {
       const selectedOption = event.target.textContent;
       chosenOptions.push(selectedOption);
       questionTracker++;
-      loadQuestion();
       if (chosenOptions.length === questions.length) {
-        const result = calculateResult();
-        displayResult(result);
+        calculateResult();
+      } else {
+        loadQuestion();
+        console.log("test");
       }
     };
 
 
-// function handleFormSubmit(event) {
-//   event.preventDefault(); // Prevent the default form submission
+//handle utility {
+    //store answer in array
+    //increase tracker
+    //if (tracker =3) run result function
+    //else load new question
+    //}
+// results function {
+    //filtered array = all drinks;
+    //interperate first result into filter alcholic friendly value (maybe switch statement)
+    //fitler for new created values
+    //pass filtered array down
+    //interperate first result into filter glass friendly value (maybe switch statement)
+    //fitler for new created values
+    //pass filtered array down
+    //interperate first result into filter complexity friendly value (maybe switch statement)
+    //fitler for new created values
+    //pass filtered array down
   
-//   // Empty array to store user's answers
-//   let userAnswers = [];
-  
-//   // Iterate through each question
-//   for (let i = 0; i < questions.length; i++) {
-//     const question = questions[i];
+    //check how many results there are using .length
     
-//     // Get the selected radio button for the current question
-//     const selectedRadio = document.querySelector(`input[name="question${i}"]:checked`);
-    
-//     if (selectedRadio) {
-//       userAnswers.push(selectedRadio.value);
-//     } else {
-//       console.log("Please select an option");
-//     }
-//   }
-  
-//   calculateResult(userAnswers);
-// };
-//     handleFormSubmit();
+    //remove questions and options from html
+    // load new animated div with 'finding your cocktail match' and animated loading bar
+    //setTimeout with same timming as loading animation (maybe 3 seconds?) to navigate to details with cocktail match id.
+//}
+
+    function calculateResult() {
+
+      // Filter drinks based on chosen options
+      let filteredDrinks = allDrinks.filter(drink => {
+        // Check first question: alcohol preference
+        const alcoholOption = chosenOptions[0];
+        let isAlcoholic = true;
+        if (drink.strAlcoholic === "Optional alcohol") {
+            return drink
+        } else if (alcoholOption === "Yes, booze me up please!" && drink.strAlcoholic === "Alcoholic") {
+            return drink;
+        } else if (alcoholOption === "No thanks, get me a mocktail!" && drink.strAlcoholic === "Non alcoholic") {
+            return drink;
+        }});
 
 
-//     function calculateResult() {
-//       let filteredDrinks = [];
+         // Check second question: glass preference
+        let filterDrinks2 = filteredDrinks.filter(drink => {
+            if (drink.strGlass === chosenOptions[1]) {
+                return drink;
+            }
+
+    });
     
-//       // Filter drinks based on chosen options
-//       filteredDrinks = allDrinks.filter(drink => {
-//         // Check first question: alcohol preference
-//         const alcoholOption = chosenOptions[0];
-//         if (alcoholOption === "Yes, booze me up please!") {
-//           return drink.strAlcoholic === "Alcoholic";
-//         } else if (alcoholOption === "No thanks, get me a mocktail!") {
-//           return drink.strAlcoholic === "Non alcoholic" && drink.strAlcoholic === "Optional alcohol";
-//         };
-    
-//         // Check second question: glass preference
-//         const glassOption = chosenOptions[1];
-//         return drink.strGlass === glassOption;
-//       });
-//       calculateResult();
-    
-//       // Calculate score based on the number of filtered drinks
-//       const score = filteredDrinks.length;
-    
-//       // Return result object with the filtered drinks and the score
-//       return {
-//         filteredDrinks,
-//         score
-//       };
-//     };
-//     calculateResult();
-    
-//     function displayResult(result) {
-//       const resultContainer = document.getElementById("result-container");
-//       resultContainer.innerHTML = ""; // Clear the previous result
-    
-//       if (result.filteredDrinks.length > 0) {
-//         const randomIndex = Math.floor(Math.random() * result.filteredDrinks.length);
-//         const randomCocktail = result.filteredDrinks[randomIndex];
-    
-//         const resultElement = document.createElement("h2");
-//         resultElement.textContent = `You got: ${randomCocktail.strDrink}`;
-//         resultContainer.appendChild(resultElement);
-//       } else {
-//         const resultElement = document.createElement("p");
-//         resultElement.textContent = "No matching drink found for your preferences";
-//         resultContainer.appendChild(resultElement);
-//       }
-//     };
-//     displayResult();
+        // Check third question: ingredients
+        let filterDrinks3 = filterDrinks2.filter(drink => {
+          let ingredientCounter = 0;
+          for (let i = 1; i <= 15; i++) {
+            const objKey = "strIngredient" + i;
+            if (drink[objKey] !== null) {
+                ingredientCounter++;
+            }};
+            if (chosenOptions[2] === "The simpler, the better" && ingredientCounter <= 7) {
+                return drink;
+            } else if (chosenOptions[2] === "Give me something more complex" && ingredientCounter >= 7) {
+                return drink;
+            };
+    });
+
+  //if filtered array has at least 1 option continue
+    // else update array to values before last filter, repeat
+
+    if (filterDrinks3.length < 1) {
+        filterDrinks3 = filterDrinks2;
+    };
+
+    if (filterDrinks2.length < 1) {
+        filterDrinks3 = filteredDrinks;
+    };
+
+    //generate random index between 0 - .length (maybe re-use Brandon's code)
+    //access random index cocktail to be their match
+
+const randomInterger = getRandomIndex(filterDrinks3.length);
+    const randomDrinkId = filterDrinks3[randomInterger].idDrink;
+    window.location.href = `./details?id=${randomDrinkId}`;
+}
 };
+
