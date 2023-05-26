@@ -12,6 +12,13 @@ main {
 #quiz-container h1 {
   justify-content: center;
   text-align: center;
+  padding-top: 50px;
+  opacity: 0;
+  transition: opacity 5s ease-in-out;
+}
+
+#quiz-container h1.show {
+  opacity: 1;
 }
   
   #question-container {
@@ -19,10 +26,15 @@ main {
     justify-content: center;
   text-align: center;
     color: var(--accent);
+    padding: 25px 0 35px 0;
   }
 
   #question-container h2 {
-    background-color: var(--secondary-color);
+    font-family: 'Courier Prime', monospace;
+    width: 50%;
+    font-weight: 100;
+    font-size: 35px;
+    color: wheat;
     padding: 15px;
     border-radius: 20px;
   }
@@ -30,22 +42,33 @@ main {
   /*Option Button */
 
   #options-container {
-   align-content: center;
-   justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: row; 
     color: var(--primary-color);
-    background-color: var(--accent);
   }
   
   #options-container button {
-    display: block;
-    align-content: center;
+    font-family: 'Bungee Inline', cursive;
+    display: inline;
+    border: none;
+    align-self: center; 
     justify-content: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    color: var(--secondary-grey);
-    background-color: blue;
-    border-radius: 25%;
+    padding: 35px;
+    margin: 25px 30px;
+    color: var(--accent);
+    background-color: rebeccapurple;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
+
+  #options-container button:hover {
+    background-color: var(--accent);
+    color: var(--primary-color);
+  }
+  
   
   #result-container {
   

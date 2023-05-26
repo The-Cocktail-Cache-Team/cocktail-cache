@@ -389,7 +389,7 @@ if(window.location.pathname === "/quiz.html") {
 //store questions and options
   const questions = [
     {
-      question: "First things first: Do you want your drink to include alcohol?",
+      question: "First things first - Do you want your drink to include alcohol?",
       key: 'strAlcoholic',
       options: ["Yes, booze me up please!", "No thanks, get me a mocktail!"]
     },
@@ -443,13 +443,6 @@ if(window.location.pathname === "/quiz.html") {
       }
     };
 
-
-//handle utility {
-    //store answer in array
-    //increase tracker
-    //if (tracker =3) run result function
-    //else load new question
-    //}
 // results function {
     //filtered array = all drinks;
     //interperate first result into filter alcholic friendly value (maybe switch statement)
@@ -524,8 +517,13 @@ if(window.location.pathname === "/quiz.html") {
 
 const randomInterger = getRandomIndex(filterDrinks3.length);
     const randomDrinkId = filterDrinks3[randomInterger].idDrink;
-    window.location.href = `./details?id=${randomDrinkId}`;
+    window.location.href = `./details.html?id=${randomDrinkId}`;
 }
+document.addEventListener("DOMContentLoaded", function() {
+    const quizTitle = document.querySelector("#quiz-container h1");
+    quizTitle.classList.add("show");
+  });
+  
 };
 
 // -- RANDOM COCKTAIL FEATURE
