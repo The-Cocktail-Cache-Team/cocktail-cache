@@ -397,6 +397,5 @@ function showRandom() {
     window.location.href = `./details.html?id=${randomDrinkById}`;
 }
 
-// "Discover" button on home page
+randomIndexBtn.addEventListener("click", showRandom); // "Discover" button
 navLinkRandom.addEventListener("click", showRandom);
-randomIndexBtn.addEventListener("click", showRandom);
