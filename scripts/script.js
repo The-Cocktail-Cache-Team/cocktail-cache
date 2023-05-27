@@ -345,8 +345,8 @@ if(window.location.pathname === "/index.html"){
         }
     };
 
-    document.getElementById("browse-index-btn").addEventListener("click", () => {window.location.href = `./browse.html`});
-    document.getElementById("quiz-index-btn").addEventListener("click", () => {window.location.href = `./quiz.html`});
+    const randomIndexBtn = document.getElementById("random-index-btn");
+    randomIndexBtn.addEventListener("click", showRandom);
 };
 
 
@@ -381,3 +381,19 @@ mobileMenuBtn.addEventListener("click", () => {
         document.querySelector(".mobile-menu-bg-screen").style.opacity = ".9";
     }
 });
+
+// -- RANDOM COCKTAIL FEATURE
+
+const navLinkRandom = document.getElementById("random-cocktail-nav-btn");
+navLinkRandom.addEventListener("click", showRandom);
+
+const getRandomIndex = max => Math.floor(Math.random() * max);
+
+    // Fn to open details page using a random idDrink
+function showRandom() {
+    const randomInteger = getRandomIndex(allDrinks.length);
+    const randomDrinkObject = allDrinks[randomInteger];
+    const randomDrinkById = randomDrinkObject.idDrink;
+
+    window.location.href = `./details.html?id=${randomDrinkById}`;
+}
