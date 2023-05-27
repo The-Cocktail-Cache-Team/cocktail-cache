@@ -345,8 +345,8 @@ if(window.location.pathname === "/index.html"){
         }
     };
 
-    document.getElementById("browse-index-btn").addEventListener("click", () => {window.location.href = `./browse.html`});
-    document.getElementById("quiz-index-btn").addEventListener("click", () => {window.location.href = `./quiz.html`});
+    const randomIndexBtn = document.getElementById("random-index-btn");
+    randomIndexBtn.addEventListener("click", showRandom);
 };
 
 
@@ -384,25 +384,16 @@ mobileMenuBtn.addEventListener("click", () => {
 
 // -- RANDOM COCKTAIL FEATURE
 
-const randomNav = document.getElementById("random-cocktail-nav-btn");
+const navLinkRandom = document.getElementById("random-cocktail-nav-btn");
+navLinkRandom.addEventListener("click", showRandom);
 
-const getRandomIndex = (max) => Math.floor(Math.random() * max);
+const getRandomIndex = max => Math.floor(Math.random() * max);
 
+    // Fn to open details page using a random idDrink
 function showRandom() {
-  const randomInteger = getRandomIndex(allDrinks.length); // creates num between 0 & 634 inclusive
-  const randomDrinkObject = allDrinks[randomInteger];
-  const randomDrinkById = randomDrinkObject.idDrink;
+    const randomInteger = getRandomIndex(allDrinks.length);
+    const randomDrinkObject = allDrinks[randomInteger];
+    const randomDrinkById = randomDrinkObject.idDrink;
 
-  console.log(`This is a random index: ${randomInteger}`);
-
-  window.location.href = `./details.html?id=${randomDrinkById}`;
+    window.location.href = `./details.html?id=${randomDrinkById}`;
 }
-  // probably won't need this ---v
-  // randomNav.setAttribute(href, `./details.html?${randomDrinkId}`);
-  // console.log("Begin RANDOM console logs:\n");
-  // console.log(allDrinks);
-  // console.log(allDrinks[0]);
-  // console.log(allDrinks.length);
-  // console.log(randomInteger);
-  // console.log(allDrinks.idDrink);
-  // console.log(randomDrink);
