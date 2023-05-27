@@ -384,21 +384,19 @@ mobileMenuBtn.addEventListener("click", () => {
 
 // -- RANDOM COCKTAIL FEATURE
 
-const navRandom = document.getElementById("random-cocktail-nav-btn");
-const indexRandomBtn = document.getElementById("random-index-btn");
+const navLinkRandom = document.getElementById("random-cocktail-nav-btn");
+const randomIndexBtn = document.getElementById("random-index-btn");
 const getRandomIndex = (max) => Math.floor(Math.random() * max);
 
+    // Fn to open details page using a random idDrink
 function showRandom() {
-  const randomInteger = getRandomIndex(allDrinks.length);
-  const randomDrinkObject = allDrinks[randomInteger];
-  const randomDrinkById = randomDrinkObject.idDrink;
+    const randomInteger = getRandomIndex(allDrinks.length);
+    const randomDrinkObject = allDrinks[randomInteger];
+    const randomDrinkById = randomDrinkObject.idDrink;
 
-  navRandom
-    .getElementById("random-cocktail-nav-btn")
-    .addEventListener("click", () => {
-      window.location.href = `./details.html?id=${randomDrinkById}`;
-    });
-  document.getElementById("random-index-btn").addEventListener("click", () => {
     window.location.href = `./details.html?id=${randomDrinkById}`;
-  });
 }
+
+// "Discover" button on home page
+navLinkRandom.addEventListener("click", showRandom);
+randomIndexBtn.addEventListener("click", showRandom);
