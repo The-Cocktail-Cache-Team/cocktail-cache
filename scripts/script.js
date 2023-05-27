@@ -347,84 +347,80 @@ const mainPredictiveSearchContainer = document.getElementById(
 );
 
 if (window.location.pathname === "/index.html") {
-  mainSearchInput.oninput = () => {
-    if (mainSearchInput.value !== "") {
-      mainPredictiveSearchContainer.style.display = "block";
-      const predictiveSearchList = allDrinkNamesAndIngredients.filter((item) =>
-        item.includes(mainSearchInput.value.toUpperCase())
-      );
 
-      const firstFiveResults = predictiveSearchList.filter(
-        (item, index) => index < 5
-      );
+    mainSearchInput.oninput = () => {
+        if (mainSearchInput.value !== "") {
+            mainPredictiveSearchContainer.style.display = "block";
+            const predictiveSearchList = allDrinkNamesAndIngredients.filter((item) =>
+            item.includes(mainSearchInput.value.toUpperCase())
+            );
 
-      const resultHTML = firstFiveResults.map((item) => {
-        return `<p class="predictive-search-item" onclick="search('${item}')">${item}</p>`;
-      });
+            const firstFiveResults = predictiveSearchList.filter(
+                (item, index) => index < 5
+                );
 
-      if (predictiveSearchList.length > 5) {
-        resultHTML.push('<p class="predictive-search-item">...</p>');
-      }
+                const resultHTML = firstFiveResults.map((item) => {
+                    return `<p class="predictive-search-item" onclick="search('${item}')">${item}</p>`;
+                });
 
-      if (firstFiveResults.length === 0) {
-        mainPredictiveSearchContainer.innerHTML =
-          '<p class="predictive-search-item">SORRY, NO RESULTS</p>';
-      } else {
+                if (predictiveSearchList.length > 5) {
+                    resultHTML.push('<p class="predictive-search-item">...</p>');
+                }
+
+                if (firstFiveResults.length === 0) {
+                    mainPredictiveSearchContainer.innerHTML =
+                    '<p class="predictive-search-item">SORRY, NO RESULTS</p>';
+                } else {
         mainPredictiveSearchContainer.innerHTML = resultHTML.join("");
       }
     } else {
-      mainPredictiveSearchContainer.style.display = "none";
-      mainPredictiveSearchContainer.innerHTML = "";
+        mainPredictiveSearchContainer.style.display = "none";
+        mainPredictiveSearchContainer.innerHTML = "";
     }
-  };
+};
 
-  mainSearchBtn.onclick = (e) => {
+mainSearchBtn.onclick = (e) => {
     e.preventDefault();
     if (
-      allDrinkNamesAndIngredients.includes(mainSearchInput.value.toUpperCase())
-    ) {
-      search(mainSearchInput.value.toUpperCase());
-    }
-  };
+        allDrinkNamesAndIngredients.includes(mainSearchInput.value.toUpperCase())
+        ) {
+            search(mainSearchInput.value.toUpperCase());
+        }
+    };
+
 }
 
 function search(searchString) {
-  console.log(searchInput.value.toUpperCase());
-  const isSearchingForCocktail = allDrinkNames.some(
-    (item) => item === searchString
-  );
+    console.log(searchInput.value.toUpperCase());
+    const isSearchingForCocktail = allDrinkNames.some(
+        (item) => item === searchString
+        );
 
-  if (isSearchingForCocktail) {
-    const cocktail = allDrinks.find(
-      (item) => item.strDrink.toUpperCase() === searchString
+        if (isSearchingForCocktail) {
+            const cocktail = allDrinks.find(
+                (item) => item.strDrink.toUpperCase() === searchString
     );
     window.location.href = `./details.html?id=${cocktail.idDrink}`;
-  } else {
+} else {
     window.location.href = `./browse.html?id=${searchString}`;
-  }
+}
 }
 
 // -- RANDOM COCKTAIL FEATURE
 
-const randomNav = document.getElementById("random-cocktail-nav-btn");
-
+    // vars used
+// const randomNav = document.getElementById("random-cocktail-nav-btn");
 const getRandomIndex = (max) => Math.floor(Math.random() * max);
 
+    // Fn to open details page using a random idDrink
 function showRandom() {
-  const randomInteger = getRandomIndex(allDrinks.length); // creates num between 0 & 634 inclusive
-  const randomDrinkObject = allDrinks[randomInteger];
-  const randomDrinkById = randomDrinkObject.idDrink;
+    const randomInteger = getRandomIndex(allDrinks.length);
+    const randomDrinkObject = allDrinks[randomInteger];
+    const randomDrinkById = randomDrinkObject.idDrink;
 
-  console.log(`This is a random index: ${randomInteger}`);
-
-  window.location.href = `./details.html?id=${randomDrinkById}`;
+    window.location.href = `./details.html?id=${randomDrinkById}`;
 }
-  // probably won't need this ---v
-  // randomNav.setAttribute(href, `./details.html?${randomDrinkId}`);
-  // console.log("Begin RANDOM console logs:\n");
-  // console.log(allDrinks);
-  // console.log(allDrinks[0]);
-  // console.log(allDrinks.length);
-  // console.log(randomInteger);
-  // console.log(allDrinks.idDrink);
-  // console.log(randomDrink);
+
+// "Discover" button on home page
+const discoverBtn = document.getElementById("discover-btn");
+discoverBtn.addEventListener("click", showRandom);
