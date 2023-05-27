@@ -749,10 +749,6 @@ main {
     text-align: center;
 }
 
-main p {
-    color: var(--accent);
-}
-
 /* -- About Page -- */
 .team-card-container {
     width: 100%;
@@ -784,9 +780,38 @@ main p {
     position: relative;
     bottom: 90px;
     border: solid 2px var(--accent);
-                            /* vvvvv----NOT SURE IF NEEDED YET */
-    /* object-fit:fill; */
-    /* overflow: hidden; */
+}
+
+/* -- MOBILE: About Page -- */
+
+/* -- X-Small -- */
+@media only screen and (height < 641px) {
+
+    .content-wrapper {
+        margin: 0 5vw;
+        padding: 0 5vw;
+        padding-top: 5vh;
+    }
+
+    .team-card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-card {
+        margin-bottom: 90px;
+    }
+}
+
+/* THE BELOW BLOCK IS UNFINISHED / MAY BE DEPRECATED */
+/* -- X-Small -- Landscape */
+@media only screen and (height < 361px) and (orientation: landscape) {
+    .content-wrapper {
+
+    }
+    .team-card-container {
+        flex-wrap: wrap;
+    }
 }
 
 .team-card h3, .team-card p {
