@@ -428,7 +428,7 @@ footer {
         height: 54px;
         width: 100%;
     }
-    .index-search-bar button { 
+    .index-search-bar button {
         padding: 0;
     }
     .index-search-bar button img {
@@ -784,7 +784,12 @@ main {
 
 /* -- MOBILE: About Page -- */
 
-/* -- X-Small -- */
+    /* -- Medium --  */
+@media only screen and (height < 1025px) {
+
+}
+
+    /* -- Small -- */
 @media only screen and (height < 641px) {
 
     .content-wrapper {
@@ -803,17 +808,7 @@ main {
     }
 }
 
-/* THE BELOW BLOCK IS UNFINISHED / MAY BE DEPRECATED */
-/* -- X-Small -- Landscape */
-@media only screen and (height < 361px) and (orientation: landscape) {
-    .content-wrapper {
-
-    }
-    .team-card-container {
-        flex-wrap: wrap;
-    }
-}
-
+/* Resume desktop styles */
 .team-card h3, .team-card p {
     color: var(--accent);
     margin: 0;
@@ -957,10 +952,10 @@ main {
 /* SCROLLBAR INGREDIENTS */
 
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px var(--accent); 
+    box-shadow: inset 0 0 5px var(--accent);
     border-radius: 8px;
   }
-   
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: var(--accent);
@@ -1071,27 +1066,27 @@ main {
         }
 
     /* DETAILS PAGE MOBILE LAYOUT */
-    
+
         .current-image{
             flex-direction: column;
             align-items: center;
             position: relative;
             margin: 10px;
         }
-    
+
         .current-image img {
             height: 500px;
             width: 500px;
             border-radius: 20px;
             margin-top: 80px;
         }
-    
+
         .current-image-name{
             position: absolute;
             top: 0;
             left: 50%;
         }
-        
+
         .current-image-info {
             gap: 10px;
             margin: 0 50px 50px 50px;
@@ -1119,11 +1114,11 @@ main {
         strong{
             font-size: 18px;
         }
-    
+
         #alcoholic-choises{
             font-size: 16px;
         }
-    
+
         #reset-filters-btn{
             margin-top: 35px;
         }
@@ -1185,7 +1180,7 @@ main {
             font-size: 16px;
             margin-top: 5px;
         }
-        
+
         .selection-container{
             padding: 0 40px 120px 40px;
         }
@@ -1200,7 +1195,7 @@ main {
             height: 300px;
             width: 300px;
         }
-    
+
         .current-image-name{
             left: 44%;
         }
@@ -1227,7 +1222,7 @@ main {
     }
 
 @media(max-width: 320px){
-    
+
     .selection-container{
         padding: 0 26px 60px 26px;
     }
@@ -1239,7 +1234,7 @@ main {
     strong{
         font-size: 14px;
     }
-    
+
     #alcoholic-choises{
         font-size: 12px;
     }
@@ -1248,5 +1243,5 @@ main {
         height: 40px;
         width: 210px;
     }
-} 
+}
 
