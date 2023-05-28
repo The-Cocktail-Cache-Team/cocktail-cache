@@ -7,6 +7,8 @@ let allDrinkNamesAndIngredients;
 let filters = [];
 let allDrinksToDisplay = [];
 let complexityFilterValue = 16;
+let chosenOptions = [];
+let questionTracker = 0;
 
 fetch(`cocktaildb_api_clone_local.txt`)
 .then((result) => result.json())
@@ -34,12 +36,6 @@ fetch(`cocktaildb_api_clone_local.txt`)
     allDrinkNames.sort();
     allDrinkIngredients.sort();
     allDrinkNamesAndIngredients.sort();
-
-    //console logs for testing
-    // console.log(allDrinks);
-    // console.log(allDrinkNames);
-    // console.log(allDrinkIngredients);
-    // console.log(allDrinkNamesAndIngredients);
 
     // stop displaying loading screen and show main content.
     setTimeout(() => {
@@ -345,6 +341,9 @@ if(window.location.pathname === "/index.html"){
         }
     };
 
+    document.getElementById("browse-index-btn").addEventListener("click", () => {window.location.href = "./browse.html"})
+    document.getElementById("quiz-index-btn").addEventListener("click", () => {window.location.href = "./quiz.html"})
+
     const randomIndexBtn = document.getElementById("random-index-btn");
     randomIndexBtn.addEventListener("click", showRandom);
 };
@@ -397,3 +396,157 @@ function showRandom() {
 
     window.location.href = `./details.html?id=${randomDrinkById}`;
 }
+
+// COCKTAIL QUIZ
+
+if(window.location.pathname === "/quiz.html") {
+    const quizTitle = document.querySelector("#quiz-container h1");
+
+    document.addEventListener("DOMContentLoaded", function() {
+        quizTitle.classList.add("show");
+      });
+
+    //store questions and options
+  const questions = [
+    {
+      question: "First things first - Do you want your drink to include alcohol?",
+      key: 'strAlcoholic',
+      options: ["Yes, booze me up please!", "No thanks, get me a mocktail!"]
+    },
+    {
+      question: "Pick your favorite glass to drink out of:",
+      key: 'strGlass',
+      options: ["Highball glass", "Coffee mug", "Shot glass", "Cocktail glass", "Mason Jar"]
+    },
+    {
+      question: "Do you prefer your drink recipe to have a shorter or longer list of ingredients?",
+      key: 'strIngredient',
+      options: ["The simpler, the better", "Give me something more complex"]
+    }
+  ];
+
+  const questionContainer = document.getElementById('question-container');
+  const options = document.getElementById('options-container');
+  const results = document.getElementById('result-container');
+
+//Utility function to load questions and generate html elements using tracking variable
+    function loadQuestion() {
+      questionContainer.innerHTML = ""; 
+      options.innerHTML = "";
+      results.innerHTML = "";
+    
+    const currentQuestion = questions[questionTracker];
+      const questionElement = document.createElement("p");
+      questionElement.textContent = `Q${questionTracker + 1}: ${currentQuestion.question}`;
+      questionContainer.appendChild(questionElement);
+    
+      currentQuestion.options.forEach((option) => {
+        const optionElement = document.createElement("button");
+        optionElement.textContent = option;
+        optionElement.addEventListener("click", handleOptionSelect);
+        options.appendChild(optionElement);
+      });
+    };
+    loadQuestion();
+
+    
+    function handleOptionSelect(event) {
+        event.preventDefault();
+      const selectedOption = event.target.textContent;
+      chosenOptions.push(selectedOption);
+      questionTracker++;
+      if (chosenOptions.length === questions.length) {
+        calculateResult();
+      } else {
+        loadQuestion();
+        console.log("test");
+      }
+    };
+
+    function calculateResult() {
+        document.addEventListener("DOMContentLoaded", function() {
+            const title = document.querySelector("#quiz-container h1");
+            title.classList.add("show");
+          });
+      // Filter drinks based on chosen options
+      let filteredDrinks = allDrinks.filter(drink => {
+        // Check first question: alcohol preference
+        const alcoholOption = chosenOptions[0];
+        let isAlcoholic = true;
+        if (drink.strAlcoholic === "Optional alcohol") {
+            return drink
+        } else if (alcoholOption === "Yes, booze me up please!" && drink.strAlcoholic === "Alcoholic") {
+            return drink;
+        } else if (alcoholOption === "No thanks, get me a mocktail!" && drink.strAlcoholic === "Non alcoholic") {
+            return drink;
+        }});
+
+
+         // Check second question: glass preference
+        let filterDrinks2 = filteredDrinks.filter(drink => {
+            if (drink.strGlass === chosenOptions[1]) {
+                return drink;
+            }
+
+    });
+    
+        // Check third question: ingredients
+        let filterDrinks3 = filterDrinks2.filter(drink => {
+          let ingredientCounter = 0;
+          for (let i = 1; i <= 15; i++) {
+            const objKey = "strIngredient" + i;
+            if (drink[objKey] !== null) {
+                ingredientCounter++;
+            }};
+            if (chosenOptions[2] === "The simpler, the better" && ingredientCounter <= 7) {
+                return drink;
+            } else if (chosenOptions[2] === "Give me something more complex" && ingredientCounter >= 7) {
+                return drink;
+            };
+    });
+
+    let resultAccuracy = 100;
+
+    if (filterDrinks3.length < 1) {
+        filterDrinks3 = filterDrinks2;
+        resultAccuracy = 66;
+    };
+
+    if (filterDrinks2.length < 1) {
+        filterDrinks3 = filteredDrinks;
+        resultAccuracy = 33;
+    };
+    
+    const randomInterger = getRandomIndex(filterDrinks3.length);
+    const randomDrinkId = filterDrinks3[randomInterger].idDrink;
+
+    quizTitle.style.display = "none";
+    questionContainer.style.display = "none";
+    options.style.display = "none";
+    results.style.display = "flex";
+
+    const resultMessage = document.createElement("h2");
+    resultMessage.innerHTML = `FOUND A ${resultAccuracy}% COCKTAIL MATCH`;
+    results.appendChild(resultMessage);
+
+    const resultLoadingBar = document.createElement("div");
+    resultLoadingBar.classList.add("loading-bar");
+
+    const resultLoadingBarInner = document.createElement("div");
+    resultLoadingBarInner.classList.add("loading-bar-inner");
+
+    resultLoadingBar.appendChild(resultLoadingBarInner);
+    results.appendChild(resultLoadingBar);
+
+    
+    setTimeout(() => {
+        resultLoadingBarInner.style.width = "calc(100% + 4px)";
+    }, 0)
+
+    setTimeout(() => {
+        window.location.href = `./details.html?id=${randomDrinkId}`;
+    }, 2500)
+    
+}; 
+
+};
