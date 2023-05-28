@@ -400,8 +400,9 @@ function showRandom() {
 // COCKTAIL QUIZ
 
 if(window.location.pathname === "/quiz.html") {
+    const quizTitle = document.querySelector("#quiz-container h1");
+
     document.addEventListener("DOMContentLoaded", function() {
-        const quizTitle = document.querySelector("#quiz-container h1");
         quizTitle.classList.add("show");
       });
 
@@ -418,7 +419,7 @@ if(window.location.pathname === "/quiz.html") {
       options: ["Highball glass", "Coffee mug", "Shot glass", "Cocktail glass", "Mason Jar"]
     },
     {
-      question: "Do you prefer your drink recipe to have a short (7 or less) or longer list of ingredients?",
+      question: "Do you prefer your drink recipe to have a shorter or longer list of ingredients?",
       key: 'strIngredient',
       options: ["The simpler, the better", "Give me something more complex"]
     }
@@ -435,7 +436,7 @@ if(window.location.pathname === "/quiz.html") {
       results.innerHTML = "";
     
     const currentQuestion = questions[questionTracker];
-      const questionElement = document.createElement("h2");
+      const questionElement = document.createElement("p");
       questionElement.textContent = `Q${questionTracker + 1}: ${currentQuestion.question}`;
       questionContainer.appendChild(questionElement);
     
@@ -502,21 +503,50 @@ if(window.location.pathname === "/quiz.html") {
             } else if (chosenOptions[2] === "Give me something more complex" && ingredientCounter >= 7) {
                 return drink;
             };
-
     });
+
+    let resultAccuracy = 100;
 
     if (filterDrinks3.length < 1) {
         filterDrinks3 = filterDrinks2;
+        resultAccuracy = 66;
     };
 
     if (filterDrinks2.length < 1) {
         filterDrinks3 = filteredDrinks;
+        resultAccuracy = 33;
     };
     
-const randomInterger = getRandomIndex(filterDrinks3.length);
+    const randomInterger = getRandomIndex(filterDrinks3.length);
     const randomDrinkId = filterDrinks3[randomInterger].idDrink;
 
-  window.location.href = `./details.html?id=${randomDrinkId}`;
+    quizTitle.style.display = "none";
+    questionContainer.style.display = "none";
+    options.style.display = "none";
+    results.style.display = "flex";
+
+    const resultMessage = document.createElement("h2");
+    resultMessage.innerHTML = `FOUND A ${resultAccuracy}% COCKTAIL MATCH`;
+    results.appendChild(resultMessage);
+
+    const resultLoadingBar = document.createElement("div");
+    resultLoadingBar.classList.add("loading-bar");
+
+    const resultLoadingBarInner = document.createElement("div");
+    resultLoadingBarInner.classList.add("loading-bar-inner");
+
+    resultLoadingBar.appendChild(resultLoadingBarInner);
+    results.appendChild(resultLoadingBar);
+
+    
+    setTimeout(() => {
+        resultLoadingBarInner.style.width = "calc(100% + 4px)";
+    }, 0)
+
+    setTimeout(() => {
+        window.location.href = `./details.html?id=${randomDrinkId}`;
+    }, 2500)
+    
 }; 
 
 };

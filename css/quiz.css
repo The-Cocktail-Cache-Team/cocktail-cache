@@ -26,7 +26,7 @@ main {
     justify-content: center;
   text-align: center;
     color: var(--accent);
-    padding: 25px 0 35px 0;
+    padding: 25px 90px 35px 90px;
   }
 
   #question-container h2 {
@@ -45,6 +45,8 @@ main {
     align-items: center; 
     flex-direction: row; 
     color: var(--primary-color);
+    gap:30px;
+    padding:0 90px;
   }
 
   /*Option Button */
@@ -55,7 +57,6 @@ main {
     align-self: center; 
     justify-content: center;
     padding: 35px;
-    margin: 25px 30px;
     color: var(--accent);
     border-radius: 50px;
     cursor: pointer;  
@@ -74,17 +75,18 @@ main {
   }
   
   #result-container {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    flex-direction: column;
+    height: calc(100vh - 80px);
   }
 
-  @media (max-width: 850px){
+  @media (max-width: 850px) {
     #quiz-container {
-  display: flex;
-  flex-direction: column;
-}
+      display: flex;
+      flex-direction: column;
+    }
 
     #quiz-container h1 {
   font-size: 36px;
@@ -106,8 +108,7 @@ main {
 
 #options-container button {
   padding: 20px;
-  margin: 15px 20px;
-  width: 60%;
+  width: 100%;
 }
 
 #options-container button:nth-child(odd):last-child {
@@ -115,6 +116,43 @@ main {
   justify-self: center;
   width: 30%
 }
-  };
+#result-container {
+  height: calc(100vh - 60px);
+}
+  }
+
+@media (max-width: 576px) {
+  #options-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: stretch;
+    padding: 0 30px;
+  }
+  #options-container button {
+    width: 100%!important;
+  }
+  #question-container {
+    padding: 25px 30px 35px 30px;
+  }
+}
+
+.loading-bar {
+  height: 20px;
+  width: 40%;
+  display: flex;
+  border: solid 2px var(--accent);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
     
-  
+.loading-bar-inner {
+  width:0;
+  height: 100%;
+  background-color: var(--accent);
+  transition: width 2.5s ease-in-out;
+  border-radius: 10px;
+  position: absolute;
+  left:-2px;
+}
