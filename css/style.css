@@ -753,10 +753,9 @@ main {
 .team-card-container {
     width: 100%;
     display: flex;
-    /* vvvv MOBILE: column < 1440px >>>> NEEDS margin on .team-card */
-    /* flex-direction: column; */
-    justify-content: space-between;
+    justify-content: space-around;
     padding-top: 60px;
+
 }
 
 /* team cards */
@@ -784,9 +783,22 @@ main {
 
 /* -- MOBILE: About Page -- */
 
-    /* -- Medium --  */
-@media only screen and (height < 1025px) {
+    /* -- Medium || Full HD --  */
+@media only screen and (height < 1080px) {
+   .content-wrapper {
+        margin: 0 5vw;
+        padding: 0 5vw;
+        padding-top: 5vh;
+    }
 
+    .team-card-container {
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .team-card {
+        margin-bottom: 90px;
+    }
 }
 
     /* -- Small -- */
