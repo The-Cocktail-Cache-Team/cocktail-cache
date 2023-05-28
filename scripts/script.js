@@ -37,12 +37,6 @@ fetch(`cocktaildb_api_clone_local.txt`)
     allDrinkIngredients.sort();
     allDrinkNamesAndIngredients.sort();
 
-    //console logs for testing
-    // console.log(allDrinks);
-    // console.log(allDrinkNames);
-    // console.log(allDrinkIngredients);
-    // console.log(allDrinkNamesAndIngredients);
-
     // stop displaying loading screen and show main content.
     setTimeout(() => {
         document.getElementById("loading-screen").style.display = "none";
@@ -347,6 +341,9 @@ if(window.location.pathname === "/index.html"){
         }
     };
 
+    document.getElementById("browse-index-btn").addEventListener("click", () => {window.location.href = "./browse.html"})
+    document.getElementById("quiz-index-btn").addEventListener("click", () => {window.location.href = "./quiz.html"})
+
     const randomIndexBtn = document.getElementById("random-index-btn");
     randomIndexBtn.addEventListener("click", showRandom);
 };
@@ -523,19 +520,3 @@ const randomInterger = getRandomIndex(filterDrinks3.length);
 }; 
 
 };
-
-// // -- RANDOM COCKTAIL FEATURE
-
-// const randomNav = document.getElementById("random-cocktail-nav-btn");
-
-// const getRandomIndex = (max) => Math.floor(Math.random() * max);
-
-// function showRandom() {
-//   const randomInteger = getRandomIndex(allDrinks.length); // creates num between 0 & 634 inclusive
-//   const randomDrinkObject = allDrinks[randomInteger];
-//   const randomDrinkById = randomDrinkObject.idDrink;
-
-//   console.log(`This is a random index: ${randomInteger}`);
-
-//   window.location.href = `./details.html?id=${randomDrinkById}`;
-// }
