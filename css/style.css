@@ -783,8 +783,10 @@ main {
 
 /* -- MOBILE: About Page -- */
 
-    /* -- Medium || Full HD --  */
-@media only screen and (height < 1080px) {
+
+
+/* -- Medium || Full HD --  */
+    @media only screen and (height < 1280px) {
    .content-wrapper {
         margin: 0 5vw;
         padding: 0 5vw;
@@ -793,16 +795,24 @@ main {
 
     .team-card-container {
         align-items: center;
+        flex-direction: row;
         flex-wrap: wrap;
     }
 
     .team-card {
         margin-bottom: 90px;
+        width: 12rem;
+    }
+
+    .team-card img {
+        width: 12rem;
+        height: 12rem;
+        border-radius: 6rem; /* to scale for img */
     }
 }
 
-    /* -- Small -- */
-@media only screen and (height < 641px) {
+ /* -- Small, baseline styles --  */
+@media only screen and (height < 769px) {
 
     .content-wrapper {
         margin: 0 2vw;
@@ -810,12 +820,44 @@ main {
     }
 
     .team-card-container {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: .25vw;
         align-items: center;
-    }
+        flex-direction: column;
+        }
 
     .team-card {
-        margin-bottom: 90px;
+        width: 13rem;
+    }
+
+    .team-card img {
+        width: 13rem;
+        height: 13rem;
+        border-radius: 7rem; /* MUST scale with w,h */
+    }
+
+    .team-card button {
+        width: 12rem;
+    }
+}
+
+    /* -- Small, portrait mode styles -- */
+@media only screen and (height < 769px) and (orientation:portrait) {
+
+
+    .team-card {
+        width: 12rem;
+    }
+
+    .team-card img {
+        width: 12rem;
+        height: 12rem;
+        border-radius: 6rem; /* to scale for img */
+    }
+
+    .team-card button {
+        width: 11rem;
     }
 }
 
@@ -824,10 +866,6 @@ main {
 
     .team-card-container {
         justify-content: space-between;
-    }
-
-    .team-card {
-        /* width: 80%; */
     }
 }
 
