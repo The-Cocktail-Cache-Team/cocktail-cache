@@ -785,9 +785,10 @@ main {
 
 
 
-/* -- Medium || Full HD --  */
-    @media only screen and (height < 1280px) {
-   .content-wrapper {
+/* -- Medium --  */
+@media only screen and (height < 1280px) {
+
+    .content-wrapper {
         margin: 0 5vw;
         padding: 0 5vw;
         padding-top: 30px;
@@ -805,27 +806,32 @@ main {
     }
 
     .team-card img {
-        width: 12rem;
-        height: 12rem;
-        border-radius: 6rem; /* to scale for img */
+        width: 14rem;
+        height: 14rem;
+        border-radius: 7rem; /* MUST scale with w,h */
     }
 }
 
- /* -- Small, baseline styles --  */
+/* -- Medium, portrait mode -- */
+@media only screen and (height < 1280px) and (orientation: portrait) {
+
+
+}
+
+ /* -- Small, baseline styles -- */
 @media only screen and (height < 769px) {
 
     .content-wrapper {
-        margin: 0 2vw;
+        margin: 30px 5vw;
         padding: 0 2vw;
     }
 
     .team-card-container {
-        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         flex-wrap: wrap;
         gap: .25vw;
-        align-items: center;
-        flex-direction: column;
-        }
+    }
 
     .team-card {
         width: 13rem;
@@ -842,9 +848,8 @@ main {
     }
 }
 
-    /* -- Small, portrait mode styles -- */
+    /* -- Small, portrait mode -- */
 @media only screen and (height < 769px) and (orientation:portrait) {
-
 
     .team-card {
         width: 12rem;
@@ -853,7 +858,7 @@ main {
     .team-card img {
         width: 12rem;
         height: 12rem;
-        border-radius: 6rem; /* to scale for img */
+        border-radius: 6rem;  /* MUST scale with w,h */
     }
 
     .team-card button {
