@@ -408,6 +408,7 @@ footer {
     color: var(--accent);
 }
 
+
 @media (max-width:850px) {
     .fullscreen-responsive {
         height: calc(100vh - 140px);
@@ -427,7 +428,7 @@ footer {
         height: 54px;
         width: 100%;
     }
-    .index-search-bar button {
+    .index-search-bar button { 
         padding: 0;
     }
     .index-search-bar button img {
@@ -442,8 +443,6 @@ footer {
         font-size: 20px;
     }
 }
-
-
 /* -- BROWSE ALL COCKTAILS PAGE --  */
 
 .browse-page{
@@ -578,7 +577,7 @@ footer {
 .selection-container{
     background-color: var(--primary-color);
     border-radius: 10px;
-    width: calc(100% - 60px);
+    width: calc(100% - 40px);
     padding: 30px;
     color: var(--accent);
 }
@@ -610,9 +609,10 @@ footer {
 }
 
 .ingredient-container p{
-    font-size: 12px;
+    font-size: 15px;
     margin: 0;
 }
+
 #reset-filters-btn{
     background-color: var(--accent);
     border:none;
@@ -882,7 +882,7 @@ main p {
 }
 
 .current-image img{
-    width: 500px;
+    width: 50%;
     height: 600px;
     border-radius: 20px;
     margin-top: 22px;
@@ -924,3 +924,304 @@ main p {
     border: solid 3px var(--accent);
     cursor: pointer;
 }
+
+.current-image-name{
+    letter-spacing: 3px;
+}
+
+/* SCROLLBAR INGREDIENTS */
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--accent); 
+    border-radius: 8px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+  }
+
+.selection-container::-webkit-scrollbar {
+    width: 15px;
+    height: 10%;
+  }
+
+/* MAX INGREDIENTS SLIDER */
+
+#slider-input input{
+    width: 100%;
+    height: 4px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--accent);
+    appearance: none;
+}
+
+
+#slider-input input[type=range]::-webkit-slider-thumb {
+    --c: var(--accent); /* active color */
+    --g: 10px; /* the gap */
+    --l: 2px; /* line thickness*/
+    --s: 10px; /* thumb size*/
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #222831;
+    box-shadow: 0 0 0 var(--l) inset var(--c);
+    appearance: none;
+  }
+
+  #complexity-message{
+    text-align: center;
+}
+
+#alcoholic-choises{
+    line-height: 45px;
+    font-size: 20px;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+
+        .fullscreen-responsive {
+            height: calc(100vh - 100px);
+        }
+
+    /* HEADER */
+
+        #mobile-menu-btn{
+            font-size: 28px;
+        }
+
+
+    /* BROWSE PAGE MOBILE LAYOUT */
+
+        #cocktail-container{
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            flex: 1 1 0;
+            gap: 30px;
+            padding: 40px 90px 0 90px;
+        }
+
+        .active {
+            height: 450px;
+            padding: 50px 30px 30px 30px;
+        }
+
+        .filter-options{
+            gap: 10px;
+        }
+
+        #ingreditents{
+            display: block;
+        }
+
+        .additional-options{
+            width: 45%;
+        }
+
+        #complexity-message{
+            font-size: 20px;
+        }
+
+        #alcoholic-choises{
+            font-size: 18px;
+        }
+
+        #reset-filters-btn{
+            font-size: 20px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        #slider-input{
+            padding: 20px 30px;
+            margin-bottom: 5px;
+        }
+
+        #alcoholic-choises{
+            padding: 20px 30px;
+        }
+
+    /* DETAILS PAGE MOBILE LAYOUT */
+    
+        .current-image{
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            margin: 10px;
+        }
+    
+        .current-image img {
+            height: 500px;
+            width: 500px;
+            border-radius: 20px;
+            margin-top: 80px;
+        }
+    
+        .current-image-name{
+            position: absolute;
+            top: 0;
+            left: 50%;
+        }
+        
+        .current-image-info {
+            gap: 10px;
+            margin: 0 50px 50px 50px;
+            text-align: center;
+        }
+
+        .ingredients{
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 40px;
+            text-align: center;
+
+        }
+
+        #list-of-ingredients {
+            justify-content: center;
+        }
+
+        #cocktail-method{
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 30px;
+        }
+    }
+
+@media(max-width: 720px){
+        strong{
+            font-size: 18px;
+        }
+    
+        #alcoholic-choises{
+            font-size: 16px;
+        }
+    
+        #reset-filters-btn{
+            margin-top: 35px;
+        }
+    }
+
+@media (max-width: 600px){
+        /* BROWSE PAGE MOBILE LAYOUT */
+        #cocktail-container{
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            padding: 40px 40px 0 40px;
+            gap: 10px;
+        }
+
+        .cards{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 180px;
+        }
+
+        .active {
+            padding: 40px 30px 30px 30px;
+        }
+
+        #alcoholic-choises{
+            display: flex;
+            justify-content: space-between;
+            line-height: 10px;
+            padding: 20px;
+            width: 120%;
+            font-size: 14px;
+        }
+
+        .filter-display{
+            width: calc(100% - 80px);
+        }
+
+        .fas{
+            font-size: 20px;
+        }
+
+        .filter-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #slider-input{
+            padding: 0 20px;
+            width: 120%;
+        }
+
+        .active{
+           padding: 30px 30px 10px 30px;
+        }
+
+        #reset-filters-btn{
+            height: 40px;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        
+        .selection-container{
+            padding: 0 40px 120px 40px;
+        }
+
+        /* DETAILS PAGE MOBILE LAYOUT */
+
+        p{
+            font-size: 16px;
+        }
+
+        .current-image img {
+            height: 300px;
+            width: 300px;
+        }
+    
+        .current-image-name{
+            left: 44%;
+        }
+
+        h3{
+            font-size: 20px;
+        }
+
+        #list-of-ingredients button{
+            font-size: 14px;
+        }
+
+        #complexity-message{
+            font-size: 16px;
+            }
+
+        .additional-options{
+            width: 80%;
+        }
+
+        .browse-page h2{
+            margin: 0 0 15px 0;
+        }
+    }
+
+@media(max-width: 320px){
+    
+    .selection-container{
+        padding: 0 26px 60px 26px;
+    }
+
+    .browse-page h2{
+        font-size: 18px;
+    }
+
+    strong{
+        font-size: 14px;
+    }
+    
+    #alcoholic-choises{
+        font-size: 12px;
+    }
+
+    #reset-filters-btn{
+        height: 40px;
+        width: 210px;
+    }
+} 
+
