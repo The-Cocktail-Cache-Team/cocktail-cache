@@ -844,18 +844,17 @@ main {
 }
 
 .team-card p {
-    /* vvvv can delete if matches root size */
+    /* v-- can delete if/when UI Standards implemented */
     font-size: 16px;
     margin-bottom: 20px;
 }
 
 .team-card button {
-    width: 200px;
+    width: 12rem;
     background-color: var(--accent);
     color: var(--primary-color);
     font-family: 'Bungee Inline';
     font-size: 20px;
-    font-weight: 400; /* WOULD PREFER 600, 700 */
     border-style: none;
     border-radius: 10px;
     padding: 15px 30px;
@@ -864,7 +863,6 @@ main {
 .team-card button:hover {
     background-color: var(--primary-color);
     color: var(--accent);
-
 }
 
 /* DETAILS PAGE STYLING */
