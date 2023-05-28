@@ -14,7 +14,7 @@ main {
   text-align: center;
   padding-top: 50px;
   opacity: 0;
-  transition: opacity 5s ease-in-out;
+  transition: opacity 3s ease-in-out;
 }
 
 #quiz-container h1.show {
@@ -38,8 +38,6 @@ main {
     padding: 15px;
     border-radius: 20px;
   }
-  
-  /*Option Button */
 
   #options-container {
     display: flex;
@@ -48,39 +46,75 @@ main {
     flex-direction: row; 
     color: var(--primary-color);
   }
+
+  /*Option Button */
   
   #options-container button {
     font-family: 'Bungee Inline', cursive;
     display: inline;
-    border: none;
     align-self: center; 
     justify-content: center;
     padding: 35px;
     margin: 25px 30px;
     color: var(--accent);
-    background-color: rebeccapurple;
     border-radius: 50px;
-    cursor: pointer;
+    cursor: pointer;  
     transition: background-color 0.3s ease;
+    background-color: var(--accent);
+    color: var(--primary-color);
+    border: none;
+    transition: all .1s ease-in-out;
+    border: solid 3px var(--accent);
   }
 
   #options-container button:hover {
-    background-color: var(--accent);
-    color: var(--primary-color);
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--accent);
   }
-  
   
   #result-container {
-  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
   }
 
-  /*Result Title*/
-  #result-container h2 {
-    font-size: 28px;
-  }
+  @media (max-width: 850px){
+    #quiz-container {
+  display: flex;
+  flex-direction: column;
+}
 
-  /*Result Description*/
-  #result-container p {
-    font-size: 18px;
-  }
+    #quiz-container h1 {
+  font-size: 36px;
+  font-weight: 100;
+  width: 70%;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+}
+#question-container h2 {
+  font-size: 24px;
+}
+#options-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  grid-gap: 15px;
+}
+
+#options-container button {
+  padding: 20px;
+  margin: 15px 20px;
+  width: 60%;
+}
+
+#options-container button:nth-child(odd):last-child {
+  grid-column: 1 / span 2;
+  justify-self: center;
+  width: 30%
+}
+  };
+    
   

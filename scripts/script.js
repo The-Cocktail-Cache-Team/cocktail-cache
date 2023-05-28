@@ -384,9 +384,31 @@ mobileMenuBtn.addEventListener("click", () => {
     }
 });
 
+// -- RANDOM COCKTAIL FEATURE
+
+const randomNav = document.getElementById("random-cocktail-nav-btn");
+
+const getRandomIndex = (max) => Math.floor(Math.random() * max);
+
+function showRandom() {
+  const randomInteger = getRandomIndex(allDrinks.length); // creates num between 0 & 634 inclusive
+  const randomDrinkObject = allDrinks[randomInteger];
+  const randomDrinkById = randomDrinkObject.idDrink;
+
+  console.log(`This is a random index: ${randomInteger}`);
+
+  window.location.href = `./details.html?id=${randomDrinkById}`;
+}
+
+// COCKTAIL QUIZ
 
 if(window.location.pathname === "/quiz.html") {
-//store questions and options
+    document.addEventListener("DOMContentLoaded", function() {
+        const quizTitle = document.querySelector("#quiz-container h1");
+        quizTitle.classList.add("show");
+      });
+
+    //store questions and options
   const questions = [
     {
       question: "First things first - Do you want your drink to include alcohol?",
@@ -409,7 +431,7 @@ if(window.location.pathname === "/quiz.html") {
   const options = document.getElementById('options-container');
   const results = document.getElementById('result-container');
 
-//utility function to load questions and generate html elements using tracking variable
+//Utility function to load questions and generate html elements using tracking variable
     function loadQuestion() {
       questionContainer.innerHTML = ""; 
       options.innerHTML = "";
@@ -443,27 +465,11 @@ if(window.location.pathname === "/quiz.html") {
       }
     };
 
-// results function {
-    //filtered array = all drinks;
-    //interperate first result into filter alcholic friendly value (maybe switch statement)
-    //fitler for new created values
-    //pass filtered array down
-    //interperate first result into filter glass friendly value (maybe switch statement)
-    //fitler for new created values
-    //pass filtered array down
-    //interperate first result into filter complexity friendly value (maybe switch statement)
-    //fitler for new created values
-    //pass filtered array down
-  
-    //check how many results there are using .length
-    
-    //remove questions and options from html
-    // load new animated div with 'finding your cocktail match' and animated loading bar
-    //setTimeout with same timming as loading animation (maybe 3 seconds?) to navigate to details with cocktail match id.
-//}
-
     function calculateResult() {
-
+        document.addEventListener("DOMContentLoaded", function() {
+            const title = document.querySelector("#quiz-container h1");
+            title.classList.add("show");
+          });
       // Filter drinks based on chosen options
       let filteredDrinks = allDrinks.filter(drink => {
         // Check first question: alcohol preference
@@ -499,10 +505,8 @@ if(window.location.pathname === "/quiz.html") {
             } else if (chosenOptions[2] === "Give me something more complex" && ingredientCounter >= 7) {
                 return drink;
             };
-    });
 
-  //if filtered array has at least 1 option continue
-    // else update array to values before last filter, repeat
+    });
 
     if (filterDrinks3.length < 1) {
         filterDrinks3 = filterDrinks2;
@@ -511,42 +515,27 @@ if(window.location.pathname === "/quiz.html") {
     if (filterDrinks2.length < 1) {
         filterDrinks3 = filteredDrinks;
     };
-
-    //generate random index between 0 - .length (maybe re-use Brandon's code)
-    //access random index cocktail to be their match
-
+    
 const randomInterger = getRandomIndex(filterDrinks3.length);
     const randomDrinkId = filterDrinks3[randomInterger].idDrink;
-    window.location.href = `./details.html?id=${randomDrinkId}`;
-}
-document.addEventListener("DOMContentLoaded", function() {
-    const quizTitle = document.querySelector("#quiz-container h1");
-    quizTitle.classList.add("show");
-  });
-  
+
+  window.location.href = `./details.html?id=${randomDrinkId}`;
+}; 
+
 };
 
-// -- RANDOM COCKTAIL FEATURE
+// // -- RANDOM COCKTAIL FEATURE
 
-const randomNav = document.getElementById("random-cocktail-nav-btn");
+// const randomNav = document.getElementById("random-cocktail-nav-btn");
 
-const getRandomIndex = (max) => Math.floor(Math.random() * max);
+// const getRandomIndex = (max) => Math.floor(Math.random() * max);
 
-function showRandom() {
-  const randomInteger = getRandomIndex(allDrinks.length); // creates num between 0 & 634 inclusive
-  const randomDrinkObject = allDrinks[randomInteger];
-  const randomDrinkById = randomDrinkObject.idDrink;
+// function showRandom() {
+//   const randomInteger = getRandomIndex(allDrinks.length); // creates num between 0 & 634 inclusive
+//   const randomDrinkObject = allDrinks[randomInteger];
+//   const randomDrinkById = randomDrinkObject.idDrink;
 
-  console.log(`This is a random index: ${randomInteger}`);
+//   console.log(`This is a random index: ${randomInteger}`);
 
-  window.location.href = `./details.html?id=${randomDrinkById}`;
-}
-  // probably won't need this ---v
-  // randomNav.setAttribute(href, `./details.html?${randomDrinkId}`);
-  // console.log("Begin RANDOM console logs:\n");
-  // console.log(allDrinks);
-  // console.log(allDrinks[0]);
-  // console.log(allDrinks.length);
-  // console.log(randomInteger);
-  // console.log(allDrinks.idDrink);
-  // console.log(randomDrink);
+//   window.location.href = `./details.html?id=${randomDrinkById}`;
+// }
