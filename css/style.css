@@ -1,4 +1,4 @@
-/* USE var() TO SET COLOURS */
+/* USE var() TO SET COLORS */
 :root {
     --primary-color: #222831;
     --secondary-color: #393E46;
@@ -253,7 +253,7 @@ nav a {
     max-height: 422px;
 }
 
-/* -- RESPONSIVE HEADER AND SERACH BAR -- */
+/* -- RESPONSIVE HEADER AND SEARCH BAR -- */
 
 #mobile-menu-btn {
     display: none;
@@ -324,7 +324,7 @@ nav a {
         display: block;
         background-color: var(--primary-color);
         height: calc(100vh - 60px);
-        width: 100vw;
+        width: 100%;
         position: absolute;
         z-index: 9;
         top:60px;
@@ -351,6 +351,12 @@ nav a {
     .main-search-container:hover #main-predictive-search-results {
         padding: 35px 0 15px 0;
         max-height: 422px;
+    }
+}
+
+@media (max-width:344px) {
+    header {
+        padding: 0 10px;
     }
 }
 
@@ -566,7 +572,7 @@ footer {
     align-items: center;
 }
 
-.ingreditents-options{
+.ingredients-options{
     flex: 1 1 0;
 }
 
@@ -582,7 +588,7 @@ footer {
     color: var(--accent);
 }
 
-#ingreditents{
+#ingredients{
     flex: 1 1 0;
     display: grid;
     column-gap: 30px;
@@ -923,7 +929,7 @@ main {
 
 .ingredients button{
     font-family: 'Courier Prime', monospace;
-    color: var(--seconday-color);
+    color: var(--secondary-color);
     background-color: var(--accent);
     padding: 8px 5px;
     border-radius: 10px;
@@ -972,7 +978,7 @@ main {
 
 .ingredients button{
     font-family: 'Courier Prime', monospace;
-    color: var(--seconday-color);
+    color: var(--secondary-color);
     background-color: var(--accent);
     padding: 8px 5px;
     border-radius: 10px;
@@ -1038,17 +1044,13 @@ main {
     text-align: center;
 }
 
-#alcoholic-choises{
+#alcoholic-choices{
     line-height: 45px;
     font-size: 20px;
     text-align: center;
 }
 
 @media (max-width: 1024px) {
-
-        .fullscreen-responsive {
-            height: calc(100vh - 100px);
-        }
 
     /* HEADER */
 
@@ -1075,7 +1077,7 @@ main {
             gap: 10px;
         }
 
-        #ingreditents{
+        #ingredients{
             display: block;
         }
 
@@ -1087,7 +1089,7 @@ main {
             font-size: 20px;
         }
 
-        #alcoholic-choises{
+        #alcoholic-choices{
             font-size: 18px;
         }
 
@@ -1102,7 +1104,7 @@ main {
             margin-bottom: 5px;
         }
 
-        #alcoholic-choises{
+        #alcoholic-choices{
             padding: 20px 30px;
         }
 
@@ -1126,6 +1128,8 @@ main {
             position: absolute;
             top: 0;
             left: 50%;
+            transform: translateX(-50%);
+            width: calc(100vw - 180px);
         }
 
         .current-image-info {
@@ -1156,7 +1160,7 @@ main {
             font-size: 18px;
         }
 
-        #alcoholic-choises{
+        #alcoholic-choices{
             font-size: 16px;
         }
 
@@ -1184,7 +1188,7 @@ main {
             padding: 40px 30px 30px 30px;
         }
 
-        #alcoholic-choises{
+        #alcoholic-choices{
             display: flex;
             justify-content: space-between;
             line-height: 10px;
@@ -1237,10 +1241,6 @@ main {
             width: 300px;
         }
 
-        .current-image-name{
-            left: 44%;
-        }
-
         h3{
             font-size: 20px;
         }
@@ -1276,7 +1276,7 @@ main {
         font-size: 14px;
     }
 
-    #alcoholic-choises{
+    #alcoholic-choices{
         font-size: 12px;
     }
 
