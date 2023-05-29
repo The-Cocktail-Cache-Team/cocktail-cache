@@ -762,26 +762,21 @@ main {
 
 /* -- About Page -- */
 .team-card-container {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
     display: flex;
     gap: 5rem;
     justify-content: space-around;
     align-items: center;
-    margin-top: 0
+    padding-top: 3.75rem;
 }
 
 /* team cards */
 .team-card {
     background-color: var(--secondary-color);
     width: 15rem;
-    height: 100vh;
-    max-height: 30rem;
     border-radius: 0.625rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
     align-items: center;
     padding: 1.875rem;
     margin: 0.625rem;
@@ -816,7 +811,7 @@ main {
 }
 
 .team-card .justify {
-    text-align: justify; /* for preformatting */
+    text-align: justify;
 }
 
 .team-card button {
@@ -863,20 +858,18 @@ main {
 
     .team-card-container {
         flex-wrap: wrap;
-        padding-top: -3.75rem;
     }
 }
 
- /* -- Full HD, 2k & 4k, landscape -- */
-@media all and (min-width: 120rem) and (orientation: landscape) {
+ /* -- 2k or 4k etc -- */
+@media all and (width > 120rem) and (orientation: landscape) {
 
     .team-card-container {
         gap: 5.8rem;
-        padding-top: -3.75rem;
     }
 
     .team-card {
-        max-width: 20rem;
+        width: 18rem;
         border-radius: .725rem;
         padding: 2.175rem;
         margin: .725rem;
