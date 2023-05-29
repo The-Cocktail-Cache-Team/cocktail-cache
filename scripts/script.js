@@ -229,13 +229,18 @@ function updateDrinksToDisplay () {
     const containsAlcoholRadio = document.getElementById("contains-alcohol");
     const noContainsAlcoholRadio = document.getElementById("no-contains-alcohol");
 
-    if(containsAlcoholRadio.checked == true) {
-        let alcoholFilteredArray = allDrinksToDisplay.filter(cocktailObj => cocktailObj.strAlcoholic === "Alcoholic");
+    if (containsAlcoholRadio.checked == true || noContainsAlcoholRadio.checked == true) {
+        let alcoholFilteredArray = allDrinksToDisplay.filter(cocktailObj => {
+            if (cocktailObj.strAlcoholic === "Optional alcohol") {
+                return cocktailObj;
+            } else if (containsAlcoholRadio.checked == true && cocktailObj.strAlcoholic === "Alcoholic") {
+                return cocktailObj;
+            } else if (noContainsAlcoholRadio.checked == true && cocktailObj.strAlcoholic === "Non alcoholic") {
+                return cocktailObj;
+            }
+        });
         allDrinksToDisplay = alcoholFilteredArray;
-    } else if (noContainsAlcoholRadio.checked == true) {
-        let alcoholFilteredArray = allDrinksToDisplay.filter(cocktailObj => cocktailObj.strAlcoholic !== "Alcoholic");
-        allDrinksToDisplay = alcoholFilteredArray;
-    }
+    };
 
     displayCocktails();
 }
