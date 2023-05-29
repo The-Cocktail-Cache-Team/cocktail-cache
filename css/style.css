@@ -428,7 +428,7 @@ footer {
         height: 54px;
         width: 100%;
     }
-    .index-search-bar button { 
+    .index-search-bar button {
         padding: 0;
     }
     .index-search-bar button img {
@@ -741,87 +741,148 @@ main {
     flex-direction: column;
 }
 
-/* -- NON-COCKTAIL CONTENT STYLING --  */
+/* -- GENERAL CONTENT STYLING --  */
 
-/* This wraps main, section, aside, etc. for equal margins */
+/* This wraps main, section, etc. for equal margins */
 .content-wrapper {
-    margin: 40px;
+    margin: 2.5rem;
     text-align: center;
-}
-
-main p {
-    color: var(--accent);
 }
 
 /* -- About Page -- */
 .team-card-container {
     width: 100%;
     display: flex;
-    /* vvvv MOBILE: column < 1440px >>>> NEEDS margin on .team-card */
-    /* flex-direction: column; */
-    justify-content: space-between;
-    padding-top: 60px;
+    gap: 5rem;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 3.75rem;
 }
 
 /* team cards */
 .team-card {
     background-color: var(--secondary-color);
-    width: 250px;
-    border-radius: 10px;
+    width: 15rem;
+    border-radius: 0.625rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
-    margin: 10px;
+    padding: 1.875rem;
+    margin: 0.625rem;
 }
 
 .team-card img {
-    width: 230px;
-    min-height: 230px;
-    border-radius: 115px;
+    width: 14rem;
+    height: 14rem;
+    border-radius: 7rem; /* to scale for img */
     margin: 0;
     padding: 0;
     position: relative;
-    bottom: 90px;
-    border: solid 2px var(--accent);
-                            /* vvvvv----NOT SURE IF NEEDED YET */
-    /* object-fit:fill; */
-    /* overflow: hidden; */
+    bottom: 5.625rem;
+    border: solid 0.125rem var(--accent);
 }
 
 .team-card h3, .team-card p {
     color: var(--accent);
-    margin: 0;
-    padding: 0;
+    margin: 0; /* needed */
+    padding: 0; /* needed */
 }
 
 .team-card h3 {
-    margin-top: -60px;
-    margin-bottom: 20px;
+    margin-top: -3rem;
+    margin-bottom: 1.25rem;
 }
 
 .team-card p {
-    /* vvvv can delete if matches root size */
-    font-size: 16px;
-    margin-bottom: 20px;
+    /* v-- can delete if/when UI Standards implemented */
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .team-card button {
-    width: 200px;
+    width: 12rem;
     background-color: var(--accent);
     color: var(--primary-color);
     font-family: 'Bungee Inline';
-    font-size: 20px;
-    font-weight: 400; /* WOULD PREFER 600, 700 */
+    font-size: 1.25rem;
     border-style: none;
-    border-radius: 10px;
-    padding: 15px 30px;
+    border-radius: .625rem;
+    padding: 1rem 2rem;
 }
 
 .team-card button:hover {
     background-color: var(--primary-color);
     color: var(--accent);
+}
 
+/* -- MOBILE: About Page -- */
+
+/* -- smallest, portrait --  */
+@media all and (min-width: 20em) and (orientation: portrait) {
+
+    .team-card-container {
+        flex-direction: column;
+    }
+
+    .team-card {
+        width: 12.5rem;
+    }
+
+    .team-card > img {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    .team-card button {
+        width: 12rem;
+    }
+}
+
+ /* -- smallest, landscape -- */
+@media all and (min-width: 20em) and (orientation: landscape) {
+
+    .team-card-container {
+        flex-wrap: wrap;
+    }
+}
+
+ /* -- 2k or 4k etc -- */
+@media all and (width > 120rem) and (orientation: landscape) {
+
+    .team-card-container {
+        gap: 5.8rem;
+    }
+
+    .team-card {
+        width: 18rem;
+        border-radius: .725rem;
+        padding: 2.175rem;
+        margin: .725rem;
+    }
+
+    .team-card img {
+        width: 16.24rem;
+        height: 16.24rem;
+        border-radius: 8.12rem;
+        bottom: 6.525rem;
+        border: solid 0.145rem var(--accent);
+    }
+    .team-card h3 {
+        margin-top: -3.48rem;
+        margin-bottom: 1.45rem;
+    }
+
+    .team-card p {
+        font-size: 1.16rem;
+        margin-bottom: 1.45rem;
+    }
+
+    .team-card button {
+        width: 13.92rem;
+        font-size: 1.45rem;
+        border-radius: .725rem;
+        padding: 1.16rem 2.32rem;
+    }
 }
 
 /* DETAILS PAGE STYLING */
@@ -932,10 +993,10 @@ main p {
 /* SCROLLBAR INGREDIENTS */
 
 ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px var(--accent); 
+    box-shadow: inset 0 0 5px var(--accent);
     border-radius: 8px;
   }
-   
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: var(--accent);
@@ -1046,27 +1107,27 @@ main p {
         }
 
     /* DETAILS PAGE MOBILE LAYOUT */
-    
+
         .current-image{
             flex-direction: column;
             align-items: center;
             position: relative;
             margin: 10px;
         }
-    
+
         .current-image img {
             height: 500px;
             width: 500px;
             border-radius: 20px;
             margin-top: 80px;
         }
-    
+
         .current-image-name{
             position: absolute;
             top: 0;
             left: 50%;
         }
-        
+
         .current-image-info {
             gap: 10px;
             margin: 0 50px 50px 50px;
@@ -1094,11 +1155,11 @@ main p {
         strong{
             font-size: 18px;
         }
-    
+
         #alcoholic-choises{
             font-size: 16px;
         }
-    
+
         #reset-filters-btn{
             margin-top: 35px;
         }
@@ -1160,7 +1221,7 @@ main p {
             font-size: 16px;
             margin-top: 5px;
         }
-        
+
         .selection-container{
             padding: 0 40px 120px 40px;
         }
@@ -1175,7 +1236,7 @@ main p {
             height: 300px;
             width: 300px;
         }
-    
+
         .current-image-name{
             left: 44%;
         }
@@ -1202,7 +1263,7 @@ main p {
     }
 
 @media(max-width: 320px){
-    
+
     .selection-container{
         padding: 0 26px 60px 26px;
     }
@@ -1214,7 +1275,7 @@ main p {
     strong{
         font-size: 14px;
     }
-    
+
     #alcoholic-choises{
         font-size: 12px;
     }
@@ -1223,5 +1284,5 @@ main p {
         height: 40px;
         width: 210px;
     }
-} 
+}
 
