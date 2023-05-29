@@ -71,7 +71,7 @@ const displayCocktails = () =>{
         cocktailsContainer.innerHTML= allCards.join("");
    } else {
         cocktailsContainer.style.display = "none";
-        document.getElementById("no-result-message").innerHTML = `SORRY, THERE ARE NO COCKTAILS IN OUR DATABASE THAT CONTAIN ${filters.join(" AND ")}. PLEASE TRY AGAIN.`;
+        document.getElementById("no-result-message").innerHTML = `SORRY, THERE ARE NO COCKTAILS MATCHING YOUR CRITERIA. PLEASE TRY AGAIN.`;
         errorDisplay.style.display = "block";
    }
 }
