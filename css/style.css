@@ -1,4 +1,4 @@
-/* USE var() TO SET COLOURS */
+/* USE var() TO SET COLORS */
 :root {
     --primary-color: #222831;
     --secondary-color: #393E46;
@@ -253,7 +253,7 @@ nav a {
     max-height: 422px;
 }
 
-/* -- RESPONSIVE HEADER AND SERACH BAR -- */
+/* -- RESPONSIVE HEADER AND SEARCH BAR -- */
 
 #mobile-menu-btn {
     display: none;
@@ -929,7 +929,7 @@ main {
 
 .ingredients button{
     font-family: 'Courier Prime', monospace;
-    color: var(--seconday-color);
+    color: var(--secondary-color);
     background-color: var(--accent);
     padding: 8px 5px;
     border-radius: 10px;
@@ -978,7 +978,7 @@ main {
 
 .ingredients button{
     font-family: 'Courier Prime', monospace;
-    color: var(--seconday-color);
+    color: var(--secondary-color);
     background-color: var(--accent);
     padding: 8px 5px;
     border-radius: 10px;
@@ -1044,7 +1044,7 @@ main {
     text-align: center;
 }
 
-#alcoholic-choises{
+#alcoholic-choices{
     line-height: 45px;
     font-size: 20px;
     text-align: center;
@@ -1089,7 +1089,7 @@ main {
             font-size: 20px;
         }
 
-        #alcoholic-choises{
+        #alcoholic-choices{
             font-size: 18px;
         }
 
@@ -1104,7 +1104,7 @@ main {
             margin-bottom: 5px;
         }
 
-        #alcoholic-choises{
+        #alcoholic-choices{
             padding: 20px 30px;
         }
 
@@ -1160,7 +1160,7 @@ main {
             font-size: 18px;
         }
 
-        #alcoholic-choises{
+        #alcoholic-choices{
             font-size: 16px;
         }
 
@@ -1188,7 +1188,7 @@ main {
             padding: 40px 30px 30px 30px;
         }
 
-        #alcoholic-choises{
+        #alcoholic-choices{
             display: flex;
             justify-content: space-between;
             line-height: 10px;
@@ -1276,7 +1276,7 @@ main {
         font-size: 14px;
     }
 
-    #alcoholic-choises{
+    #alcoholic-choices{
         font-size: 12px;
     }
 
