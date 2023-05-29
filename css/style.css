@@ -741,11 +741,11 @@ main {
     flex-direction: column;
 }
 
-/* -- NON-COCKTAIL CONTENT STYLING --  */
+/* -- GENERAL CONTENT STYLING --  */
 
-/* This wraps main, section, aside, etc. for equal margins */
+/* This wraps main, section, etc. for equal margins */
 .content-wrapper {
-    margin: 40px;
+    margin: 2.5rem;
     text-align: center;
 }
 
@@ -756,20 +756,19 @@ main {
     gap: 5rem;
     justify-content: space-around;
     align-items: center;
-    padding-top: 60px;
-
+    padding-top: 3.75rem;
 }
 
 /* team cards */
 .team-card {
     background-color: var(--secondary-color);
     width: 15rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
-    margin: 10px;
+    padding: 1.875rem;
+    margin: 0.625rem;
 }
 
 .team-card img {
@@ -779,8 +778,8 @@ main {
     margin: 0;
     padding: 0;
     position: relative;
-    bottom: 90px;
-    border: solid 2px var(--accent);
+    bottom: 5.625rem;
+    border: solid 0.125rem var(--accent);
 }
 
 .team-card h3, .team-card p {
@@ -820,6 +819,7 @@ main {
 
 /* -- smallest, portrait --  */
 @media all and (min-width: 20em) and (orientation: portrait) {
+
     .team-card-container {
         flex-direction: column;
     }
@@ -846,7 +846,44 @@ main {
     }
 }
 
+ /* -- 2k or 4k etc -- */
+@media all and (width > 120rem) and (orientation: landscape) {
 
+    .team-card-container {
+        gap: 5.8rem;
+    }
+
+    .team-card {
+        width: 18rem;
+        border-radius: .725rem;
+        padding: 2.175rem;
+        margin: .725rem;
+    }
+
+    .team-card img {
+        width: 16.24rem;
+        height: 16.24rem;
+        border-radius: 8.12rem;
+        bottom: 6.525rem;
+        border: solid 0.145rem var(--accent);
+    }
+    .team-card h3 {
+        margin-top: -3.48rem;
+        margin-bottom: 1.45rem;
+    }
+
+    .team-card p {
+        font-size: 1.16rem;
+        margin-bottom: 1.45rem;
+    }
+
+    .team-card button {
+        width: 13.92rem;
+        font-size: 1.45rem;
+        border-radius: .725rem;
+        padding: 1.16rem 2.32rem;
+    }
+}
 
 /* DETAILS PAGE STYLING */
 
