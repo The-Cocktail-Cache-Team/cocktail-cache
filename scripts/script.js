@@ -494,7 +494,6 @@ if(window.location.pathname === "/quiz.html") {
             return drink;
         }});
 
-
         // Check second question: glass preference
         let filterDrinks2 = filteredDrinks.filter(drink => {
             if (drink.strGlass === chosenOptions[1]) {
@@ -516,7 +515,6 @@ if(window.location.pathname === "/quiz.html") {
                     return drink;
                 };
         });
-
 
         //Checks there is a match, reduces filtering if not
         let resultAccuracy = 100;
@@ -553,7 +551,6 @@ if(window.location.pathname === "/quiz.html") {
         resultLoadingBar.appendChild(resultLoadingBarInner);
         results.appendChild(resultLoadingBar);
 
-    
         setTimeout(() => {
             resultLoadingBarInner.style.width = "calc(100% + 4px)";
         }, 0)
