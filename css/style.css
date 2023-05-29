@@ -1052,10 +1052,6 @@ main {
 
 @media (max-width: 1024px) {
 
-        .fullscreen-responsive {
-            height: calc(100vh - 100px);
-        }
-
     /* HEADER */
 
         #mobile-menu-btn{
