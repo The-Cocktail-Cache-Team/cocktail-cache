@@ -753,7 +753,9 @@ main {
 .team-card-container {
     width: 100%;
     display: flex;
+    gap: 5rem;
     justify-content: space-around;
+    align-items: center;
     padding-top: 60px;
 
 }
@@ -781,115 +783,21 @@ main {
     border: solid 2px var(--accent);
 }
 
-/* -- MOBILE: About Page -- */
-
-
-
-/* -- Medium --  */
-@media only screen and (height < 1280px) {
-
-    .content-wrapper {
-        margin: 0 5vw;
-        padding: 0 5vw;
-        padding-top: 30px;
-    }
-
-    .team-card-container {
-        align-items: center;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .team-card {
-        margin-bottom: 90px;
-        width: 12rem;
-    }
-
-    .team-card img {
-        width: 14rem;
-        height: 14rem;
-        border-radius: 7rem; /* MUST scale with w,h */
-    }
-}
-
-/* -- Medium, portrait mode -- */
-@media only screen and (height < 1280px) and (orientation: portrait) {
-
-
-}
-
- /* -- Small, baseline styles -- */
-@media only screen and (height < 769px) {
-
-    .content-wrapper {
-        margin: 30px 5vw;
-        padding: 0 2vw;
-    }
-
-    .team-card-container {
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: .25vw;
-    }
-
-    .team-card {
-        width: 13rem;
-    }
-
-    .team-card img {
-        width: 13rem;
-        height: 13rem;
-        border-radius: 7rem; /* MUST scale with w,h */
-    }
-
-    .team-card button {
-        width: 12rem;
-    }
-}
-
-    /* -- Small, portrait mode -- */
-@media only screen and (height < 769px) and (orientation:portrait) {
-
-    .team-card {
-        width: 12rem;
-    }
-
-    .team-card img {
-        width: 12rem;
-        height: 12rem;
-        border-radius: 6rem;  /* MUST scale with w,h */
-    }
-
-    .team-card button {
-        width: 11rem;
-    }
-}
-
-    /* -- X-Small -- */
-@media only screen and (height < 481px) {
-
-    .team-card-container {
-        justify-content: space-between;
-    }
-}
-
-/* Resume desktop styles */
 .team-card h3, .team-card p {
     color: var(--accent);
-    margin: 0;
-    padding: 0;
+    margin: 0; /* needed */
+    padding: 0; /* needed */
 }
 
 .team-card h3 {
-    margin-top: -60px;
-    margin-bottom: 20px;
+    margin-top: -3rem;
+    margin-bottom: 1.25rem;
 }
 
 .team-card p {
     /* v-- can delete if/when UI Standards implemented */
-    font-size: 16px;
-    margin-bottom: 20px;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .team-card button {
@@ -897,16 +805,48 @@ main {
     background-color: var(--accent);
     color: var(--primary-color);
     font-family: 'Bungee Inline';
-    font-size: 20px;
+    font-size: 1.25rem;
     border-style: none;
-    border-radius: 10px;
-    padding: 15px 30px;
+    border-radius: .625rem;
+    padding: 1rem 2rem;
 }
 
 .team-card button:hover {
     background-color: var(--primary-color);
     color: var(--accent);
 }
+
+/* -- MOBILE: About Page -- */
+
+/* -- smallest, portrait --  */
+@media all and (min-width: 20em) and (orientation: portrait) {
+    .team-card-container {
+        flex-direction: column;
+    }
+
+    .team-card {
+        width: 12.5rem;
+    }
+
+    .team-card > img {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    .team-card button {
+        width: 12rem;
+    }
+}
+
+ /* -- smallest, landscape -- */
+@media all and (min-width: 20em) and (orientation: landscape) {
+
+    .team-card-container {
+        flex-wrap: wrap;
+    }
+}
+
+
 
 /* DETAILS PAGE STYLING */
 
