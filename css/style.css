@@ -762,7 +762,8 @@ main {
 
 /* -- About Page -- */
 .team-card-container {
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     gap: 5rem;
     justify-content: space-around;
@@ -774,9 +775,13 @@ main {
 .team-card {
     background-color: var(--secondary-color);
     width: 15rem;
+    height: 100vh;
+    max-height: 30rem;
     border-radius: 0.625rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
     align-items: center;
     padding: 1.875rem;
     margin: 0.625rem;
@@ -811,7 +816,7 @@ main {
 }
 
 .team-card .justify {
-    text-align: justify;
+    text-align: justify; /* for preformatting */
 }
 
 .team-card button {
