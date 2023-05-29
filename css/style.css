@@ -810,6 +810,10 @@ main {
     margin-bottom: 1.25rem;
 }
 
+.team-card .justify {
+    text-align: justify;
+}
+
 .team-card button {
     width: 12rem;
     background-color: var(--accent);
