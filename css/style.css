@@ -372,6 +372,11 @@ footer {
     text-align: center;
 }
 
+footer p, footer a {
+    font-family: 'Courier Prime', monospace;
+    font-size: .75rem;
+}
+
 /* -- INDEX PAGE -- */
 
 .fullscreen-responsive {
