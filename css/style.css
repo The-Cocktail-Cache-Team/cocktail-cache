@@ -324,7 +324,7 @@ nav a {
         display: block;
         background-color: var(--primary-color);
         height: calc(100vh - 60px);
-        width: 100vw;
+        width: 100%;
         position: absolute;
         z-index: 9;
         top:60px;
@@ -351,6 +351,12 @@ nav a {
     .main-search-container:hover #main-predictive-search-results {
         padding: 35px 0 15px 0;
         max-height: 422px;
+    }
+}
+
+@media (max-width:344px) {
+    header {
+        padding: 0 10px;
     }
 }
 
