@@ -372,6 +372,11 @@ footer {
     text-align: center;
 }
 
+footer p, footer a {
+    font-family: 'Courier Prime', monospace;
+    font-size: .75rem;
+}
+
 /* -- INDEX PAGE -- */
 
 .fullscreen-responsive {
@@ -803,6 +808,10 @@ main {
     /* v-- can delete if/when UI Standards implemented */
     font-size: 1rem;
     margin-bottom: 1.25rem;
+}
+
+.team-card .justify {
+    text-align: justify;
 }
 
 .team-card button {
