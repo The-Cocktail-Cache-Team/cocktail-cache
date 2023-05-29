@@ -1128,6 +1128,8 @@ main {
             position: absolute;
             top: 0;
             left: 50%;
+            transform: translateX(-50%);
+            width: calc(100vw - 180px);
         }
 
         .current-image-info {
@@ -1237,10 +1239,6 @@ main {
         .current-image img {
             height: 300px;
             width: 300px;
-        }
-
-        .current-image-name{
-            left: 44%;
         }
 
         h3{
