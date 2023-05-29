@@ -566,7 +566,7 @@ footer {
     align-items: center;
 }
 
-.ingreditents-options{
+.ingredients-options{
     flex: 1 1 0;
 }
 
@@ -582,7 +582,7 @@ footer {
     color: var(--accent);
 }
 
-#ingreditents{
+#ingredients{
     flex: 1 1 0;
     display: grid;
     column-gap: 30px;
@@ -1075,7 +1075,7 @@ main {
             gap: 10px;
         }
 
-        #ingreditents{
+        #ingredients{
             display: block;
         }
 
