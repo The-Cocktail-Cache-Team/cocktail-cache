@@ -768,7 +768,7 @@ main {
     gap: 5rem;
     justify-content: space-around;
     align-items: center;
-    padding-top: 3.75rem;
+    margin-top: 0
 }
 
 /* team cards */
@@ -863,18 +863,20 @@ main {
 
     .team-card-container {
         flex-wrap: wrap;
+        padding-top: -3.75rem;
     }
 }
 
- /* -- 2k or 4k etc -- */
-@media all and (width > 120rem) and (orientation: landscape) {
+ /* -- Full HD, 2k & 4k, landscape -- */
+@media all and (min-width: 120rem) and (orientation: landscape) {
 
     .team-card-container {
         gap: 5.8rem;
+        padding-top: -3.75rem;
     }
 
     .team-card {
-        width: 18rem;
+        max-width: 20rem;
         border-radius: .725rem;
         padding: 2.175rem;
         margin: .725rem;
