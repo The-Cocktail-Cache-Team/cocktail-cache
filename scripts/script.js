@@ -311,7 +311,7 @@ searchBtn.onclick = e => {
 };
 
 //Runs code only for Index page to prevent site bugs
-if(window.location.pathname === "/index.html"){
+if(window.location.pathname === "/"){
     const mainSearchInput = document.getElementById("main-search-input");
     const mainSearchBtn = document.getElementById("main-search-btn");
     const mainPredictiveSearchContainer = document.getElementById("main-predictive-search-results");
