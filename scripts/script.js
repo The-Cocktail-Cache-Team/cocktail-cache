@@ -43,11 +43,11 @@ fetch(`cocktaildb_api_clone_local.txt`)
         document.querySelector("main").style.display = "flex";
 
         //runs additional function based on page to prevent site bugs
-        if(window.location.pathname === "/browse.html") {
+        if(window.location.pathname === "/browse.html" || window.location.pathname === "/browse") {
             addFilterBtnEvntListener();
             populateFilterBox();
             preFilterCheck();
-        } else if(window.location.pathname === "/details.html") {
+        } else if(window.location.pathname === "/details.html" || window.location.pathname === "/details") {
             displayCurrentCocktail();
         }
     },1000);
@@ -409,7 +409,7 @@ function showRandom() {
 }
 
 //Runs code only for quiz page to prevent site bugs
-if(window.location.pathname === "/quiz.html") {
+if(window.location.pathname === "/quiz.html" || window.location.pathname === "/quiz") {
     const quizTitle = document.querySelector("#quiz-container h1");
 
     document.addEventListener("DOMContentLoaded", function() {
